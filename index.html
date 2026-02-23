@@ -1,38 +1,182 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deimer Díaz | Supervisor Logístico</title>
+    <title>Deimer Díaz | Perfil Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; color: #333; }
-        header { background: #002d5b; color: white; padding: 2rem; text-align: center; }
-        section { padding: 2rem; max-width: 800px; margin: auto; }
-        .btn { background: #25d366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-        .services { background: #f4f4f4; padding: 2rem; border-radius: 10px; }
+        :root {
+            --primary: #002d5b; /* Azul Marino Industrial */
+            --secondary: #00a8e8; /* Azul Tech */
+            --bg: #f0f2f5;
+            --text: #333;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #001529 100%);
+            color: var(--white);
+            padding: 80px 20px 120px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+
+        .header-content h1 { font-size: 2.5rem; margin-bottom: 5px; letter-spacing: 1px; }
+        .header-content p { font-size: 1.1rem; font-weight: 300; color: var(--secondary); text-transform: uppercase; letter-spacing: 2px; }
+
+        .container { max-width: 900px; margin: -60px auto 40px; padding: 0 20px; }
+
+        .main-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .bio { text-align: justify; margin-bottom: 30px; font-size: 1.1rem; color: #555; }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .info-box i { color: var(--secondary); font-size: 1.8rem; margin-bottom: 10px; }
+        .info-box span { display: block; font-size: 0.8rem; font-weight: 700; color: #888; text-transform: uppercase; }
+        .info-box p { font-size: 1rem; font-weight: 600; color: var(--primary); }
+
+        .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+        .skill-tag {
+            background: var(--primary);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .btn-social {
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 10px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .whatsapp { background: #25d366; }
+        .linkedin { background: #0077b5; }
+        .instagram { background: #e4405f; }
+        .btn-social:hover { opacity: 0.8; transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 20px; color: #888; font-size: 0.9rem; }
     </style>
 </head>
 <body>
-    <header>
+
+<header>
+    <div class="header-content">
         <h1>Deimer Duván Díaz Berrio</h1>
-        <p>Ingeniero Industrial (e) | Supervisor con Experiencia en Logística</p>
-    </header>
+        <p>Ingeniería Industrial (e) | Supervisor de Operaciones</p>
+    </div>
+</header>
 
-    <section>
-        <h2>Sobre Mí</h2>
-        <p>Profesional enfocado en la optimización de procesos y supervisión operativa. Mi objetivo es aportar soluciones eficientes en la gestión de cadena de suministro y liderazgo de equipos.</p>
+<div class="container">
+    <div class="main-card">
         
-        <div class="services">
-            <h3>Q7 Logistic S.A.S.</h3>
-            <p>Servicios especializados de logística, bodegaje y gestión operativa. Soluciones confiables para el movimiento de su mercancía.</p>
-        </div>
-    </section>
+        <h2 class="section-title"><i class="fas fa-user-tie"></i> Perfil Profesional</h2>
+        <p class="bio">
+            Soy un profesional de 35 años residente en <b>Barranquilla, Colombia</b>. Mi trayectoria se destaca por el liderazgo en la supervisión de procesos operativos y logísticos. Actualmente, me encuentro cursando 3er semestre de <b>Ingeniería Industrial</b>, integrando mi experiencia de campo con herramientas de optimización y gestión estratégica.
+        </p>
 
-    <section style="text-align: center;">
-        <h2>Contacto</h2>
-        <p>¿Interesado en mis servicios o perfil profesional? Hablemos.</p>
-        <br>
-        <a href="https://wa.me/TUNUMEROAQUI" class="btn">Contactar por WhatsApp</a>
-    </section>
+        <div class="info-grid">
+            <div class="info-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Ubicación</span>
+                <p>Barranquilla, Col</p>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Edad</span>
+                <p>35 Años</p>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Estudios</span>
+                <p>Ing. Industrial (CUN)</p>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-industry"></i>
+                <span>Especialidad</span>
+                <p>Logística Operativa</p>
+            </div>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-cogs"></i> Habilidades Técnicas</h2>
+        <div class="skills">
+            <span class="skill-tag">Supervisión de Equipos</span>
+            <span class="skill-tag">Gestión de Inventarios</span>
+            <span class="skill-tag">Cadena de Suministro</span>
+            <span class="skill-tag">Excel Avanzado</span>
+            <span class="skill-tag">Python (Básico)</span>
+            <span class="skill-tag">Arduino & Tech</span>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-envelope"></i> Contacto y Redes</h2>
+        <div class="social-grid">
+            <a href="https://wa.me/573148241427" class="btn-social whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="#" class="btn-social linkedin">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="#" class="btn-social instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 Deimer Díaz | deimerdiaz.com.co | Barranquilla, Colombia
+</footer>
+
 </body>
 </html>
