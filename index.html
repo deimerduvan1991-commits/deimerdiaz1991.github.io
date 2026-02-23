@@ -1,182 +1,193 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deimer Díaz | Perfil Profesional</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Deimer Díaz | Portfolio de Ingeniería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
-            --primary: #002d5b; /* Azul Marino Industrial */
-            --secondary: #00a8e8; /* Azul Tech */
-            --bg: #f0f2f5;
-            --text: #333;
+            --primary: #002d5b;
+            --secondary: #00a8e8;
+            --accent: #f39c12;
+            --light: #f8fbff;
             --white: #ffffff;
+            --dark: #1e1e1e;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        body { font-family: 'Outfit', sans-serif; background: var(--light); color: var(--dark); scroll-behavior: smooth; }
 
+        /* Navegación */
+        nav {
+            background: rgba(0, 45, 91, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container { max-width: 1100px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { color: white; font-weight: 700; font-size: 1.2rem; text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: 0.3s; }
+        .nav-links a:hover { color: var(--secondary); }
+
+        /* Hero Section */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, #001529 100%);
-            color: var(--white);
-            padding: 80px 20px 120px;
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-        }
-
-        .header-content h1 { font-size: 2.5rem; margin-bottom: 5px; letter-spacing: 1px; }
-        .header-content p { font-size: 1.1rem; font-weight: 300; color: var(--secondary); text-transform: uppercase; letter-spacing: 2px; }
-
-        .container { max-width: 900px; margin: -60px auto 40px; padding: 0 20px; }
-
-        .main-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-
-        .section-title {
-            color: var(--primary);
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        .bio { text-align: justify; margin-bottom: 30px; font-size: 1.1rem; color: #555; }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .info-box {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid #eee;
-        }
-
-        .info-box i { color: var(--secondary); font-size: 1.8rem; margin-bottom: 10px; }
-        .info-box span { display: block; font-size: 0.8rem; font-weight: 700; color: #888; text-transform: uppercase; }
-        .info-box p { font-size: 1rem; font-weight: 600; color: var(--primary); }
-
-        .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
-        .skill-tag {
-            background: var(--primary);
-            color: white;
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-        }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-        }
-
-        .btn-social {
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 10px;
-            color: white;
+            background: linear-gradient(rgba(0,45,91,0.8), rgba(0,45,91,0.8)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+        .hero-text h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero-text p { font-size: 1.2rem; color: var(--secondary); font-weight: 600; text-transform: uppercase; }
+
+        /* Contenedor Principal */
+        .container { max-width: 1100px; margin: auto; padding: 50px 20px; }
+
+        /* Tarjetas de Proyectos */
+        .section-title { text-align: center; margin-bottom: 40px; color: var(--primary); font-size: 2rem; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        
+        .project-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .project-img { height: 180px; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; }
+        .project-content { padding: 25px; }
+        .project-content h3 { margin-bottom: 10px; color: var(--primary); }
+        .project-content p { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
+
+        /* Botón Especial Excel */
+        .excel-btn {
+            background: #1D6F42;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
             gap: 10px;
             font-weight: 600;
             transition: 0.3s;
         }
+        .excel-btn:hover { background: #145230; box-shadow: 0 5px 15px rgba(29, 111, 66, 0.3); }
 
-        .whatsapp { background: #25d366; }
-        .linkedin { background: #0077b5; }
-        .instagram { background: #e4405f; }
-        .btn-social:hover { opacity: 0.8; transform: translateY(-3px); }
+        /* Skills */
+        .skills-bar { background: var(--primary); color: white; padding: 60px 20px; text-align: center; border-radius: 20px; margin-top: 50px; }
+        .skill-item { display: inline-block; margin: 10px; background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 50px; font-weight: 300; }
 
-        footer { text-align: center; padding: 20px; color: #888; font-size: 0.9rem; }
+        footer { text-align: center; padding: 50px; color: #888; border-top: 1px solid #eee; }
+
+        @media (max-width: 768px) { .hero-text h1 { font-size: 2rem; } .nav-links { display: none; } }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="header-content">
-        <h1>Deimer Duván Díaz Berrio</h1>
-        <p>Ingeniería Industrial (e) | Supervisor de Operaciones</p>
-    </div>
-</header>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">DEIMER DÍAZ</a>
+            <div class="nav-links">
+                <a href="#perfil">Sobre Mí</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </nav>
 
-<div class="container">
-    <div class="main-card">
+    <header>
+        <div class="hero-text">
+            <h1>Ingeniería & Logística</h1>
+            <p>Supervisor Senior | Barranquilla, CO</p>
+        </div>
+    </header>
+
+    <div class="container">
         
-        <h2 class="section-title"><i class="fas fa-user-tie"></i> Perfil Profesional</h2>
-        <p class="bio">
-            Soy un profesional de 35 años residente en <b>Barranquilla, Colombia</b>. Mi trayectoria se destaca por el liderazgo en la supervisión de procesos operativos y logísticos. Actualmente, me encuentro cursando 3er semestre de <b>Ingeniería Industrial</b>, integrando mi experiencia de campo con herramientas de optimización y gestión estratégica.
-        </p>
+        <section id="perfil" style="margin-bottom: 80px; text-align: center;">
+            <h2 class="section-title">Perfil Profesional</h2>
+            <p style="max-width: 800px; margin: auto; font-size: 1.1rem; line-height: 1.8;">
+                Con 35 años y una trayectoria sólida en la supervisión operativa, combino la experiencia del mundo real en Barranquilla con la formación técnica de 3er semestre en <b>Ingeniería Industrial</b>. Mi enfoque se centra en la eficiencia de procesos, la gestión de equipos y el uso de tecnología para optimizar la cadena de suministro.
+            </p>
+        </section>
 
-        <div class="info-grid">
-            <div class="info-box">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Ubicación</span>
-                <p>Barranquilla, Col</p>
+        <h2 class="section-title" id="proyectos">Mis Proyectos Destacados</h2>
+        <div class="project-grid">
+            
+            <div class="project-card">
+                <div class="project-img"><i class="fas fa-truck-loading"></i></div>
+                <div class="project-content">
+                    <h3>Q7 Logistic S.A.S.</h3>
+                    <p>Diseño y estructura operativa de servicios logísticos integrales en la región Caribe.</p>
+                    <a href="https://wa.me/573148241427" class="excel-btn" style="background: var(--primary);">Ver Detalles</a>
+                </div>
             </div>
-            <div class="info-box">
-                <i class="fas fa-calendar-alt"></i>
-                <span>Edad</span>
-                <p>35 Años</p>
+
+            <div class="project-card">
+                <div class="project-img" style="background: #1D6F42;"><i class="fas fa-file-excel"></i></div>
+                <div class="project-content">
+                    <h3>Gestión de Datos</h3>
+                    <p>Dominio avanzado de hojas de cálculo para control de inventarios y KPIs logísticos.</p>
+                    <a href="#" class="excel-btn">
+                        <i class="fas fa-graduation-cap"></i> Aprende Excel
+                    </a>
+                </div>
             </div>
-            <div class="info-box">
-                <i class="fas fa-graduation-cap"></i>
-                <span>Estudios</span>
-                <p>Ing. Industrial (CUN)</p>
+
+            <div class="project-card">
+                <div class="project-img" style="background: var(--secondary);"><i class="fas fa-microchip"></i></div>
+                <div class="project-content">
+                    <h3>Automatización</h3>
+                    <p>Desarrollo de prototipos con Arduino y Python aplicados a la seguridad industrial.</p>
+                    <a href="https://wa.me/573148241427" class="excel-btn" style="background: var(--primary);">Saber Más</a>
+                </div>
             </div>
-            <div class="info-box">
-                <i class="fas fa-industry"></i>
-                <span>Especialidad</span>
-                <p>Logística Operativa</p>
-            </div>
+
         </div>
 
-        <h2 class="section-title"><i class="fas fa-cogs"></i> Habilidades Técnicas</h2>
-        <div class="skills">
-            <span class="skill-tag">Supervisión de Equipos</span>
-            <span class="skill-tag">Gestión de Inventarios</span>
-            <span class="skill-tag">Cadena de Suministro</span>
-            <span class="skill-tag">Excel Avanzado</span>
-            <span class="skill-tag">Python (Básico)</span>
-            <span class="skill-tag">Arduino & Tech</span>
+        <div class="skills-bar">
+            <h2>Competencias Core</h2>
+            <div class="skill-item">Supervisión de Equipos</div>
+            <div class="skill-item">Optimización de Tiempos</div>
+            <div class="skill-item">HSEQ</div>
+            <div class="skill-item">Python para Datos</div>
+            <div class="skill-item">Logística 4.0</div>
         </div>
 
-        <h2 class="section-title"><i class="fas fa-envelope"></i> Contacto y Redes</h2>
-        <div class="social-grid">
-            <a href="https://wa.me/573148241427" class="btn-social whatsapp" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-            <a href="#" class="btn-social linkedin">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="#" class="btn-social instagram">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
-        </div>
+        <section id="contacto" style="margin-top: 80px; text-align: center;">
+            <h2 class="section-title">¿Hablamos?</h2>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="https://wa.me/573148241427" class="excel-btn" style="background: #25d366; padding: 15px 30px;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Profesional
+                </a>
+                <a href="#" class="excel-btn" style="background: var(--primary); padding: 15px 30px;">
+                    <i class="fab fa-linkedin"></i> Perfil LinkedIn
+                </a>
+            </div>
+        </section>
 
     </div>
-</div>
 
-<footer>
-    &copy; 2026 Deimer Díaz | deimerdiaz.com.co | Barranquilla, Colombia
-</footer>
+    <footer>
+        <p>&copy; 2026 Deimer Duván Díaz Berrio | deimerdiaz.com.co</p>
+        <p style="font-size: 0.7rem; margin-top: 10px;">Ingeniería Industrial • Barranquilla, Atlántico</p>
+    </footer>
 
 </body>
 </html>
