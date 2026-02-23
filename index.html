@@ -3,1734 +3,532 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Deimer Duván Díaz Berrio — Especialista en Supervisión Operativa y Logística. Fundador de Q7 Logistic S.A.S. Barranquilla, Colombia.">
-  <meta name="keywords" content="logística, supervisión operativa, ingeniería industrial, Q7 Logistic, Barranquilla, cadena de suministro">
+  <meta name="description" content="Deimer Duván Díaz Berrio — CEO de Q7 Logistic S.A.S. Supervisor de Operaciones, Ingeniería Industrial, IA aplicada y KPIs. Barranquilla, Colombia.">
+  <meta name="keywords" content="Q7 Logistic, logística, operaciones, inteligencia artificial, KPIs, ingeniería industrial, Barranquilla, CEO">
   <meta name="author" content="Deimer Duván Díaz Berrio">
-  <meta property="og:title" content="Deimer Díaz | Especialista en Logística & Supervisión Operativa">
-  <meta property="og:description" content="Fundador de Q7 Logistic S.A.S. Especialista en supervisión operativa, logística y gestión de equipos.">
+  <meta property="og:title" content="Deimer Díaz Berrio | CEO Q7 Logistic S.A.S.">
+  <meta property="og:description" content="Liderazgo operativo, IA aplicada y optimización de cadena de suministro. Barranquilla, Colombia.">
   <meta property="og:type" content="website">
-  <title>Deimer Díaz | Supervisión Operativa & Logística | Q7 Logistic</title>
+  <title>Deimer Díaz Berrio | CEO Q7 Logistic · Operaciones & IA</title>
 
-  <!-- Google Fonts: Outfit + Barlow Condensed -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    /* ===========================
-       CSS VARIABLES & RESET
-    =========================== */
     :root {
-      --navy: #0A1628;
-      --navy-mid: #0F2040;
-      --navy-light: #162952;
-      --blue-tech: #1565C0;
-      --blue-bright: #1E88E5;
-      --blue-glow: #42A5F5;
-      --green-excel: #00C853;
-      --green-dim: #00963E;
-      --orange: #FF6D00;
-      --orange-light: #FF8F00;
-      --white: #F8FAFF;
-      --white-dim: #B0BEC5;
-      --border: rgba(21, 101, 192, 0.25);
-      --card-bg: rgba(15, 32, 64, 0.7);
-      --glass: rgba(255, 255, 255, 0.04);
-      --font-display: 'Barlow Condensed', sans-serif;
-      --font-body: 'Outfit', sans-serif;
-      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --navy:       #0B1423;
+      --navy-2:     #111D2E;
+      --navy-3:     #162034;
+      --navy-4:     #1C2B3F;
+      --slate:      #8496AD;
+      --slate-dim:  #4A5C72;
+      --slate-pale: #C5D0DC;
+      --emerald:    #10B981;
+      --emerald-d:  #059669;
+      --emerald-g:  #34D399;
+      --white:      #EEF2F7;
+      --white-pure: #FFFFFF;
+      --border:     rgba(132,150,173,0.12);
+      --border-em:  rgba(16,185,129,0.25);
+      --card:       rgba(22,32,52,0.6);
+      --shadow-em:  0 0 40px rgba(16,185,129,0.12);
+      --font-d:     'Syne', sans-serif;
+      --font-b:     'Lexend', sans-serif;
+      --ease:       cubic-bezier(0.4,0,0.2,1);
     }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-b);background:var(--navy);color:var(--white);overflow-x:hidden;line-height:1.65;-webkit-font-smoothing:antialiased}
+    ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--navy)}::-webkit-scrollbar-thumb{background:var(--slate-dim);border-radius:2px}
+    body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 2rem}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* NAVBAR */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 0;transition:all 0.4s var(--ease)}
+    nav.stuck{background:rgba(11,20,35,0.92);backdrop-filter:blur(24px);padding:.9rem 0;border-bottom:1px solid var(--border)}
+    .nav-row{display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+    .logo-mark{display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+    .nav-logo:hover .logo-mark{opacity:.85;}
+    .logo-text{font-family:var(--font-b);font-weight:600;font-size:.88rem;color:var(--slate-pale);letter-spacing:.05em}
+    .nav-links{display:flex;align-items:center;gap:.15rem;list-style:none}
+    .nav-links a{font-size:.82rem;font-weight:400;color:var(--slate);text-decoration:none;padding:.45rem .9rem;border-radius:5px;letter-spacing:.04em;transition:all .25s var(--ease)}
+    .nav-links a:hover{color:var(--white);background:rgba(255,255,255,.05)}
+    .nav-wsp{display:inline-flex;align-items:center;gap:.4rem;background:var(--emerald);color:var(--navy);font-family:var(--font-b);font-weight:600;font-size:.82rem;padding:.5rem 1.1rem;border-radius:6px;text-decoration:none;transition:all .3s var(--ease);letter-spacing:.03em}
+    .nav-wsp:hover{background:var(--emerald-g);transform:translateY(-1px)}
+    .ham-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+    .ham-btn span{display:block;width:22px;height:1.5px;background:var(--slate-pale);border-radius:1px;transition:all .3s}
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    /* MOBILE MENU */
+    .mob-menu{display:none;position:fixed;inset:0;background:rgba(11,20,35,.98);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+    .mob-menu.open{display:flex}
+    .mob-menu a{font-family:var(--font-d);font-size:2.2rem;font-weight:800;color:var(--white);text-decoration:none;letter-spacing:.03em;transition:color .25s}
+    .mob-menu a:hover{color:var(--emerald)}
+    .mob-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--slate);font-size:1.4rem;cursor:pointer}
 
-    body {
-      font-family: var(--font-body);
-      background-color: var(--navy);
-      color: var(--white);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+    /* HERO */
+    #hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:8rem 0 5rem}
+    .hero-geo{position:absolute;inset:0;z-index:0;overflow:hidden}
+    .geo-ring{position:absolute;border-radius:50%;border:1px solid rgba(132,150,173,.07)}
+    .geo-ring:nth-child(1){width:600px;height:600px;top:-200px;right:-100px}
+    .geo-ring:nth-child(2){width:900px;height:900px;top:-350px;right:-350px;border-color:rgba(16,185,129,.05)}
+    .geo-ring:nth-child(3){width:400px;height:400px;bottom:-150px;left:-100px;border-color:rgba(132,150,173,.05)}
+    .geo-line{position:absolute;background:rgba(16,185,129,.06)}
+    .geo-line-v{width:1px;height:100%;top:0}
+    .geo-line-v:nth-child(4){left:30%}
+    .geo-line-v:nth-child(5){right:25%}
+    .geo-dot{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--emerald);opacity:.4}
+    .geo-dot:nth-child(6){top:25%;left:30%}
+    .geo-dot:nth-child(7){top:60%;right:25%}
+    .hero-glow{position:absolute;z-index:0;width:600px;height:600px;background:radial-gradient(circle,rgba(16,185,129,.06) 0%,transparent 70%);top:50%;right:0;transform:translate(30%,-50%);pointer-events:none}
+    .hero-inner{position:relative;z-index:1;max-width:750px}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--emerald);margin-bottom:1.75rem;opacity:0;animation:fadeUp .7s var(--ease) .1s forwards}
+    .hero-eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--emerald);animation:pulse-em 2s infinite}
+    @keyframes pulse-em{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.4)}50%{box-shadow:0 0 0 6px rgba(16,185,129,0)}}
+    .hero-name{font-family:var(--font-d);font-size:clamp(2.8rem,6.5vw,5.2rem);font-weight:800;line-height:1;letter-spacing:-.01em;color:var(--white-pure);margin-bottom:1rem;opacity:0;animation:fadeUp .7s var(--ease) .2s forwards}
+    .hero-role{font-family:var(--font-b);font-size:clamp(1rem,2.5vw,1.35rem);font-weight:300;color:var(--slate-pale);letter-spacing:.01em;line-height:1.4;margin-bottom:2rem;opacity:0;animation:fadeUp .7s var(--ease) .3s forwards}
+    .hero-role strong{color:var(--emerald);font-weight:500}
+    .hero-divider{width:48px;height:2px;background:linear-gradient(90deg,var(--emerald),transparent);margin-bottom:2rem;opacity:0;animation:fadeUp .7s var(--ease) .4s forwards}
+    .hero-bio{font-size:.95rem;font-weight:300;color:var(--slate);line-height:1.8;max-width:580px;margin-bottom:2.5rem;opacity:0;animation:fadeUp .7s var(--ease) .5s forwards}
+    .hero-bio b{color:var(--slate-pale);font-weight:500}
+    .hero-btns{display:flex;flex-wrap:wrap;gap:.9rem;opacity:0;animation:fadeUp .7s var(--ease) .6s forwards}
+    .btn-em{display:inline-flex;align-items:center;gap:.55rem;background:var(--emerald);color:var(--navy);font-family:var(--font-b);font-weight:600;font-size:.88rem;padding:.85rem 1.8rem;border-radius:6px;text-decoration:none;letter-spacing:.02em;transition:all .3s var(--ease);border:none;cursor:pointer}
+    .btn-em:hover{background:var(--emerald-g);transform:translateY(-2px);box-shadow:0 10px 30px rgba(16,185,129,.3)}
+    .btn-ghost{display:inline-flex;align-items:center;gap:.55rem;background:transparent;color:var(--slate-pale);font-family:var(--font-b);font-weight:400;font-size:.88rem;padding:.85rem 1.8rem;border-radius:6px;text-decoration:none;letter-spacing:.02em;border:1px solid var(--border);transition:all .3s var(--ease)}
+    .btn-ghost:hover{border-color:var(--emerald);color:var(--emerald);background:rgba(16,185,129,.05)}
+    .hero-meta{display:flex;align-items:center;gap:2rem;margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--border);opacity:0;animation:fadeUp .7s var(--ease) .7s forwards;flex-wrap:wrap}
+    .meta-val{font-family:var(--font-d);font-size:1.6rem;font-weight:800;color:var(--white-pure);line-height:1}
+    .meta-val span{color:var(--emerald)}
+    .meta-lbl{font-size:.72rem;font-weight:400;color:var(--slate);text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem}
+    .meta-sep{width:1px;height:36px;background:var(--border)}
 
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--navy); }
-    ::-webkit-scrollbar-thumb { background: var(--blue-tech); border-radius: 3px; }
+    /* SECTIONS */
+    section{padding:6rem 0}
+    .s-label{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--emerald);margin-bottom:.65rem}
+    .s-label::before{content:'';display:block;width:20px;height:1.5px;background:var(--emerald)}
+    .s-title{font-family:var(--font-d);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.1;color:var(--white-pure);margin-bottom:1.25rem}
+    .s-sub{font-size:.95rem;font-weight:300;color:var(--slate);max-width:560px;line-height:1.75}
 
-    /* ===========================
-       UTILITY
-    =========================== */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--blue-glow);
-      margin-bottom: 0.75rem;
-    }
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--blue-glow);
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: 0.02em;
-      color: var(--white);
-    }
-    .section-title span { color: var(--blue-bright); }
-    .accent { color: var(--green-excel); }
-    .accent-orange { color: var(--orange-light); }
+    /* PROFESSIONAL */
+    #profesional{background:var(--navy-2)}
+    .prof-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3.5rem}
+    .prof-text p{font-size:.95rem;font-weight:300;color:var(--slate);line-height:1.85;margin-bottom:1.1rem}
+    .prof-text p strong{color:var(--slate-pale);font-weight:500}
+    .prof-text p em{color:var(--emerald);font-style:normal;font-weight:500}
+    .prof-list{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-top:1.5rem}
+    .prof-list li{display:flex;align-items:flex-start;gap:.75rem;font-size:.88rem;font-weight:300;color:var(--slate);line-height:1.55}
+    .prof-list li::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0;margin-top:.45rem}
+    .prof-aside{display:flex;flex-direction:column;gap:1.25rem}
+    .aside-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.5rem 1.75rem;transition:all .35s var(--ease);position:relative;overflow:hidden}
+    .aside-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--emerald);opacity:0;transition:opacity .3s}
+    .aside-card:hover{border-color:var(--border-em);transform:translateX(4px)}
+    .aside-card:hover::before{opacity:1}
+    .aside-icon{color:var(--emerald);font-size:1.1rem;margin-bottom:.5rem}
+    .aside-title{font-family:var(--font-b);font-size:.9rem;font-weight:600;color:var(--white-pure);margin-bottom:.25rem}
+    .aside-desc{font-size:.82rem;font-weight:300;color:var(--slate);line-height:1.55}
 
-    /* ===========================
-       NOISE TEXTURE OVERLAY
-    =========================== */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.6;
-    }
+    /* EXPERTISE */
+    .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+    .exp-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem 1.75rem;transition:all .4s var(--ease);position:relative;overflow:hidden;display:flex;flex-direction:column}
+    .exp-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--emerald),transparent);opacity:0;transition:opacity .4s}
+    .exp-card:hover{border-color:var(--border-em);box-shadow:var(--shadow-em);transform:translateY(-5px)}
+    .exp-card:hover::after{opacity:1}
+    .exp-num{font-family:var(--font-d);font-size:.7rem;font-weight:800;color:var(--slate-dim);letter-spacing:.2em;margin-bottom:1.5rem}
+    .exp-icon-wrap{width:48px;height:48px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--emerald);font-size:1.2rem;margin-bottom:1.25rem;transition:all .3s var(--ease)}
+    .exp-card:hover .exp-icon-wrap{background:rgba(16,185,129,.15);box-shadow:0 0 20px rgba(16,185,129,.15)}
+    .exp-title{font-family:var(--font-b);font-size:1.05rem;font-weight:600;color:var(--white-pure);line-height:1.3;margin-bottom:.6rem}
+    .exp-desc{font-size:.85rem;font-weight:300;color:var(--slate);line-height:1.7;flex:1}
+    .exp-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.25rem}
+    .exp-tag{font-size:.72rem;font-weight:400;color:var(--slate-dim);padding:.25rem .6rem;border-radius:3px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+    .exp-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.75rem;font-weight:500;color:var(--emerald);margin-top:1.25rem}
+    .exp-badge i{font-size:.65rem}
 
-    /* ===========================
-       NAVBAR
-    =========================== */
-    #navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      transition: var(--transition);
-      padding: 1.25rem 0;
-    }
-    #navbar.scrolled {
-      background: rgba(10, 22, 40, 0.95);
-      backdrop-filter: blur(20px);
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      text-decoration: none;
-    }
-    .nav-logo {
-      width: 38px; height: 38px;
-      background: linear-gradient(135deg, var(--blue-tech), var(--blue-glow));
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: #fff;
-      letter-spacing: 0.05em;
-      flex-shrink: 0;
-    }
-    .nav-brand-text {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--white);
-      letter-spacing: 0.05em;
-    }
-    .nav-brand-text span { color: var(--blue-glow); }
+    /* Q7 */
+    #q7{background:var(--navy-2)}
+    .q7-block{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:center;margin-top:3.5rem}
+    .q7-brand{display:flex;flex-direction:column;gap:1.5rem}
+    .q7-logotype{display:inline-flex;align-items:center;gap:1rem}
+    .q7-mark{display:flex;align-items:center;justify-content:center}
+    .q7-company{font-family:var(--font-d);font-size:1.4rem;font-weight:800;color:var(--white-pure);letter-spacing:.03em;line-height:1}
+    .q7-company span{color:var(--emerald)}
+    .q7-type{font-size:.75rem;font-weight:300;color:var(--slate);letter-spacing:.08em;text-transform:uppercase;margin-top:.25rem}
+    .q7-desc{font-size:.95rem;font-weight:300;color:var(--slate);line-height:1.8}
+    .q7-desc b{color:var(--slate-pale);font-weight:500}
+    .q7-pillars{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+    .q7-pillar{background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.12);border-radius:8px;padding:.9rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-weight:400;color:var(--slate-pale);transition:all .3s var(--ease)}
+    .q7-pillar:hover{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.25)}
+    .q7-pillar i{color:var(--emerald);font-size:.9rem;flex-shrink:0}
+    .q7-ceo-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2.25rem;position:relative;overflow:hidden}
+    .q7-ceo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--emerald),var(--emerald-d),transparent)}
+    .ceo-label{font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--emerald);margin-bottom:1.25rem}
+    .ceo-name{font-family:var(--font-d);font-size:1.35rem;font-weight:800;color:var(--white-pure);letter-spacing:.01em;line-height:1.1}
+    .ceo-role{font-size:.82rem;font-weight:300;color:var(--slate);margin-top:.25rem;margin-bottom:1.5rem}
+    .ceo-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:1.25rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:1.5rem}
+    .ceo-stat .val{font-family:var(--font-d);font-size:1.4rem;font-weight:800;color:var(--white-pure);line-height:1}
+    .ceo-stat .val span{color:var(--emerald)}
+    .ceo-stat .lbl{font-size:.72rem;font-weight:300;color:var(--slate);text-transform:uppercase;letter-spacing:.08em;margin-top:.2rem}
+    .ceo-bio{font-size:.85rem;font-weight:300;color:var(--slate);line-height:1.75}
+    .ceo-bio b{color:var(--slate-pale);font-weight:500}
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--white-dim);
-      text-decoration: none;
-      padding: 0.5rem 0.9rem;
-      border-radius: 6px;
-      transition: var(--transition);
-      letter-spacing: 0.03em;
-    }
-    .nav-links a:hover {
-      color: var(--white);
-      background: rgba(30, 136, 229, 0.15);
-    }
-    .nav-cta {
-      background: var(--blue-tech) !important;
-      color: var(--white) !important;
-      font-weight: 600 !important;
-    }
-    .nav-cta:hover { background: var(--blue-bright) !important; }
+    /* CONTACT */
+    #contacto{text-align:center}
+    .contact-inner{max-width:600px;margin:0 auto}
+    .contact-inner .s-label{justify-content:center}
+    .contact-inner .s-label::before{display:none}
+    .contact-inner .s-title,.contact-inner .s-sub{text-align:center;margin-left:auto;margin-right:auto}
+    .contact-inner .s-sub{margin-bottom:2.5rem}
+    .wsp-btn{display:inline-flex;align-items:center;gap:.75rem;background:var(--emerald);color:var(--navy);font-family:var(--font-b);font-weight:700;font-size:1rem;padding:1.1rem 2.5rem;border-radius:8px;text-decoration:none;letter-spacing:.02em;transition:all .35s var(--ease);box-shadow:0 4px 20px rgba(16,185,129,.2)}
+    .wsp-btn:hover{background:var(--emerald-g);transform:translateY(-3px);box-shadow:0 12px 40px rgba(16,185,129,.4)}
+    .wsp-btn i{font-size:1.3rem}
+    .contact-note{font-size:.78rem;font-weight:300;color:var(--slate-dim);margin-top:1.25rem;letter-spacing:.05em}
+    .contact-links{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border)}
+    .contact-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:400;color:var(--slate);text-decoration:none;transition:color .25s}
+    .contact-link:hover{color:var(--emerald)}
+    .contact-link i{font-size:.9rem}
 
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--white);
-      border-radius: 2px;
-      transition: var(--transition);
-    }
+    /* FOOTER */
+    footer{background:var(--navy-2);border-top:1px solid var(--border);padding:2rem 0}
+    .foot-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .foot-copy{font-size:.78rem;font-weight:300;color:var(--slate-dim)}
+    .foot-copy span{color:var(--emerald)}
+    .foot-tag{font-size:.72rem;font-weight:300;color:var(--slate-dim);opacity:.5}
 
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(10, 22, 40, 0.98);
-      z-index: 999;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--white);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: var(--transition);
-    }
-    .mobile-menu a:hover { color: var(--blue-glow); }
-    .mobile-close {
-      position: absolute;
-      top: 1.5rem; right: 1.5rem;
-      background: none; border: none;
-      color: var(--white);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
+    /* ANIMATIONS */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+    .reveal.in{opacity:1;transform:translateY(0)}
+    .reveal.d1{transition-delay:.1s}
+    .reveal.d2{transition-delay:.2s}
+    .reveal.d3{transition-delay:.3s}
+    .reveal.d4{transition-delay:.4s}
 
-    /* ===========================
-       HERO
-    =========================== */
-    #hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, rgba(10,22,40,0.97) 0%, rgba(10,22,40,0.85) 50%, rgba(21,101,192,0.2) 100%),
-        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80&fit=crop') center/cover no-repeat;
-      z-index: -1;
-    }
-    /* Animated grid lines */
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(21,101,192,0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(21,101,192,0.08) 1px, transparent 1px);
-      background-size: 60px 60px;
-      z-index: -1;
-      animation: gridMove 20s linear infinite;
-    }
-    @keyframes gridMove {
-      0% { background-position: 0 0; }
-      100% { background-position: 60px 60px; }
-    }
-
-    /* Diagonal accent bar */
-    .hero-accent-bar {
-      position: absolute;
-      top: 0; right: 0;
-      width: 40%;
-      height: 100%;
-      background: linear-gradient(135deg, transparent 60%, rgba(21,101,192,0.08) 100%);
-      z-index: -1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 6rem 0 4rem;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(0, 200, 83, 0.1);
-      border: 1px solid rgba(0, 200, 83, 0.3);
-      color: var(--green-excel);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.4rem 0.9rem;
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
-      animation: fadeInUp 0.6s ease forwards;
-    }
-    .hero-tag i { font-size: 0.7rem; }
-
-    .hero-name {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(3rem, 8vw, 6.5rem);
-      line-height: 0.95;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-      color: var(--white);
-      margin-bottom: 0.25rem;
-      animation: fadeInUp 0.6s 0.1s ease both;
-    }
-    .hero-name .last { color: var(--blue-glow); display: block; }
-
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.2rem, 3vw, 1.9rem);
-      font-weight: 600;
-      color: var(--white-dim);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      animation: fadeInUp 0.6s 0.2s ease both;
-    }
-    .hero-title .divider {
-      display: inline-block;
-      width: 4px; height: 4px;
-      background: var(--orange-light);
-      border-radius: 50%;
-      margin: 0 0.75rem;
-      vertical-align: middle;
-    }
-
-    .hero-desc {
-      max-width: 560px;
-      font-size: 1rem;
-      color: var(--white-dim);
-      line-height: 1.75;
-      margin-bottom: 2.5rem;
-      animation: fadeInUp 0.6s 0.3s ease both;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      animation: fadeInUp 0.6s 0.4s ease both;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--blue-tech);
-      color: var(--white);
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 0.9rem 2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-      letter-spacing: 0.03em;
-    }
-    .btn-primary:hover {
-      background: var(--blue-bright);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(21,101,192,0.4);
-    }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: transparent;
-      color: var(--white);
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 0.9rem 2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.2);
-      cursor: pointer;
-      transition: var(--transition);
-      letter-spacing: 0.03em;
-    }
-    .btn-secondary:hover {
-      border-color: var(--blue-glow);
-      color: var(--blue-glow);
-      transform: translateY(-2px);
-    }
-
-    .btn-whatsapp {
-      background: #25D366 !important;
-    }
-    .btn-whatsapp:hover {
-      background: #1ebe5c !important;
-      box-shadow: 0 8px 30px rgba(37,211,102,0.35) !important;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 3.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      animation: fadeInUp 0.6s 0.5s ease both;
-    }
-    .hero-stat-num {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1;
-    }
-    .hero-stat-num span { color: var(--blue-glow); }
-    .hero-stat-label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--white-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-top: 0.25rem;
-    }
-
-    /* Scroll indicator */
-    .scroll-indicator {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      color: var(--white-dim);
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      animation: bounce 2s infinite;
-    }
-    .scroll-indicator i { font-size: 1rem; }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
-    }
-
-    /* ===========================
-       QUICK STATS BAR
-    =========================== */
-    #stats-bar {
-      background: var(--navy-mid);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 0;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .stat-card {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.5rem;
-      border-right: 1px solid var(--border);
-      transition: var(--transition);
-      cursor: default;
-    }
-    .stat-card:last-child { border-right: none; }
-    .stat-card:hover { background: rgba(21,101,192,0.1); }
-    .stat-icon {
-      width: 44px; height: 44px;
-      border-radius: 8px;
-      background: rgba(21,101,192,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-    .stat-card:nth-child(1) .stat-icon { color: var(--blue-glow); }
-    .stat-card:nth-child(2) .stat-icon { color: var(--green-excel); background: rgba(0,200,83,0.1); }
-    .stat-card:nth-child(3) .stat-icon { color: var(--orange-light); background: rgba(255,109,0,0.1); }
-    .stat-card:nth-child(4) .stat-icon { color: var(--blue-bright); }
-    .stat-value {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1;
-    }
-    .stat-desc {
-      font-size: 0.8rem;
-      color: var(--white-dim);
-      font-weight: 400;
-      margin-top: 0.15rem;
-    }
-
-    /* ===========================
-       ABOUT
-    =========================== */
-    #sobre-mi {
-      padding: 6rem 0;
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .about-text p {
-      color: var(--white-dim);
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-bottom: 1.25rem;
-    }
-    .about-text p strong { color: var(--white); font-weight: 600; }
-    .about-text p .highlight {
-      color: var(--blue-glow);
-      font-weight: 600;
-    }
-    .about-text p .h-green {
-      color: var(--green-excel);
-      font-weight: 600;
-    }
-    .about-text p .h-orange {
-      color: var(--orange-light);
-      font-weight: 600;
-    }
-
-    .about-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: rgba(21,101,192,0.12);
-      border: 1px solid var(--border);
-      color: var(--white-dim);
-      font-size: 0.78rem;
-      font-weight: 500;
-      padding: 0.4rem 0.85rem;
-      border-radius: 4px;
-      transition: var(--transition);
-    }
-    .badge:hover {
-      border-color: var(--blue-glow);
-      color: var(--blue-glow);
-      background: rgba(66,165,245,0.1);
-    }
-    .badge i { font-size: 0.7rem; color: var(--blue-glow); }
-
-    .about-right { display: flex; flex-direction: column; gap: 1.5rem; }
-
-    .about-q7-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.75rem;
-      position: relative;
-      overflow: hidden;
-      transition: var(--transition);
-    }
-    .about-q7-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--blue-tech), var(--blue-glow));
-    }
-    .about-q7-card:hover {
-      border-color: rgba(66,165,245,0.4);
-      box-shadow: 0 12px 40px rgba(21,101,192,0.2);
-      transform: translateY(-3px);
-    }
-    .q7-header {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin-bottom: 0.75rem;
-    }
-    .q7-logo-mini {
-      width: 40px; height: 40px;
-      background: linear-gradient(135deg, var(--blue-tech), var(--blue-glow));
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 1rem;
-      color: #fff;
-      letter-spacing: 0.03em;
-      flex-shrink: 0;
-    }
-    .q7-name {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      color: var(--white);
-    }
-    .q7-sub { font-size: 0.75rem; color: var(--white-dim); }
-    .q7-desc {
-      font-size: 0.88rem;
-      color: var(--white-dim);
-      line-height: 1.7;
-    }
-
-    .about-edu-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.75rem;
-      transition: var(--transition);
-    }
-    .about-edu-card:hover {
-      border-color: rgba(0,200,83,0.35);
-      box-shadow: 0 12px 40px rgba(0,200,83,0.08);
-      transform: translateY(-3px);
-    }
-    .edu-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .edu-icon {
-      width: 44px; height: 44px;
-      background: rgba(0,200,83,0.1);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--green-excel);
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-    .edu-title {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: 0.03em;
-    }
-    .edu-sub { font-size: 0.78rem; color: var(--white-dim); margin-top: 0.15rem; }
-    .edu-progress {
-      margin-top: 1rem;
-    }
-    .edu-progress-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.75rem;
-      color: var(--white-dim);
-      margin-bottom: 0.4rem;
-    }
-    .progress-bar-track {
-      height: 6px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--green-dim), var(--green-excel));
-      border-radius: 3px;
-      width: 0%;
-      transition: width 1.5s cubic-bezier(0.4,0,0.2,1) 0.3s;
-    }
-
-    /* ===========================
-       SKILLS
-    =========================== */
-    #habilidades {
-      padding: 6rem 0;
-      background: var(--navy-mid);
-    }
-    .skills-header { margin-bottom: 3.5rem; }
-    .skills-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
-    .skills-group-title {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--white-dim);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .skills-group-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .skill-bar-item { margin-bottom: 1.25rem; }
-    .skill-bar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.5rem;
-    }
-    .skill-bar-name {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--white);
-    }
-    .skill-bar-name i { font-size: 0.85rem; color: var(--blue-glow); }
-    .skill-bar-pct {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--blue-glow);
-      font-family: var(--font-display);
-    }
-    .skill-track {
-      height: 8px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .skill-fill {
-      height: 100%;
-      border-radius: 4px;
-      width: 0%;
-      transition: width 1.4s cubic-bezier(0.4,0,0.2,1) var(--delay, 0s);
-    }
-    .sf-blue { background: linear-gradient(90deg, var(--blue-tech), var(--blue-glow)); }
-    .sf-green { background: linear-gradient(90deg, var(--green-dim), var(--green-excel)); }
-    .sf-orange { background: linear-gradient(90deg, var(--orange), var(--orange-light)); }
-
-    /* Pills for tech skills */
-    .pills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 0.25rem;
-    }
-    .skill-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.1rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      border: 1px solid;
-      transition: var(--transition);
-      cursor: default;
-    }
-    .pill-blue {
-      background: rgba(21,101,192,0.12);
-      border-color: rgba(21,101,192,0.35);
-      color: var(--blue-glow);
-    }
-    .pill-blue:hover {
-      background: rgba(21,101,192,0.25);
-      box-shadow: 0 4px 20px rgba(21,101,192,0.2);
-      transform: translateY(-2px);
-    }
-    .pill-green {
-      background: rgba(0,200,83,0.08);
-      border-color: rgba(0,200,83,0.3);
-      color: var(--green-excel);
-    }
-    .pill-green:hover {
-      background: rgba(0,200,83,0.18);
-      box-shadow: 0 4px 20px rgba(0,200,83,0.15);
-      transform: translateY(-2px);
-    }
-    .pill-orange {
-      background: rgba(255,109,0,0.08);
-      border-color: rgba(255,109,0,0.3);
-      color: var(--orange-light);
-    }
-    .pill-orange:hover {
-      background: rgba(255,109,0,0.18);
-      box-shadow: 0 4px 20px rgba(255,109,0,0.15);
-      transform: translateY(-2px);
-    }
-
-    /* ===========================
-       PROJECTS
-    =========================== */
-    #proyectos {
-      padding: 6rem 0;
-    }
-    .projects-header { margin-bottom: 3.5rem; }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-    }
-    .project-card:hover {
-      border-color: rgba(66,165,245,0.4);
-      box-shadow: 0 16px 50px rgba(21,101,192,0.2);
-      transform: translateY(-5px);
-    }
-    .project-card.featured {
-      grid-row: span 2;
-    }
-
-    .card-visual {
-      height: 180px;
-      position: relative;
-      overflow: hidden;
-    }
-    .project-card.featured .card-visual { height: 220px; }
-    .card-visual-inner {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .cv-q7 {
-      background: linear-gradient(135deg, var(--navy-light) 0%, rgba(21,101,192,0.4) 100%);
-    }
-    .cv-data {
-      background: linear-gradient(135deg, var(--navy-light) 0%, rgba(0,200,83,0.25) 100%);
-    }
-    .cv-tech {
-      background: linear-gradient(135deg, var(--navy-light) 0%, rgba(255,109,0,0.2) 100%);
-    }
-
-    .card-visual-icon {
-      font-size: 4rem;
-      opacity: 0.25;
-      position: absolute;
-      bottom: -0.5rem;
-      right: 1rem;
-    }
-    .card-visual-badge {
-      position: absolute;
-      top: 1rem; left: 1rem;
-      padding: 0.3rem 0.7rem;
-      border-radius: 4px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .badge-blue { background: var(--blue-tech); color: #fff; }
-    .badge-green { background: var(--green-excel); color: #000; }
-    .badge-orange { background: var(--orange); color: #fff; }
-
-    .card-logo-big {
-      font-family: var(--font-display);
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 0.05em;
-    }
-    .project-card.featured .card-logo-big { font-size: 3.5rem; }
-
-    .card-body {
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .card-tag {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--blue-glow);
-      margin-bottom: 0.5rem;
-    }
-    .card-title {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: 0.02em;
-      margin-bottom: 0.6rem;
-    }
-    .project-card.featured .card-title { font-size: 1.5rem; }
-    .card-desc {
-      font-size: 0.85rem;
-      color: var(--white-dim);
-      line-height: 1.7;
-      flex: 1;
-    }
-
-    .card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 1rem;
-    }
-    .card-tags span {
-      font-size: 0.72rem;
-      font-weight: 500;
-      padding: 0.25rem 0.6rem;
-      border-radius: 3px;
-      background: rgba(255,255,255,0.06);
-      color: var(--white-dim);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .card-action {
-      margin-top: 1.25rem;
-    }
-    .btn-excel {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--green-excel);
-      color: #000;
-      font-weight: 700;
-      font-size: 0.85rem;
-      padding: 0.75rem 1.4rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: var(--transition);
-      border: none;
-      cursor: pointer;
-    }
-    .btn-excel:hover {
-      background: #00e676;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0,200,83,0.35);
-    }
-    .btn-card {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--blue-glow);
-      font-size: 0.82rem;
-      font-weight: 600;
-      text-decoration: none;
-      border: 1px solid rgba(66,165,245,0.3);
-      padding: 0.55rem 1rem;
-      border-radius: 6px;
-      transition: var(--transition);
-    }
-    .btn-card:hover {
-      background: rgba(66,165,245,0.1);
-      border-color: var(--blue-glow);
-    }
-
-    /* ===========================
-       CONTACT
-    =========================== */
-    #contacto {
-      padding: 6rem 0;
-      background: var(--navy-mid);
-    }
-    .contact-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .contact-desc {
-      font-size: 1rem;
-      color: var(--white-dim);
-      line-height: 1.8;
-      margin-top: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .contact-info-list { display: flex; flex-direction: column; gap: 1rem; }
-    .contact-info-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.25rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      transition: var(--transition);
-    }
-    .contact-info-item:hover {
-      border-color: rgba(66,165,245,0.35);
-      transform: translateX(4px);
-    }
-    .contact-info-icon {
-      width: 40px; height: 40px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-    .ci-blue { background: rgba(21,101,192,0.15); color: var(--blue-glow); }
-    .ci-green { background: rgba(0,200,83,0.1); color: var(--green-excel); }
-    .contact-info-text {
-      font-size: 0.85rem;
-      color: var(--white-dim);
-    }
-    .contact-info-text strong {
-      display: block;
-      color: var(--white);
-      font-size: 0.9rem;
-      margin-bottom: 0.1rem;
-    }
-
-    .contact-cta-title {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: 0.02em;
-      margin-bottom: 0.5rem;
-    }
-    .contact-cta-sub {
-      font-size: 0.9rem;
-      color: var(--white-dim);
-      margin-bottom: 2rem;
-    }
-
-    .contact-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .cta-btn {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.25rem 1.75rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: var(--transition);
-      border: 1px solid transparent;
-    }
-    .cta-btn .btn-icon {
-      width: 44px; height: 44px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
-    .cta-btn .btn-text-main { color: var(--white); font-size: 1rem; }
-    .cta-btn .btn-text-sub { font-size: 0.75rem; font-weight: 400; margin-top: 0.1rem; }
-
-    .cta-wsp {
-      background: rgba(37,211,102,0.1);
-      border-color: rgba(37,211,102,0.3);
-      color: var(--green-excel);
-    }
-    .cta-wsp .btn-icon { background: #25D366; color: #fff; }
-    .cta-wsp:hover {
-      background: rgba(37,211,102,0.18);
-      border-color: #25D366;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(37,211,102,0.2);
-    }
-    .cta-wsp .btn-text-sub { color: #25D366; }
-
-    .cta-li {
-      background: rgba(10,102,194,0.1);
-      border-color: rgba(10,102,194,0.3);
-      color: #0A66C2;
-    }
-    .cta-li .btn-icon { background: #0A66C2; color: #fff; }
-    .cta-li:hover {
-      background: rgba(10,102,194,0.18);
-      border-color: #0A66C2;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(10,102,194,0.2);
-    }
-    .cta-li .btn-text-main, .cta-li .btn-text-sub { color: #4fa3e0; }
-
-    .cta-ig {
-      background: rgba(225,48,108,0.08);
-      border-color: rgba(225,48,108,0.25);
-    }
-    .cta-ig .btn-icon {
-      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-      color: #fff;
-    }
-    .cta-ig:hover {
-      background: rgba(225,48,108,0.15);
-      border-color: rgba(225,48,108,0.5);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(225,48,108,0.15);
-    }
-    .cta-ig .btn-text-main, .cta-ig .btn-text-sub { color: #f77ab0; }
-
-    /* ===========================
-       FOOTER
-    =========================== */
-    footer {
-      background: var(--navy);
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      text-align: center;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      text-decoration: none;
-    }
-    .footer-copy {
-      font-size: 0.78rem;
-      color: var(--white-dim);
-    }
-    .footer-copy span { color: var(--blue-glow); }
-    .footer-powered {
-      font-size: 0.75rem;
-      color: rgba(176,190,197,0.5);
-    }
-
-    /* ===========================
-       ANIMATIONS
-    =========================== */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-
-    /* ===========================
-       RESPONSIVE
-    =========================== */
-    @media (max-width: 1024px) {
-      .projects-grid { grid-template-columns: 1fr 1fr; }
-      .project-card.featured { grid-row: auto; grid-column: span 2; }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .skills-layout { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .project-card.featured { grid-column: auto; }
-      .contact-wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .stat-card:nth-child(2) { border-right: none; }
-      .stat-card:nth-child(3), .stat-card:nth-child(4) { border-top: 1px solid var(--border); }
-      .hero-stats { gap: 1.5rem; }
-      .footer-inner { flex-direction: column; text-align: center; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-actions { flex-direction: column; }
-      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-    }
+    /* RESPONSIVE */
+    @media(max-width:900px){.prof-grid{grid-template-columns:1fr;gap:2.5rem}.exp-grid{grid-template-columns:1fr}.q7-block{grid-template-columns:1fr;gap:2.5rem}}
+    @media(max-width:640px){.nav-links,.nav-wsp{display:none}.ham-btn{display:flex}.hero-meta{gap:1.25rem}.hero-btns{flex-direction:column}.btn-em,.btn-ghost{justify-content:center;text-align:center}.q7-pillars{grid-template-columns:1fr}.foot-row{flex-direction:column;text-align:center}}
+    @media(max-width:400px){.wrap{padding:0 1.25rem}}
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav id="navbar">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="#" class="nav-brand">
-          <div class="nav-logo">Q7</div>
-          <span class="nav-brand-text"> DEIMER DUVAN <span> DÍAZ BERRIO</span></span>
-        </a>
-        <ul class="nav-links">
-          <li><a href="#sobre-mi">Sobre Mí</a></li>
-          <li><a href="#habilidades">Habilidades</a></li>
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#contacto" class="nav-cta">Contacto</a></li>
-        </ul>
-        <button class="nav-hamburger" id="hamburger" aria-label="Menú">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+<!-- NAVBAR -->
+<nav id="nav">
+  <div class="wrap">
+    <div class="nav-row">
+      <a href="#" class="nav-logo">
+        <div class="logo-mark" style="background:transparent;border:none;overflow:visible;width:auto;height:auto;padding:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 80" style="width:32px;height:23px;display:block"><circle cx="37" cy="40" r="27" fill="#1A3A8A"/><circle cx="37" cy="40" r="15" fill="#0B1423"/><path d="M46 50 L58 68 L52 68 L40 50 Z" fill="#1A3A8A"/><rect x="58" y="8" width="44" height="10" rx="4" fill="#4AAAD6"/><polygon points="93,18 102,18 78,78 69,78" fill="#4AAAD6"/></svg></div>
+        <span class="logo-text">DÍAZ BERRIO</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#profesional">Perfil</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#q7">Q7 Logistic</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="https://wa.me/573148241427" target="_blank" rel="noopener" class="nav-wsp">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <button class="ham-btn" id="hamBtn" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </nav>
-
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-close" id="mobileClose"><i class="fa fa-times"></i></button>
-    <a href="#sobre-mi" class="mobile-link">Sobre Mí</a>
-    <a href="#habilidades" class="mobile-link">Habilidades</a>
-    <a href="#proyectos" class="mobile-link">Proyectos</a>
-    <a href="#contacto" class="mobile-link">Contacto</a>
   </div>
+</nav>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-accent-bar"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-tag">
-          <i class="fa fa-anchor"></i>
-          Barranquilla, Atlántico &mdash; Colombia
-        </div>
-        <h1 class="hero-name">
-          Deimer Duván
-          <span class="last">Díaz Berrio.</span>
-        </h1>
-        <p class="hero-title">
-          Supervisión Operativa
-          <span class="divider"></span>
-          Logística Integral
-          <span class="divider"></span>
-          Ing. Industrial
-        </p>
-        <p class="hero-desc">
-          Especialista con sólida trayectoria en mando y liderazgo de equipos. Fundador de <strong>Q7 Logistic S.A.S.</strong>, empresa de servicios logísticos integrales. Actualmente cursando Ingeniería Industrial en la <strong>CUN</strong>, integrando experiencia práctica con formación técnica de vanguardia.
-        </p>
-        <div class="hero-actions">
-          <a href="#proyectos" class="btn-primary">
-            <i class="fa fa-briefcase"></i> Ver Proyectos
-          </a>
-          <a href="https://wa.me/573148241427" target="_blank" rel="noopener" class="btn-primary btn-whatsapp">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-          </a>
-          <a href="#sobre-mi" class="btn-secondary">
-            <i class="fa fa-user"></i> Mi Perfil
-          </a>
-        </div>
-        <div class="hero-stats">
-          <div>
-            <div class="hero-stat-num">35<span>+</span></div>
-            <div class="hero-stat-label">Años de vida</div>
-          </div>
-          <div>
-            <div class="hero-stat-num">3<span>er</span></div>
-            <div class="hero-stat-label">Semestre ING</div>
-          </div>
-          <div>
-            <div class="hero-stat-num">Q7<span>.</span></div>
-            <div class="hero-stat-label">Logistic S.A.S.</div>
-          </div>
-        </div>
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose"><i class="fa fa-times"></i></button>
+  <a href="#profesional" class="mob-lnk">Perfil</a>
+  <a href="#expertise" class="mob-lnk">Expertise</a>
+  <a href="#q7" class="mob-lnk">Q7 Logistic</a>
+  <a href="#contacto" class="mob-lnk">Contacto</a>
+  <a href="https://wa.me/573148241427" target="_blank" rel="noopener" style="color:var(--emerald)">
+    <i class="fab fa-whatsapp"></i> WhatsApp
+  </a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-geo">
+    <div class="geo-ring"></div>
+    <div class="geo-ring"></div>
+    <div class="geo-ring"></div>
+    <div class="geo-line geo-line-v"></div>
+    <div class="geo-line geo-line-v"></div>
+    <div class="geo-dot"></div>
+    <div class="geo-dot"></div>
+  </div>
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <div class="dot"></div>
+        Barranquilla, Colombia &nbsp;·&nbsp; Disponible para proyectos
       </div>
-    </div>
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <i class="fa fa-chevron-down"></i>
-    </div>
-  </section>
-
-  <!-- QUICK STATS BAR -->
-  <section id="stats-bar">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card reveal">
-          <div class="stat-icon"><i class="fa fa-user"></i></div>
-          <div>
-            <div class="stat-value">35 años</div>
-            <div class="stat-desc">Barranquilla, Atlántico</div>
-          </div>
-        </div>
-        <div class="stat-card reveal reveal-delay-1">
-          <div class="stat-icon"><i class="fa fa-map-marker-alt"></i></div>
-          <div>
-            <div class="stat-value">Colombia</div>
-            <div class="stat-desc">Región Caribe</div>
-          </div>
-        </div>
-        <div class="stat-card reveal reveal-delay-2">
-          <div class="stat-icon"><i class="fa fa-graduation-cap"></i></div>
-          <div>
-            <div class="stat-value">Ing. Industrial</div>
-            <div class="stat-desc">3er Semestre — CUN</div>
-          </div>
-        </div>
-        <div class="stat-card reveal reveal-delay-3">
-          <div class="stat-icon"><i class="fa fa-hard-hat"></i></div>
-          <div>
-            <div class="stat-value">Supervisor Senior</div>
-            <div class="stat-desc">Logística & Operaciones</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="sobre-mi">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <span class="section-label">Sobre Mí</span>
-          <h2 class="section-title">Experiencia que <span>construye</span> futuro</h2>
-          <p style="margin-top:1.5rem">
-            Soy <strong>Deimer Duván Díaz Berrio</strong>, nacido y criado en <span class="highlight">Barranquilla, Colombia</span>. Con 35 años, he dedicado mi trayectoria profesional a la <span class="highlight">supervisión operativa y la gestión logística</span>, liderando equipos en entornos de alta exigencia donde la eficiencia y el orden son ley.
-          </p>
-          <p>
-            Mi perfil combina lo mejor de dos mundos: la <span class="h-orange">experiencia práctica adquirida en campo</span> —procesos, personas y presión real— y la <span class="h-green">formación técnica en Ingeniería Industrial</span> que actualmente estoy consolidando en la CUN, en tercer semestre. Esta dualidad me permite diseñar soluciones que no solo se ven bien en papel, sino que <strong>funcionan en la realidad operativa</strong>.
-          </p>
-          <p>
-            Como <strong>Fundador y Líder de Q7 Logistic S.A.S.</strong>, he estructurado una empresa de servicios logísticos integrales orientada a la eficiencia de la cadena de suministro, la optimización de inventarios y la gestión documental. Mi visión es simple: <span class="highlight">procesos claros, equipos motivados, resultados medibles.</span>
-          </p>
-          <div class="about-badges">
-            <div class="badge"><i class="fa fa-check"></i> Liderazgo de Equipos</div>
-            <div class="badge"><i class="fa fa-check"></i> Gestión Logística</div>
-            <div class="badge"><i class="fa fa-check"></i> Control de Operaciones</div>
-            <div class="badge"><i class="fa fa-check"></i> Análisis con KPIs</div>
-            <div class="badge"><i class="fa fa-check"></i> Automatización</div>
-            <div class="badge"><i class="fa fa-check"></i> Formación Continua</div>
-          </div>
-        </div>
-
-        <div class="about-right">
-          <div class="about-q7-card reveal reveal-delay-1">
-            <div class="q7-header">
-              <div class="q7-logo-mini">Q7</div>
-              <div>
-                <div class="q7-name">Q7 Logistic S.A.S.</div>
-                <div class="q7-sub">Empresa de Servicios Logísticos Integrales</div>
-              </div>
-            </div>
-            <p class="q7-desc">
-              Empresa fundada con el propósito de ofrecer soluciones logísticas de alto impacto para empresas medianas. Operaciones de almacenamiento, distribución, gestión de inventarios y asesoría en cadena de suministro bajo estándares de calidad y trazabilidad.
-            </p>
-            <div class="about-badges" style="margin-top:1rem">
-              <div class="badge"><i class="fa fa-truck"></i> Distribución</div>
-              <div class="badge"><i class="fa fa-boxes"></i> Inventarios</div>
-              <div class="badge"><i class="fa fa-file-alt"></i> Documental</div>
-            </div>
-          </div>
-
-          <div class="about-edu-card reveal reveal-delay-2">
-            <div class="edu-row">
-              <div class="edu-icon"><i class="fa fa-university"></i></div>
-              <div>
-                <div class="edu-title">Ingeniería Industrial</div>
-                <div class="edu-sub">Corporación Unificada Nacional — CUN &nbsp;|&nbsp; Barranquilla</div>
-              </div>
-            </div>
-            <div class="edu-progress">
-              <div class="edu-progress-label">
-                <span>Progreso académico</span>
-                <span>3er Semestre / 10</span>
-              </div>
-              <div class="progress-bar-track">
-                <div class="progress-bar-fill" data-width="30"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="habilidades">
-    <div class="container">
-      <div class="skills-header reveal">
-        <span class="section-label">Habilidades</span>
-        <h2 class="section-title">Hard Skills & <span>Competencias</span></h2>
-      </div>
-      <div class="skills-layout">
-        <!-- Left: Bar skills -->
-        <div class="reveal">
-          <div class="skills-group-title">
-            <i class="fa fa-chart-bar" style="color:var(--blue-glow);font-size:0.85rem"></i>
-            Operativas & Gestión
-          </div>
-
-          <div class="skill-bar-item">
-            <div class="skill-bar-header">
-              <div class="skill-bar-name"><i class="fa fa-users-cog"></i> Supervisión de Personal</div>
-              <div class="skill-bar-pct">95%</div>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill sf-blue" data-width="95" style="--delay:0s"></div>
-            </div>
-          </div>
-
-          <div class="skill-bar-item">
-            <div class="skill-bar-header">
-              <div class="skill-bar-name"><i class="fa fa-boxes"></i> Gestión de Inventarios</div>
-              <div class="skill-bar-pct">90%</div>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill sf-blue" data-width="90" style="--delay:0.1s"></div>
-            </div>
-          </div>
-
-          <div class="skill-bar-item">
-            <div class="skill-bar-header">
-              <div class="skill-bar-name"><i class="fa fa-link"></i> Cadena de Suministro</div>
-              <div class="skill-bar-pct">88%</div>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill sf-blue" data-width="88" style="--delay:0.2s"></div>
-            </div>
-          </div>
-
-          <div class="skill-bar-item">
-            <div class="skill-bar-header">
-              <div class="skill-bar-name"><i class="fa fa-chart-line"></i> Excel Avanzado</div>
-              <div class="skill-bar-pct">85%</div>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill sf-green" data-width="85" style="--delay:0.3s"></div>
-            </div>
-          </div>
-
-          <div class="skill-bar-item">
-            <div class="skill-bar-header">
-              <div class="skill-bar-name"><i class="fa fa-clipboard-list"></i> Gestión Documental & KPIs</div>
-              <div class="skill-bar-pct">87%</div>
-            </div>
-            <div class="skill-track">
-              <div class="skill-fill sf-blue" data-width="87" style="--delay:0.4s"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Pills for tech -->
-        <div class="reveal reveal-delay-1">
-          <div class="skills-group-title">
-            <i class="fa fa-microchip" style="color:var(--orange-light);font-size:0.85rem"></i>
-            Tecnología & Herramientas
-          </div>
-          <div class="pills-grid">
-            <div class="skill-pill pill-green"><i class="fab fa-python"></i> Python Básico</div>
-            <div class="skill-pill pill-orange"><i class="fa fa-bolt"></i> Arduino / IoT</div>
-            <div class="skill-pill pill-green"><i class="fa fa-table"></i> Excel Avanzado</div>
-            <div class="skill-pill pill-blue"><i class="fa fa-robot"></i> Automatización</div>
-            <div class="skill-pill pill-blue"><i class="fa fa-truck"></i> Software WMS</div>
-            <div class="skill-pill pill-orange"><i class="fa fa-cogs"></i> Prototipos IoT</div>
-            <div class="skill-pill pill-blue"><i class="fa fa-tachometer-alt"></i> KPI Dashboards</div>
-            <div class="skill-pill pill-green"><i class="fa fa-calculator"></i> Costeo Logístico</div>
-            <div class="skill-pill pill-blue"><i class="fa fa-tasks"></i> Gestión de Proyectos</div>
-          </div>
-
-          <div class="skills-group-title" style="margin-top:2rem">
-            <i class="fa fa-star" style="color:var(--blue-glow);font-size:0.85rem"></i>
-            Soft Skills
-          </div>
-          <div class="pills-grid">
-            <div class="skill-pill pill-blue"><i class="fa fa-user-tie"></i> Liderazgo</div>
-            <div class="skill-pill pill-blue"><i class="fa fa-comments"></i> Comunicación</div>
-            <div class="skill-pill pill-blue"><i class="fa fa-search-plus"></i> Pensamiento Analítico</div>
-            <div class="skill-pill pill-blue"><i class="fa fa-clock"></i> Gestión del Tiempo</div>
-            <div class="skill-pill pill-blue"><i class="fa fa-handshake"></i> Trabajo en Equipo</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="proyectos">
-    <div class="container">
-      <div class="projects-header reveal">
-        <span class="section-label">Proyectos</span>
-        <h2 class="section-title">Iniciativas & <span>Resultados</span></h2>
-      </div>
-      <div class="projects-grid">
-
-        <!-- Featured: Q7 -->
-        <div class="project-card featured reveal">
-          <div class="card-visual cv-q7">
-            <div class="card-visual-inner">
-              <div class="card-logo-big">Q7</div>
-            </div>
-            <div class="card-visual-badge badge-blue">Empresa Activa</div>
-            <div class="card-visual-icon"><i class="fa fa-shipping-fast"></i></div>
-          </div>
-          <div class="card-body">
-            <div class="card-tag"><i class="fa fa-building"></i> &nbsp;Emprendimiento Logístico</div>
-            <div class="card-title">Q7 Logistic S.A.S.</div>
-            <p class="card-desc">
-              Empresa de servicios logísticos integrales con enfoque en la optimización de la cadena de suministro. Desarrollé la estructura operativa completa: procesos de almacenamiento, distribución, control de inventarios en tiempo real y gestión de indicadores de desempeño (KPIs). El modelo operativo incorpora metodologías de lean logistics y trazabilidad documental para garantizar eficiencia y cumplimiento.
-            </p>
-            <div class="card-tags">
-              <span>Cadena de Suministro</span>
-              <span>Control Operativo</span>
-              <span>KPIs</span>
-              <span>Almacenamiento</span>
-              <span>Distribución</span>
-              <span>Lean Logistics</span>
-            </div>
-            <div class="card-action">
-              <a href="#contacto" class="btn-card"><i class="fa fa-info-circle"></i> Más información</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Data & KPIs -->
-        <div class="project-card reveal reveal-delay-1">
-          <div class="card-visual cv-data">
-            <div class="card-visual-inner">
-              <span style="font-family:var(--font-display);font-size:2rem;font-weight:900;color:rgba(0,200,83,0.7)">XLS</span>
-            </div>
-            <div class="card-visual-badge badge-green">En Curso</div>
-            <div class="card-visual-icon" style="color:var(--green-excel)"><i class="fa fa-table"></i></div>
-          </div>
-          <div class="card-body">
-            <div class="card-tag" style="color:var(--green-excel)"><i class="fa fa-chart-pie"></i> &nbsp;Gestión de Datos</div>
-            <div class="card-title">KPIs & Gestión de Datos</div>
-            <p class="card-desc">
-              Sistema de seguimiento de indicadores logísticos con Excel avanzado: tablas dinámicas, dashboards automatizados y análisis de desviaciones para toma de decisiones operativas.
-            </p>
-            <div class="card-tags">
-              <span>Excel Avanzado</span>
-              <span>Dashboards</span>
-              <span>Tablas Dinámicas</span>
-            </div>
-            <div class="card-action">
-              <a href="https://wa.me/573148241427?text=Hola%20Deimer%2C%20quiero%20aprender%20Excel%20contigo" target="_blank" rel="noopener" class="btn-excel">
-                <i class="fa fa-graduation-cap"></i> Aprende Excel
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tech / Automation -->
-        <div class="project-card reveal reveal-delay-2">
-          <div class="card-visual cv-tech">
-            <div class="card-visual-inner">
-              <span style="font-family:var(--font-display);font-size:1.8rem;font-weight:900;color:rgba(255,140,0,0.7)">IoT</span>
-            </div>
-            <div class="card-visual-badge badge-orange">Prototipo</div>
-            <div class="card-visual-icon" style="color:var(--orange-light)"><i class="fa fa-microchip"></i></div>
-          </div>
-          <div class="card-body">
-            <div class="card-tag" style="color:var(--orange-light)"><i class="fa fa-bolt"></i> &nbsp;Tecnología & Automatización</div>
-            <div class="card-title">Prototipos IoT & Python</div>
-            <p class="card-desc">
-              Desarrollo de prototipos de automatización con Arduino y Python para monitoreo de condiciones operativas en almacenes: temperatura, acceso y alertas en tiempo real.
-            </p>
-            <div class="card-tags">
-              <span>Arduino</span>
-              <span>Python</span>
-              <span>Sensores IoT</span>
-            </div>
-            <div class="card-action">
-              <a href="#contacto" class="btn-card" style="color:var(--orange-light);border-color:rgba(255,109,0,0.3)">
-                <i class="fa fa-eye"></i> Ver detalles
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contacto">
-    <div class="container">
-      <div class="contact-wrapper">
-        <div class="reveal">
-          <span class="section-label">Contacto</span>
-          <h2 class="section-title">Hablemos de <span>negocios</span></h2>
-          <p class="contact-desc">
-            ¿Tienes un proyecto logístico, buscas un supervisor senior para tu operación, o simplemente quieres conectar? Estoy disponible para oportunidades de colaboración, consultoría y aprendizaje conjunto.
-          </p>
-          <div class="contact-info-list">
-            <div class="contact-info-item">
-              <div class="contact-info-icon ci-blue"><i class="fa fa-map-marker-alt"></i></div>
-              <div class="contact-info-text">
-                <strong>Ubicación</strong>
-                Barranquilla, Atlántico, Colombia
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <div class="contact-info-icon ci-green"><i class="fab fa-whatsapp"></i></div>
-              <div class="contact-info-text">
-                <strong>WhatsApp / Teléfono</strong>
-            +57 314 8241427
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <div class="contact-info-icon ci-blue"><i class="fa fa-building"></i></div>
-              <div class="contact-info-text">
-                <strong>Empresa</strong>
-                Q7 Logistic S.A.S.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal reveal-delay-1">
-          <div class="contact-cta-title">¿Listo para conectar?</div>
-          <p class="contact-cta-sub">Elige tu canal preferido y escríbeme directamente:</p>
-          <div class="contact-buttons">
-            <a href="https://wa.me/573148241427" target="_blank" rel="noopener" class="cta-btn cta-wsp">
-              <div class="btn-icon"><i class="fab fa-whatsapp"></i></div>
-              <div>
-                <div class="btn-text-main">WhatsApp</div>
-                <div class="btn-text-sub"> Respuesta rápida</div>
-              </div>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener" class="cta-btn cta-li">
-              <div class="btn-icon"><i class="fab fa-linkedin-in"></i></div>
-              <div>
-                <div class="btn-text-main">LinkedIn</div>
-                <div class="btn-text-sub">Deimer Duván Díaz Berrio</div>
-              </div>
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="cta-btn cta-ig">
-              <div class="btn-icon"><i class="fab fa-instagram"></i></div>
-              <div>
-                <div class="btn-text-main">Instagram</div>
-                <div class="btn-text-sub">Q7 Logistic · Portafolio Visual</div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <a href="#" class="footer-brand nav-brand">
-          <div class="nav-logo">Q7</div>
-          <span class="nav-brand-text">DEIMER DUVAN <span> DÍAZ BERRIO</span></span>
+      <h1 class="hero-name">Deimer Duván<br>Díaz Berrio.</h1>
+      <p class="hero-role">
+        <strong>CEO de Q7 Logistic S.A.S.</strong> &nbsp;|&nbsp; Ingeniería Industrial (e) · CUN
+      </p>
+      <div class="hero-divider"></div>
+      <p class="hero-bio">
+        Supervisor de Operaciones con <b>más de 2 años de experiencia</b> liderando equipos y procesos de alto rendimiento. Especialista en <b>Inteligencia Artificial aplicada a la productividad empresarial</b>, Excel corporativo avanzado y gestión de KPIs. Base técnica en informática por la Universidad de Cartagena.
+      </p>
+      <div class="hero-btns">
+        <a href="https://wa.me/573148241427" target="_blank" rel="noopener" class="btn-em">
+          <i class="fab fa-whatsapp"></i> Iniciar Conversación
         </a>
-        <p class="footer-copy">
-          &copy; 2025 <span>Deimer Duván Díaz Berrio</span> · Q7 Logistic S.A.S. · Barranquilla, Colombia
-        </p>
-        <p class="footer-powered">Hecho con precisión industrial ⚙️</p>
+        <a href="#expertise" class="btn-ghost">
+          <i class="fa fa-arrow-down"></i> Ver Expertise
+        </a>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <div class="meta-val">+2<span>a</span></div>
+          <div class="meta-lbl">Experiencia Ops.</div>
+        </div>
+        <div class="meta-sep"></div>
+        <div class="meta-item">
+          <div class="meta-val">3<span>er</span></div>
+          <div class="meta-lbl">Sem. Ing. Industrial</div>
+        </div>
+        <div class="meta-sep"></div>
+        <div class="meta-item">
+          <div class="meta-val" style="line-height:1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 80" style="width:50px;height:36px;display:block"><circle cx="37" cy="40" r="27" fill="#1A3A8A"/><circle cx="37" cy="40" r="15" fill="#0B1423"/><path d="M46 50 L58 68 L52 68 L40 50 Z" fill="#1A3A8A"/><rect x="58" y="8" width="44" height="10" rx="4" fill="#4AAAD6"/><polygon points="93,18 102,18 78,78 69,78" fill="#4AAAD6"/></svg></div>
+          <div class="meta-lbl">CEO & Fundador</div>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- JS -->
-  <script>
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
+<!-- PROFESIONAL -->
+<section id="profesional">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="s-label">Perfil Profesional</span>
+      <h2 class="s-title">Campo & Código.<br>Operaciones & Datos.</h2>
+    </div>
+    <div class="prof-grid">
+      <div class="prof-text reveal d1">
+        <p>
+          Mi perfil integra dos dimensiones que raramente conviven en un mismo profesional: el <strong>liderazgo operativo en campo</strong> —donde la presión, los equipos y los procesos son reales— y las <em>competencias técnicas en informática e IA</em> que transforman la gestión en ventaja competitiva.
+        </p>
+        <p>
+          Con base técnica en informática formada en la <strong>Universidad de Cartagena</strong> y actualización continua en herramientas de Inteligencia Artificial para empresas, traduzco datos crudos en decisiones operativas inteligentes.
+        </p>
+        <p>
+          Actualmente cursando <strong>Ingeniería Industrial en la CUN</strong>, profundizo los fundamentos metodológicos que respaldan la toma de decisiones en logística, producción y optimización de la cadena de suministro.
+        </p>
+        <ul class="prof-list">
+          <li>Liderazgo directo de equipos operativos en entornos de alta exigencia</li>
+          <li>Diseño e implementación de tableros de KPIs y dashboards ejecutivos</li>
+          <li>Aplicación de herramientas de IA para automatizar reportes y análisis</li>
+          <li>Excel avanzado: Power Query, fórmulas dinámicas y tablas dinámicas</li>
+          <li>Gestión documental y trazabilidad en cadena de suministro</li>
+        </ul>
+      </div>
+      <div class="prof-aside reveal d2">
+        <div class="aside-card">
+          <div class="aside-icon"><i class="fa fa-graduation-cap"></i></div>
+          <div class="aside-title">Ingeniería Industrial — CUN</div>
+          <div class="aside-desc">3er Semestre · Barranquilla. Formación en procesos industriales, logística, estadística aplicada y gestión de la producción.</div>
+        </div>
+        <div class="aside-card">
+          <div class="aside-icon"><i class="fa fa-laptop-code"></i></div>
+          <div class="aside-title">Base Técnica en Informática</div>
+          <div class="aside-desc">Universidad de Cartagena. Fundamentos que habilitan el dominio de software empresarial, IA y automatización de procesos administrativos.</div>
+        </div>
+        <div class="aside-card">
+          <div class="aside-icon"><i class="fa fa-hard-hat"></i></div>
+          <div class="aside-title">Supervisor de Operaciones</div>
+          <div class="aside-desc">+2 años de experiencia real liderando equipos, controlando procesos y midiendo el desempeño operativo con indicadores clave.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="s-label">Áreas de Expertise</span>
+      <h2 class="s-title">Tres pilares.<br>Un profesional.</h2>
+      <p class="s-sub">Competencias verificables, construidas en el cruce entre la operación real y la tecnología empresarial aplicada.</p>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card reveal d1">
+        <div class="exp-num">01</div>
+        <div class="exp-icon-wrap"><i class="fa fa-sitemap"></i></div>
+        <div class="exp-title">Dirección de Operaciones</div>
+        <p class="exp-desc">Supervisión directa de equipos y procesos con metodologías de mejora continua. Control de turnos, gestión de incidencias, seguimiento de metas y reporte ejecutivo de desempeño.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Supervisión</span>
+          <span class="exp-tag">Liderazgo</span>
+          <span class="exp-tag">Mejora Continua</span>
+          <span class="exp-tag">Reportes</span>
+        </div>
+        <div class="exp-badge"><i class="fa fa-check-circle"></i> +2 años de experiencia real</div>
+      </div>
+      <div class="exp-card reveal d2">
+        <div class="exp-num">02</div>
+        <div class="exp-icon-wrap"><i class="fa fa-brain"></i></div>
+        <div class="exp-title">IA & Automatización de Procesos</div>
+        <p class="exp-desc">Implementación de herramientas de Inteligencia Artificial para automatizar flujos de trabajo empresariales, generar reportes dinámicos y acelerar la toma de decisiones estratégicas.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">IA Generativa</span>
+          <span class="exp-tag">Automatización</span>
+          <span class="exp-tag">Productividad</span>
+          <span class="exp-tag">Flujos Empresariales</span>
+        </div>
+        <div class="exp-badge"><i class="fa fa-check-circle"></i> Aplicación en entorno corporativo</div>
+      </div>
+      <div class="exp-card reveal d3">
+        <div class="exp-num">03</div>
+        <div class="exp-icon-wrap"><i class="fa fa-chart-line"></i></div>
+        <div class="exp-title">Análisis de Datos & KPIs</div>
+        <p class="exp-desc">Diseño de tableros de control ejecutivos, modelado de indicadores clave y análisis de desempeño operativo con Excel avanzado, Power Query y visualizaciones orientadas a decisiones.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Excel Avanzado</span>
+          <span class="exp-tag">Power Query</span>
+          <span class="exp-tag">Dashboards</span>
+          <span class="exp-tag">KPIs</span>
+        </div>
+        <div class="exp-badge"><i class="fa fa-check-circle"></i> Nivel corporativo avanzado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Q7 LOGISTIC -->
+<section id="q7">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="s-label">Empresa</span>
+      <h2 class="s-title">Q7 Logistic S.A.S.</h2>
+      <p class="s-sub">Soluciones logísticas integrales para empresas que exigen precisión, trazabilidad y eficiencia en su cadena de suministro.</p>
+    </div>
+    <div class="q7-block">
+      <div class="q7-brand reveal d1">
+        <div class="q7-logotype">
+          <div class="q7-mark" style="background:transparent;border:none;overflow:visible;width:auto;height:auto;padding:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 80" style="width:58px;height:42px;display:block"><circle cx="37" cy="40" r="27" fill="#1A3A8A"/><circle cx="37" cy="40" r="15" fill="#0B1423"/><path d="M46 50 L58 68 L52 68 L40 50 Z" fill="#1A3A8A"/><rect x="58" y="8" width="44" height="10" rx="4" fill="#4AAAD6"/><polygon points="93,18 102,18 78,78 69,78" fill="#4AAAD6"/></svg></div>
+          <div>
+            <div class="q7-company">Q7 Logistic<span>.</span></div>
+            <div class="q7-type">S.A.S. · Barranquilla, Colombia</div>
+          </div>
+        </div>
+        <p class="q7-desc">
+          Empresa de <b>servicios logísticos integrales</b> liderada con visión estratégica desde su fundación. En Q7 Logistic desarrollamos y optimizamos cadenas de suministro con un enfoque basado en <b>datos, tecnología y procesos definidos</b>, garantizando trazabilidad, eficiencia y cumplimiento para nuestros clientes.
+        </p>
+        <p class="q7-desc">
+          Como <b>CEO</b>, dirijo la estrategia comercial y operativa, asegurando que cada solución esté respaldada por indicadores medibles y mejora continua.
+        </p>
+        <div class="q7-pillars">
+          <div class="q7-pillar"><i class="fa fa-link"></i> Cadena de Suministro</div>
+          <div class="q7-pillar"><i class="fa fa-boxes"></i> Gestión de Inventarios</div>
+          <div class="q7-pillar"><i class="fa fa-tachometer-alt"></i> KPIs Logísticos</div>
+          <div class="q7-pillar"><i class="fa fa-file-contract"></i> Gestión Documental</div>
+          <div class="q7-pillar"><i class="fa fa-robot"></i> Automatización con IA</div>
+          <div class="q7-pillar"><i class="fa fa-chart-pie"></i> Análisis de Datos</div>
+        </div>
+      </div>
+      <div class="q7-ceo-card reveal d2">
+        <div class="ceo-label">Ficha Ejecutiva</div>
+        <div class="ceo-name">Deimer Duván<br>Díaz Berrio</div>
+        <div class="ceo-role">CEO & Fundador · Q7 Logistic S.A.S.</div>
+        <div class="ceo-stats">
+          <div class="ceo-stat">
+            <div class="val">+2<span>a</span></div>
+            <div class="lbl">Supervisión Ops.</div>
+          </div>
+          <div class="ceo-stat">
+            <div class="val">3<span>er</span></div>
+            <div class="lbl">Sem. Ing. Industrial</div>
+          </div>
+          <div class="ceo-stat">
+            <div class="val"><span>IA</span></div>
+            <div class="lbl">Especialista</div>
+          </div>
+          <div class="ceo-stat">
+            <div class="val"><span>XLS</span></div>
+            <div class="lbl">Nivel Avanzado</div>
+          </div>
+        </div>
+        <p class="ceo-bio">
+          Perfil que fusiona el liderazgo operativo con la <b>aplicación estratégica de IA y análisis de datos</b>. Base técnica en informática (Universidad de Cartagena) e Ingeniería Industrial en curso. Cada decisión está respaldada por datos y procesos estructurados.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="wrap">
+    <div class="contact-inner reveal">
+      <span class="s-label">Contacto</span>
+      <h2 class="s-title">Hablemos.</h2>
+      <p class="s-sub">¿Buscas optimizar operaciones, implementar IA en tu empresa o necesitas un socio estratégico en logística? El primer paso es una conversación.</p>
+      <a href="https://wa.me/573148241427" target="_blank" rel="noopener" class="wsp-btn">
+        <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
+      </a>
+      <p class="contact-note">+57 314 824 1427 &nbsp;·&nbsp; Respuesta en menos de 24h</p>
+      <div class="contact-links">
+        <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link">
+          <i class="fab fa-linkedin-in"></i> LinkedIn
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="contact-link">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="mailto:deimer@q7logistic.com" class="contact-link">
+          <i class="fa fa-envelope"></i> Email
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <a href="#" class="nav-logo" style="text-decoration:none">
+        <div class="logo-mark" style="background:transparent;border:none;overflow:visible;padding:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 80" style="width:32px;height:23px;display:block"><circle cx="37" cy="40" r="27" fill="#1A3A8A"/><circle cx="37" cy="40" r="15" fill="#0B1423"/><path d="M46 50 L58 68 L52 68 L40 50 Z" fill="#1A3A8A"/><rect x="58" y="8" width="44" height="10" rx="4" fill="#4AAAD6"/><polygon points="93,18 102,18 78,78 69,78" fill="#4AAAD6"/></svg></div>
+        <span class="logo-text">DÍAZ BERRIO</span>
+      </a>
+      <span class="foot-copy">&copy; 2025 <span>Deimer Duván Díaz Berrio</span> &nbsp;·&nbsp; Q7 Logistic S.A.S. &nbsp;·&nbsp; Barranquilla</span>
+      <span class="foot-tag">Diseñado con precisión operativa.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('stuck', window.scrollY > 50), {passive:true});
+
+  // Mobile menu
+  const hamBtn = document.getElementById('hamBtn');
+  const mobMenu = document.getElementById('mobMenu');
+  const mobClose = document.getElementById('mobClose');
+  hamBtn.addEventListener('click', () => mobMenu.classList.add('open'));
+  mobClose.addEventListener('click', () => mobMenu.classList.remove('open'));
+  document.querySelectorAll('.mob-lnk').forEach(l => l.addEventListener('click', () => mobMenu.classList.remove('open')));
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, {threshold: 0.1});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
     });
-
-    // Mobile menu
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileClose = document.getElementById('mobileClose');
-    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
-    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    });
-
-    // Intersection Observer: reveal on scroll
-    const reveals = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    reveals.forEach(el => revealObserver.observe(el));
-
-    // Progress bars animation
-    const skillObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const fills = entry.target.querySelectorAll('.skill-fill, .progress-bar-fill');
-          fills.forEach(fill => {
-            const target = fill.dataset.width;
-            setTimeout(() => { fill.style.width = target + '%'; }, 100);
-          });
-          skillObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('#habilidades, #sobre-mi').forEach(sec => {
-      skillObserver.observe(sec);
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        if (href === '#') return;
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
+  });
+</script>
 </body>
 </html>
