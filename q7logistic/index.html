@@ -131,10 +131,14 @@
 
     .hero-logo {
       margin: 0 auto 2.5rem;
-      width: 180px;
+      width: 280px;
     }
 
-    .hero-logo img { width: 100%; }
+    .hero-logo img {
+      width: 100%;
+      mix-blend-mode: screen;
+      filter: brightness(1.1);
+    }
 
     .hero-eyebrow {
       font-size: 0.6rem;
@@ -698,7 +702,7 @@
       .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; gap: 0.5rem; }
       .form-row { grid-template-columns: 1fr; }
-      .hero-logo { width: 140px; }
+      .hero-logo { width: 220px; }
     }
 
     .reveal { opacity: 0; transform: translateY(28px); }
