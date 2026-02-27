@@ -2,605 +2,799 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deimer Duván Díaz Berrio | Supervisor de Operaciones · CEO Q7 Logistic</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deimer Díaz — Ingeniero Industrial & CEO Q7 Logistic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <style>
-    :root {
-      --navy: #0a1628;
-      --navy-mid: #0f2040;
-      --navy-light: #1a3560;
-      --steel: #8899aa;
-      --steel-light: #c8d4e0;
-      --emerald: #00c47a;
-      --emerald-dark: #009f63;
-      --white: #f4f8ff;
-      --card-bg: rgba(15,32,64,0.7);
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --carbon: #1a1a1a;
+      --carbon-mid: #252525;
+      --carbon-light: #2e2e2e;
+      --cobalt: #1e3a8a;
+      --cobalt-bright: #2563eb;
+      --cobalt-glow: #3b82f6;
+      --steel: #64748b;
+      --white: #f8fafc;
+      --off-white: #e2e8f0;
+      --accent: #60a5fa;
+    }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background-color: var(--navy);
+      background-color: var(--carbon);
       color: var(--white);
+      font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
     }
 
-    /* ── CANVAS SYSTEM ── */
-    .canvas { display: none; min-height: 100vh; }
-    .canvas.active { display: block; }
+    /* NOISE OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(10,22,40,0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(0,196,122,0.12);
-      padding: 0 24px;
-      height: 64px;
-      display: flex; align-items: center; justify-content: space-between;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 4rem;
+      background: linear-gradient(to bottom, rgba(26,26,26,0.98), transparent);
+      backdrop-filter: blur(4px);
     }
 
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--white);
-      cursor: pointer;
-      letter-spacing: -0.5px;
+    .nav-logo img {
+      height: 42px;
+      width: auto;
+      filter: brightness(1.1);
     }
-    .nav-logo span { color: var(--emerald); }
 
     .nav-links {
-      display: flex; gap: 4px; align-items: center; list-style: none;
+      display: flex;
+      gap: 3rem;
+      list-style: none;
     }
-    .nav-links li a, .nav-links li button {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--steel-light);
+
+    .nav-links a {
+      color: var(--off-white);
       text-decoration: none;
-      background: none; border: none; cursor: pointer;
-      padding: 8px 14px;
-      border-radius: 6px;
-      transition: color 0.2s, background 0.2s;
-      letter-spacing: 0.3px;
-    }
-    .nav-links li a:hover, .nav-links li button:hover,
-    .nav-links li a.active, .nav-links li button.active {
-      color: var(--white);
-      background: rgba(0,196,122,0.1);
-    }
-    .nav-links .nav-cta a {
-      background: var(--emerald);
-      color: var(--navy) !important;
-      font-weight: 700;
-      padding: 8px 18px;
-    }
-    .nav-links .nav-cta a:hover { background: var(--emerald-dark); }
-
-    /* HAMBURGER */
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px; cursor: pointer;
-      background: none; border: none; padding: 4px;
-    }
-    .hamburger span {
-      width: 24px; height: 2px; background: var(--white);
-      border-radius: 2px; transition: 0.3s;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    .mobile-menu {
-      display: none;
-      position: fixed; top: 64px; left: 0; right: 0;
-      background: rgba(10,22,40,0.98);
-      backdrop-filter: blur(20px);
-      padding: 20px 24px 30px;
-      z-index: 99;
-      border-bottom: 1px solid rgba(0,196,122,0.15);
-      flex-direction: column; gap: 6px;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu button, .mobile-menu a {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem; font-weight: 500;
-      color: var(--steel-light); text-decoration: none;
-      background: none; border: none; cursor: pointer;
-      padding: 12px 16px; border-radius: 8px;
-      text-align: left; transition: 0.2s;
-    }
-    .mobile-menu button:hover, .mobile-menu a:hover {
-      color: var(--white); background: rgba(0,196,122,0.1);
-    }
-    .mobile-menu .m-cta {
-      background: var(--emerald) !important;
-      color: var(--navy) !important; font-weight: 700 !important;
-      text-align: center !important; margin-top: 8px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      position: relative;
     }
 
-    /* ── HERO ── */
-    .hero {
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--cobalt-glow);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* HERO */
+    #hero {
       min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 100px 24px 60px;
-      position: relative; overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0 4rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-grid {
-      position: absolute; inset: 0; opacity: 0.04;
-      background-image:
-        linear-gradient(rgba(0,196,122,1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,196,122,1) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    .hero-glow {
-      position: absolute; top: -100px; right: -100px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,196,122,0.08) 0%, transparent 70%);
+    #hero::after {
+      content: '';
+      position: absolute;
+      right: -10%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60vw;
+      height: 60vw;
+      background: radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 70%);
       pointer-events: none;
     }
 
-    .hero-inner {
-      max-width: 1100px; margin: 0 auto; width: 100%;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    .hero-text { z-index: 1; }
+
+    .hero-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      color: var(--cobalt-glow);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
 
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(0,196,122,0.1);
-      border: 1px solid rgba(0,196,122,0.3);
-      color: var(--emerald);
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 1.5px;
-      padding: 6px 14px; border-radius: 100px;
-      text-transform: uppercase; margin-bottom: 20px;
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--cobalt-glow);
     }
 
-    .hero-name {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(2rem, 5vw, 3.6rem);
-      line-height: 1.05;
-      letter-spacing: -1.5px;
-      margin-bottom: 16px;
+    h1.hero-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
       color: var(--white);
     }
-    .hero-name .accent { color: var(--emerald); }
+
+    h1.hero-name span {
+      color: transparent;
+      -webkit-text-stroke: 1px var(--cobalt-bright);
+    }
 
     .hero-title {
-      font-size: 1.05rem;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
       color: var(--steel);
-      margin-bottom: 28px;
-      line-height: 1.7;
+      text-transform: uppercase;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(to right, var(--cobalt-bright), var(--cobalt-glow));
+      margin: 2rem 0;
+    }
+
+    .hero-bio {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--off-white);
+      max-width: 480px;
       font-weight: 300;
     }
-    .hero-title strong { color: var(--steel-light); font-weight: 500; }
 
-    .hero-actions {
-      display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px;
+    .hero-cta {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
     }
 
     .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--emerald); color: var(--navy);
-      font-weight: 700; font-size: 0.9rem;
-      padding: 13px 28px; border-radius: 8px;
-      text-decoration: none; border: none; cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-primary:hover { background: var(--emerald-dark); transform: translateY(-1px); }
-
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--steel-light);
-      font-weight: 500; font-size: 0.9rem;
-      padding: 13px 24px; border-radius: 8px;
+      background: var(--cobalt-bright);
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
       text-decoration: none;
-      border: 1px solid rgba(200,212,224,0.2);
-      transition: border-color 0.2s, color 0.2s;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
     }
-    .btn-ghost:hover { border-color: var(--emerald); color: var(--emerald); }
 
-    .hero-socials {
-      display: flex; gap: 12px;
+    .btn-primary:hover {
+      background: var(--cobalt-glow);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px rgba(37,99,235,0.4);
     }
-    .social-icon {
-      width: 40px; height: 40px; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--steel); font-size: 1rem;
-      text-decoration: none; transition: 0.2s;
-    }
-    .social-icon:hover { background: rgba(0,196,122,0.1); border-color: var(--emerald); color: var(--emerald); }
 
-    /* HERO CARD */
-    .hero-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 20px;
-      padding: 36px;
-      backdrop-filter: blur(10px);
-      position: relative; overflow: hidden;
+    .btn-outline {
+      color: var(--off-white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: color 0.3s;
     }
-    .hero-card::before {
+
+    .btn-outline:hover { color: var(--accent); }
+
+    .btn-outline::after {
+      content: '→';
+      font-size: 1.2rem;
+    }
+
+    /* HERO IMAGE */
+    .hero-image-wrap {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-frame {
+      position: relative;
+      width: 380px;
+    }
+
+    .hero-frame::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--emerald), var(--navy-light));
+      position: absolute;
+      top: -16px; right: -16px;
+      width: 100%; height: 100%;
+      border: 1px solid var(--cobalt-bright);
+      opacity: 0.3;
     }
 
-    .card-stat {
-      display: flex; align-items: center; gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+    .hero-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: -4px;
+      width: 120px; height: 120px;
+      background: var(--cobalt-bright);
+      opacity: 0.08;
     }
-    .card-stat:last-child { border-bottom: none; }
-    .card-stat-icon {
-      width: 42px; height: 42px; border-radius: 10px;
-      background: rgba(0,196,122,0.1);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--emerald); font-size: 1rem; flex-shrink: 0;
-    }
-    .card-stat-info { flex: 1; }
-    .card-stat-label { font-size: 0.72rem; color: var(--steel); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 3px; }
-    .card-stat-value { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--white); }
 
-    /* ── SECTION COMMONS ── */
-    section { padding: 90px 24px; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-tag {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
-      color: var(--emerald); text-transform: uppercase; margin-bottom: 12px;
+    .hero-frame img {
+      width: 100%;
+      display: block;
+      filter: grayscale(15%) contrast(1.05);
     }
-    .section-title {
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
-      letter-spacing: -0.8px; margin-bottom: 16px; color: var(--white);
-    }
-    .section-sub { color: var(--steel); font-size: 1rem; line-height: 1.7; max-width: 600px; }
 
-    .divider {
+    .hero-tag {
+      position: absolute;
+      bottom: -24px;
+      left: -24px;
+      background: var(--cobalt-bright);
+      padding: 1rem 1.5rem;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* LOCATION BAR */
+    .location-bar {
+      background: var(--carbon-mid);
+      padding: 1rem 4rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--steel);
+      text-transform: uppercase;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .location-bar span:first-child { color: var(--cobalt-glow); }
+
+    /* SECTIONS */
+    section { padding: 6rem 4rem; }
+
+    .section-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.4em;
+      color: var(--cobalt-glow);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 30px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0,196,122,0.2), transparent);
-      margin: 0 auto;
+      background: var(--cobalt-glow);
     }
 
-    /* ── SKILLS ── */
+    h2.section-title {
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 3rem;
+    }
+
+    h2.section-title em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--cobalt-bright);
+    }
+
+    /* ABOUT SECTION */
+    #sobre-mi {
+      background: var(--carbon-mid);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #sobre-mi::before {
+      content: 'INDUSTRIAL';
+      position: absolute;
+      right: -2rem;
+      bottom: -2rem;
+      font-size: 10rem;
+      font-weight: 900;
+      color: rgba(37,99,235,0.03);
+      text-transform: uppercase;
+      letter-spacing: -0.05em;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: var(--off-white);
+      font-weight: 300;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stat-card {
+      background: var(--carbon-mid);
+      padding: 2rem;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .stat-card:hover { background: var(--carbon-light); }
+
+    .stat-number {
+      font-weight: 900;
+      font-size: 2.5rem;
+      color: var(--cobalt-glow);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--steel);
+      text-transform: uppercase;
+    }
+
+    /* EXPERIENCE */
+    #experiencia {
+      background: var(--carbon);
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+    }
+
+    .exp-item:last-child { border-bottom: none; }
+
+    .exp-date {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--cobalt-glow);
+      text-transform: uppercase;
+      padding-top: 0.3rem;
+    }
+
+    .exp-company {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--steel);
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+
+    .exp-role {
+      font-weight: 800;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .exp-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--off-white);
+      font-weight: 300;
+      max-width: 600px;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .exp-tag {
+      padding: 0.35rem 1rem;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid rgba(37,99,235,0.4);
+      color: var(--accent);
+    }
+
+    /* SKILLS */
+    #habilidades {
+      background: var(--carbon-mid);
+    }
+
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px; margin-top: 48px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5px;
+      background: rgba(255,255,255,0.04);
     }
+
     .skill-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 16px; padding: 28px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .skill-card:hover { border-color: rgba(0,196,122,0.3); transform: translateY(-3px); }
-    .skill-card-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      background: rgba(0,196,122,0.1);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--emerald); font-size: 1.3rem; margin-bottom: 16px;
-    }
-    .skill-card h3 {
-      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem;
-      margin-bottom: 8px; color: var(--white);
-    }
-    .skill-card p { font-size: 0.87rem; color: var(--steel); line-height: 1.6; }
-
-    /* ── EXPERIENCE ── */
-    .timeline { margin-top: 48px; position: relative; }
-    .timeline::before {
-      content: ''; position: absolute; left: 19px; top: 0; bottom: 0;
-      width: 2px; background: linear-gradient(to bottom, var(--emerald), transparent);
-    }
-    .timeline-item {
-      padding: 0 0 40px 52px; position: relative;
-    }
-    .timeline-dot {
-      position: absolute; left: 10px; top: 4px;
-      width: 20px; height: 20px; border-radius: 50%;
-      background: var(--navy-mid);
-      border: 2px solid var(--emerald);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .timeline-dot i { font-size: 0.55rem; color: var(--emerald); }
-    .timeline-period {
-      font-size: 0.73rem; font-weight: 700; letter-spacing: 1px;
-      color: var(--emerald); text-transform: uppercase; margin-bottom: 6px;
-    }
-    .timeline-role {
-      font-family: 'Syne', sans-serif; font-weight: 700;
-      font-size: 1.1rem; color: var(--white); margin-bottom: 4px;
-    }
-    .timeline-org {
-      font-size: 0.88rem; color: var(--steel-light); margin-bottom: 10px;
-    }
-    .timeline-desc {
-      font-size: 0.87rem; color: var(--steel); line-height: 1.65;
+      background: var(--carbon-mid);
+      padding: 2.5rem 2rem;
+      transition: all 0.3s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
     }
 
-    /* ── FORMATION ── */
-    .formation-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px; margin-top: 48px;
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--cobalt-bright);
+      transition: width 0.4s;
     }
-    .formation-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 16px; padding: 28px;
-    }
-    .formation-card .badge {
-      display: inline-block; font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 1px; text-transform: uppercase;
-      background: rgba(0,196,122,0.1); color: var(--emerald);
-      padding: 4px 10px; border-radius: 100px; margin-bottom: 14px;
-    }
-    .formation-card h3 {
-      font-family: 'Syne', sans-serif; font-weight: 700;
-      font-size: 1rem; color: var(--white); margin-bottom: 6px;
-    }
-    .formation-card p { font-size: 0.85rem; color: var(--steel); line-height: 1.6; }
 
-    /* ── CONTACT ── */
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
-      margin-top: 48px; align-items: start;
-    }
-    .contact-links { display: flex; flex-direction: column; gap: 14px; }
-    .contact-link {
-      display: flex; align-items: center; gap: 16px;
-      background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 12px; padding: 18px 22px;
-      text-decoration: none; color: var(--white);
-      transition: 0.2s;
-    }
-    .contact-link:hover { border-color: var(--emerald); }
-    .contact-link-icon {
-      width: 44px; height: 44px; border-radius: 10px;
-      background: rgba(0,196,122,0.1);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--emerald); font-size: 1.1rem; flex-shrink: 0;
-    }
-    .contact-link-text { font-size: 0.9rem; color: var(--steel); }
-    .contact-link-label { font-weight: 600; font-size: 0.95rem; color: var(--white); }
+    .skill-card:hover::before { width: 100%; }
+    .skill-card:hover { background: var(--carbon-light); }
 
-    /* ── Q7 CANVAS ── */
-    .q7-hero {
-      min-height: 100vh; padding: 120px 24px 80px;
-      display: flex; align-items: center;
-      background: linear-gradient(135deg, var(--navy) 0%, #071220 100%);
-      position: relative; overflow: hidden;
+    .skill-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
-    .q7-bg-lines {
-      position: absolute; inset: 0; opacity: 0.05;
-      background-image: repeating-linear-gradient(
-        45deg,
-        transparent, transparent 40px,
-        rgba(0,196,122,0.5) 40px, rgba(0,196,122,0.5) 41px
-      );
-    }
-    .q7-glow {
-      position: absolute; bottom: -150px; left: -150px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(0,196,122,0.06) 0%, transparent 65%);
-    }
-    .q7-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
 
-    .q7-logotype {
-      display: flex; align-items: center; gap: 18px; margin-bottom: 36px;
-    }
-    .q7-logo-mark {
-      width: 80px; height: 80px; border-radius: 18px;
-      background: linear-gradient(135deg, var(--emerald), var(--emerald-dark));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: 1.8rem; color: var(--navy);
-      box-shadow: 0 20px 60px rgba(0,196,122,0.3);
-    }
-    .q7-brand { }
-    .q7-brand-name {
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: 2rem; color: var(--white); letter-spacing: -0.5px;
-    }
-    .q7-brand-sub { font-size: 0.85rem; color: var(--steel); margin-top: 2px; }
-
-    .q7-headline {
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      line-height: 1.1; letter-spacing: -1px;
-      color: var(--white); margin-bottom: 20px;
-    }
-    .q7-headline span { color: var(--emerald); }
-    .q7-desc { font-size: 1rem; color: var(--steel); line-height: 1.75; max-width: 680px; margin-bottom: 40px; }
-
-    .q7-metrics {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px;
-    }
-    .q7-metric {
-      background: rgba(0,196,122,0.06);
-      border: 1px solid rgba(0,196,122,0.15);
-      border-radius: 14px; padding: 24px 20px; text-align: center;
-    }
-    .q7-metric i { font-size: 1.5rem; color: var(--emerald); margin-bottom: 12px; display: block; }
-    .q7-metric-value {
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: 1.6rem; color: var(--white); margin-bottom: 4px;
-    }
-    .q7-metric-label { font-size: 0.78rem; color: var(--steel); }
-
-    .q7-services {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 16px; margin-top: 48px;
-    }
-    .q7-service {
-      background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px; padding: 24px;
-      transition: 0.2s;
-    }
-    .q7-service:hover { border-color: rgba(0,196,122,0.25); }
-    .q7-service i { font-size: 1.3rem; color: var(--emerald); margin-bottom: 12px; display: block; }
-    .q7-service h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--white); margin-bottom: 6px; }
-    .q7-service p { font-size: 0.83rem; color: var(--steel); line-height: 1.6; }
-
-    /* ── BACK BUTTON ── */
-    .back-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--steel); font-size: 0.82rem;
-      padding: 8px 16px; border-radius: 8px;
-      cursor: pointer; margin-bottom: 40px;
-      transition: 0.2s; font-family: 'DM Sans', sans-serif;
-    }
-    .back-btn:hover { border-color: var(--emerald); color: var(--emerald); }
-
-    /* ── SUPPLY CHAIN STEPS ── */
-    .chain-step {
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-    }
-    .chain-icon {
-      width: 64px; height: 64px; border-radius: 16px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; color: var(--steel);
-      transition: 0.2s;
-    }
-    .chain-step.active .chain-icon {
-      background: rgba(0,196,122,0.12);
-      border-color: rgba(0,196,122,0.35);
-      color: var(--emerald);
-      box-shadow: 0 0 30px rgba(0,196,122,0.15);
-    }
-    .chain-label { font-size: 0.75rem; color: var(--steel); font-weight: 600; letter-spacing: 0.5px; }
-    .chain-step.active .chain-label { color: var(--emerald); }
-    .chain-arrow { color: rgba(255,255,255,0.15); font-size: 1rem; padding: 0 8px; margin-top: -20px; }
-
-    /* ── PRODUCT CARDS (RECURSOS) ── */
-    .recursos-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
-    }
-    .prod-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 20px; overflow: hidden;
-      transition: transform 0.25s, border-color 0.25s;
-      display: flex; flex-direction: column;
-    }
-    .prod-card:hover { transform: translateY(-5px); border-color: rgba(0,196,122,0.25); }
-    .prod-card-top {
-      padding: 36px 28px 28px;
-      position: relative; min-height: 200px;
-      display: flex; flex-direction: column; justify-content: flex-end;
-    }
-    .prod-badge {
-      position: absolute; top: 20px; right: 20px;
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 1px;
+    .skill-name {
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-      color: var(--steel-light); padding: 4px 10px; border-radius: 100px;
+      margin-bottom: 0.75rem;
     }
-    .prod-icon {
-      width: 56px; height: 56px; border-radius: 14px;
-      background: rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; color: var(--white); margin-bottom: 16px;
-    }
-    .prod-title {
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: 1.1rem; color: var(--white); margin-bottom: 6px; line-height: 1.3;
-    }
-    .prod-subtitle { font-size: 0.82rem; color: rgba(200,212,224,0.7); }
-    .prod-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
-    .prod-desc {
-      font-size: 0.87rem; color: var(--steel); line-height: 1.7; margin-bottom: 20px;
-    }
-    .prod-features {
-      list-style: none; display: flex; flex-direction: column; gap: 8px;
-      margin-bottom: 28px; flex: 1;
-    }
-    .prod-features li {
-      font-size: 0.83rem; color: var(--steel-light);
-      display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
-    }
-    .prod-features li i { color: var(--emerald); font-size: 0.75rem; margin-top: 3px; flex-shrink: 0; }
-    .btn-buy {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      background: #25d366; color: #fff;
-      font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.92rem;
-      padding: 14px 24px; border-radius: 10px;
-      text-decoration: none; transition: background 0.2s, transform 0.15s;
-      border: none; cursor: pointer;
-    }
-    .btn-buy:hover { background: #1db954; transform: translateY(-1px); }
 
-    /* ── FOOTER ── */
-    footer {
-      padding: 40px 24px;
-      border-top: 1px solid rgba(255,255,255,0.06);
+    .skill-desc {
+      font-size: 0.8rem;
+      color: var(--steel);
+      line-height: 1.6;
+    }
+
+    .skill-level {
+      margin-top: 1rem;
+      height: 2px;
+      background: rgba(255,255,255,0.08);
+      position: relative;
+    }
+
+    .skill-bar {
+      height: 100%;
+      background: linear-gradient(to right, var(--cobalt), var(--cobalt-glow));
+      transition: width 1.5s ease;
+    }
+
+    /* EDUCATION */
+    #formacion {
+      background: var(--carbon);
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .edu-card {
+      border: 1px solid rgba(37,99,235,0.2);
+      padding: 2.5rem;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+
+    .edu-card:hover { border-color: var(--cobalt-bright); }
+
+    .edu-badge {
+      position: absolute;
+      top: -1px; right: 2rem;
+      background: var(--cobalt-bright);
+      padding: 0.35rem 1rem;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .edu-institution {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--cobalt-glow);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .edu-degree {
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .edu-detail {
+      font-size: 0.8rem;
+      color: var(--steel);
+    }
+
+    /* Q7 SECTION */
+    #q7-section {
+      background: linear-gradient(135deg, #0f1f4a 0%, #1a1a1a 60%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #q7-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .q7-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .q7-logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .q7-logo-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 3rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .q7-logo-box img {
+      max-width: 220px;
+      width: 100%;
+    }
+
+    .q7-tag {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
       text-align: center;
     }
-    footer p { font-size: 0.82rem; color: var(--steel); }
-    footer a { color: var(--emerald); text-decoration: none; }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
+    .q7-text h3 {
+      font-weight: 900;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      color: var(--cobalt-glow);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
     }
-    .fade-up { animation: fadeUp 0.6s ease forwards; }
-    .delay-1 { animation-delay: 0.1s; opacity: 0; }
-    .delay-2 { animation-delay: 0.2s; opacity: 0; }
-    .delay-3 { animation-delay: 0.35s; opacity: 0; }
-    .delay-4 { animation-delay: 0.5s; opacity: 0; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
+    .q7-text h2 {
+      font-weight: 900;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin-bottom: 2rem;
+    }
+
+    .q7-text p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--off-white);
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .q7-features {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+
+    .q7-features li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--off-white);
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .q7-features li::before {
+      content: '◆';
+      color: var(--cobalt-glow);
+      font-size: 0.5rem;
+    }
+
+    /* CONTACT */
+    #contacto {
+      background: var(--carbon-mid);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--off-white);
+      margin-bottom: 2rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.8rem;
+      color: var(--off-white);
+    }
+
+    .contact-detail-label {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--cobalt-glow);
+      text-transform: uppercase;
+      width: 80px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      padding: 1rem 1.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    form input:focus, form textarea:focus {
+      border-color: var(--cobalt-bright);
+    }
+
+    form input::placeholder, form textarea::placeholder {
+      color: var(--steel);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    form textarea { resize: vertical; min-height: 120px; }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    footer img { height: 32px; }
+
+    .footer-copy {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--steel);
+      text-transform: uppercase;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1.25rem 2rem; }
       .nav-links { display: none; }
-      .hamburger { display: flex; }
-
-      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .hero-card { order: -1; }
-      .hero-name { font-size: 2.2rem; }
-
-      .contact-grid { grid-template-columns: 1fr; }
-      .q7-metrics { grid-template-columns: 1fr 1fr; }
-
-      section { padding: 60px 20px; }
-      .hero { padding: 90px 20px 60px; }
-
-      /* CEO section grid → single column on mobile */
-      #canvas-q7 section > .section-inner > div[style*="grid-template-columns:1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-        gap: 32px !important;
-      }
-
-      /* Chain arrow spacing */
-      .chain-arrow { padding: 0 4px; font-size: 0.75rem; }
-      .chain-icon { width: 50px; height: 50px; font-size: 1.1rem; border-radius: 12px; }
-
-      /* Product cards full width */
-      .recursos-grid { grid-template-columns: 1fr; }
+      section { padding: 4rem 2rem; }
+      #hero { grid-template-columns: 1fr; padding: 8rem 2rem 4rem; gap: 3rem; }
+      .hero-image-wrap { justify-content: center; }
+      .hero-frame { width: 280px; }
+      .about-grid, .edu-grid, .contact-grid, .q7-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .location-bar { padding: 1rem 2rem; flex-wrap: wrap; gap: 1rem; }
     }
 
-    @media (max-width: 480px) {
-      .q7-metrics { grid-template-columns: 1fr; }
-      .q7-logotype { flex-direction: column; align-items: flex-start; }
-      .chain-step { min-width: 54px; }
+    /* ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(30px); }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -608,647 +802,278 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo" onclick="showCanvas('home')">DEIMER DIAZ<span>.</span></div>
+    <div class="nav-logo">
+      <img src="../LOGO_DEIMER_DIAZ_2.jpg" alt="DD Logo" onerror="this.style.display='none'"/>
+    </div>
     <ul class="nav-links">
-      <li><button onclick="showCanvas('home'); scrollTo('#perfil')" class="nav-btn">Perfil</button></li>
-      <li><button onclick="showCanvas('home'); scrollTo('#experiencia')" class="nav-btn">Experiencia</button></li>
-      <li><button onclick="showCanvas('q7')" class="nav-btn">Q7 Logistic</button></li>
-      <li><button onclick="showCanvas('recursos')" class="nav-btn">Recursos</button></li>
-      <li class="nav-cta"><a href="https://wa.me/573148241427" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Contacto </a></li>
+      <li><a href="#sobre-mi">Perfil</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#formacion">Formación</a></li>
+      <li><a href="#q7-section">Q7 Logistic</a></li>
+      <li><a href="#contacto">Contacto</a></li>
     </ul>
-    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <button onclick="showCanvas('home'); scrollTo('#perfil'); closeMenu()">Perfil</button>
-    <button onclick="showCanvas('home'); scrollTo('#experiencia'); closeMenu()">Experiencia</button>
-    <button onclick="showCanvas('q7'); closeMenu()">Q7 Logistic</button>
-    <button onclick="showCanvas('recursos'); closeMenu()">Recursos</button>
-    <a href="https://wa.me/573148241427" target="_blank" rel="noopener" class="m-cta" onclick="closeMenu()"><i class="fab fa-whatsapp"></i> Contactar por WhatsApp</a>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-text reveal">
+      <div class="hero-eyebrow">Portafolio Profesional</div>
+      <h1 class="hero-name">
+        Deimer<br/>
+        <span>Díaz</span><br/>
+        Berrio
+      </h1>
+      <p class="hero-title">Supervisor de Producción · CEO Q7 Logistic S.A.S.</p>
+      <div class="hero-divider"></div>
+      <p class="hero-bio">
+        Especialista en Supervisión de Producción y Gestión de Operaciones industriales en Barranquilla, Colombia. Futuro Ingeniero Industrial comprometido con la excelencia operativa.
+      </p>
+      <div class="hero-cta">
+        <a href="#q7-section" class="btn-primary">Explorar Q7 Logistic</a>
+        <a href="#sobre-mi" class="btn-outline">Ver Perfil</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap reveal">
+      <div class="hero-frame">
+        <img src="../Imagen_deimer_CV.jpg" alt="Deimer Díaz Berrio"/>
+        <div class="hero-tag">Barranquilla, Colombia</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION BAR -->
+  <div class="location-bar">
+    <span>✦ Disponible</span>
+    <span>Barranquilla, Colombia</span>
+    <span>Sector Industrial</span>
+    <span>Ing. Industrial — 3er Semestre · CUN</span>
   </div>
 
-  <!-- ═══════════════════════════════════
-       CANVAS: HOME
-  ════════════════════════════════════ -->
-  <div class="canvas active" id="canvas-home">
-
-    <!-- HERO -->
-    <section class="hero" id="perfil">
-      <div class="hero-grid"></div>
-      <div class="hero-glow"></div>
-      <div class="hero-inner">
-        <div class="hero-text">
-          <div class="hero-badge fade-up"><i class="fas fa-map-marker-alt"></i> Barranquilla, Colombia</div>
-          <h1 class="hero-name fade-up delay-1">DEIMER<br/>DUVÁN <span class="accent">DÍAZ</span><br/>BERRIO</h1>
-          <p class="hero-title fade-up delay-2">
-            <strong>Supervisor de Operaciones</strong> con más de 2 años liderando equipos y procesos operativos.<br/>
-            CEO de Q7 Logistic S.A.S. · Ingeniero Industrial en formación.
-          </p>
-          <div class="hero-actions fade-up delay-3">
-            <button class="btn-primary" onclick="showCanvas('q7')"><i class="fas fa-building"></i> Ver Q7 Logistic</button>
-            <a href="https://wa.me/573148241427" class="btn-ghost" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-          </div>
-          <div class="hero-socials fade-up delay-4">
-            <a class="social-icon" href="https://www.linkedin.com/in/deimer-duvan-diaz-berrio-4ab0101b8" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a class="social-icon" href="https://www.instagram.com/duvan_diaz91" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a class="social-icon" href="https://wa.me/573148241427" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          </div>
-        </div>
-
-        <div class="hero-card fade-up delay-2">
-          <div class="card-stat">
-            <div class="card-stat-icon"><i class="fas fa-briefcase"></i></div>
-            <div class="card-stat-info">
-              <div class="card-stat-label">Perfil</div>
-              <div class="card-stat-value">Supervisor de Operaciones</div>
-            </div>
-          </div>
-          <div class="card-stat">
-            <div class="card-stat-icon"><i class="fas fa-crown"></i></div>
-            <div class="card-stat-info">
-              <div class="card-stat-label">Rol Empresarial</div>
-              <div class="card-stat-value">CEO — Q7 Logistic S.A.S.</div>
-            </div>
-          </div>
-          <div class="card-stat">
-            <div class="card-stat-icon"><i class="fas fa-graduation-cap"></i></div>
-            <div class="card-stat-info">
-              <div class="card-stat-label">Formación</div>
-              <div class="card-stat-value">Ing. Industrial · 3er Semestre</div>
-            </div>
-          </div>
-          <div class="card-stat">
-            <div class="card-stat-icon"><i class="fas fa-university"></i></div>
-            <div class="card-stat-info">
-              <div class="card-stat-label">Institución</div>
-              <div class="card-stat-value">CUN - U. de Cartagena</div>
-            </div>
-          </div>
-          <div class="card-stat">
-            <div class="card-stat-icon"><i class="fas fa-globe"></i></div>
-            <div class="card-stat-info">
-              <div class="card-stat-label">Pagina web</div>
-              <div class="card-stat-value">www.deimerdiaz.com.co</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- SKILLS -->
-    <section id="habilidades">
-      <div class="section-inner">
-        <p class="section-tag"><i class="fas fa-bolt"></i> Especialidades</p>
-        <h2 class="section-title">COMPETENCIAS TECNICAS</h2>
-        <p class="section-sub">Áreas de dominio aplicadas a la gestión empresarial y la mejora continua de operaciones.</p>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <div class="skill-card-icon"><i class="fas fa-robot"></i></div>
-            <h3>Inteligencia Artificial Aplicada</h3>
-            <p>Implementación de herramientas de IA para optimizar la productividad empresarial y automatizar procesos de gestión y análisis.</p>
-          </div>
-          <div class="skill-card">
-            <div class="skill-card-icon"><i class="fas fa-table"></i></div>
-            <h3>Excel Corporativo Avanzado</h3>
-            <p>Desarrollo de dashboards, modelos de análisis y reportes automatizados para la toma de decisiones estratégicas.</p>
-          </div>
-          <div class="skill-card">
-            <div class="skill-card-icon"><i class="fas fa-chart-line"></i></div>
-            <h3>Gestión de KPIs</h3>
-            <p>Diseño, medición y seguimiento de indicadores clave de rendimiento para el control operativo y la mejora continua.</p>
-          </div>
-          <div class="skill-card">
-            <div class="skill-card-icon"><i class="fas fa-users-gear"></i></div>
-            <h3>Liderazgo de Equipos</h3>
-            <p>Más de 2 años liderando equipos operativos, coordinando tareas y garantizando el cumplimiento de objetivos estratégicos.</p>
-          </div>
-          <div class="skill-card">
-            <div class="skill-card-icon"><i class="fas fa-truck-fast"></i></div>
-            <h3>Gestión Logística</h3>
-            <p>Supervisión de procesos de distribución, cadena de suministro y coordinación operativa a través de Q7 Logistic S.A.S.</p>
-          </div>
-          <div class="skill-card">
-            <div class="skill-card-icon"><i class="fas fa-industry"></i></div>
-            <h3>Ingeniería Industrial</h3>
-            <p>Formación académica activa en CUN con fundamentación técnica en informática de la Universidad de Cartagena.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- EXPERIENCE -->
-    <section id="experiencia">
-      <div class="section-inner">
-        <p class="section-tag"><i class="fas fa-road"></i> Trayectoria</p>
-        <h2 class="section-title">Experiencia Profesional</h2>
-        <p class="section-sub">Un recorrido construido sobre operaciones, liderazgo y visión empresarial.</p>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"><i class="fas fa-circle"></i></div>
-            <div class="timeline-period">Actual</div>
-            <div class="timeline-role">CEO — Fundador</div>
-            <div class="timeline-org">Q7 Logistic S.A.S. · Barranquilla, Colombia</div>
-            <div class="timeline-desc">Co-fundador y director estratégico de Q7 Logistic S.A.S., empresa de soluciones logísticas. Responsable de la visión empresarial, gestión de operaciones y desarrollo comercial.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"><i class="fas fa-circle"></i></div>
-            <div class="timeline-period">+2 Años de Experiencia</div>
-            <div class="timeline-role">Supervisor de Operaciones</div>
-            <div class="timeline-org">Sector Operaciones · Barranquilla, Colombia</div>
-            <div class="timeline-desc">Más de 2 años liderando equipos y procesos operativos. Gestión de KPIs, seguimiento de rendimiento y coordinación de equipos para el cumplimiento de objetivos organizacionales.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"><i class="fas fa-circle"></i></div>
-            <div class="timeline-period">En Curso</div>
-            <div class="timeline-role">Estudiante de Ingeniería Industrial</div>
-            <div class="timeline-org">CUN — Corporación Unificada Nacional · 3er Semestre</div>
-            <div class="timeline-desc">Formación académica en Ingeniería Industrial, con fundamentación técnica en informática de la Universidad de Cartagena. Integración de conocimientos teóricos con la práctica empresarial activa.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- FORMACIÓN -->
-    <section>
-      <div class="section-inner">
-        <p class="section-tag"><i class="fas fa-book-open"></i> Educación</p>
-        <h2 class="section-title">FORMACION ACADEMICA</h2>
-        <div class="formation-grid">
-          <div class="formation-card">
-            <span class="badge">En Curso</span>
-            <h3>Ingeniería Industrial</h3>
-            <p>CUN — Corporación Unificada Nacional<br/>3er Semestre activo · Barranquilla, Colombia</p>
-          </div>
-          <div class="formation-card">
-            <span class="badge">Formación Técnica</span>
-            <h3>Fundamentos de Informática</h3>
-            <p>Universidad de Cartagena<br/>Fundamentación técnica aplicada a sistemas y entornos digitales corporativos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- CONTACT -->
-    <section id="contacto">
-      <div class="section-inner">
-        <p class="section-tag"><i class="fas fa-paper-plane"></i> Contacto</p>
-        <h2 class="section-title">HABLEMOS</h2>
-        <p class="section-sub">¿Tienes un proyecto, una oportunidad o quieres conectar? Estoy disponible a través de los siguientes canales.</p>
-        <div class="contact-grid">
-          <div class="contact-links">
-            <a class="contact-link" href="https://wa.me/573148241427" target="_blank" rel="noopener">
-              <div class="contact-link-icon"><i class="fab fa-whatsapp"></i></div>
-              <div>
-                <div class="contact-link-label">WhatsApp</div>
-                <div class="contact-link-text">+57 314 824 1427 · Respuesta rápida</div>
-              </div>
-            </a>
-            <a class="contact-link" href="https://www.linkedin.com/in/deimer-duvan-diaz-berrio-4ab0101b8" target="_blank" rel="noopener">
-              <div class="contact-link-icon"><i class="fab fa-linkedin-in"></i></div>
-              <div>
-                <div class="contact-link-label">LinkedIn</div>
-                <div class="contact-link-text">Deimer Duván Díaz Berrio</div>
-              </div>
-            </a>
-            <a class="contact-link" href="https://www.instagram.com/duvan_diaz91" target="_blank" rel="noopener">
-              <div class="contact-link-icon"><i class="fab fa-instagram"></i></div>
-              <div>
-                <div class="contact-link-label">Instagram</div>
-                <div class="contact-link-text">@duvan_diaz91</div>
-              </div>
-            </a>
-            <div class="contact-link" style="cursor:default">
-              <div class="contact-link-icon"><i class="fas fa-globe"></i></div>
-              <div>
-                <div class="contact-link-label">Sitio Web</div>
-                <div class="contact-link-text">www.deimerdiaz.com.co</div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div style="background:var(--card-bg);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:36px;">
-              <p class="section-tag" style="margin-bottom:16px;"><i class="fas fa-building"></i> Empresa</p>
-              <h3 style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:var(--white);margin-bottom:10px;">Q7 Logistic S.A.S.</h3>
-              <p style="font-size:0.87rem;color:var(--steel);line-height:1.7;margin-bottom:20px;">Soluciones logísticas integrales para empresas. Para consultas corporativas y alianzas estratégicas, contáctame directamente.</p>
-              <button class="btn-primary" onclick="showCanvas('q7')" style="width:100%;justify-content:center;">
-                <i class="fas fa-arrow-right"></i> Conocer Q7 Logistic
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>© 2026 Deimer Duván Díaz Berrio · <a href="https://wa.me/573148241427" target="_blank" rel="noopener">Contáctame</a> · <a href="http://www.deimerdiaz.com.co" target="_blank" rel="noopener">www.deimerdiaz.com.co</a></p>
-    </footer>
-  </div>
-
-  <!-- ═══════════════════════════════════
-       CANVAS: Q7 LOGISTIC
-  ════════════════════════════════════ -->
-  <div class="canvas" id="canvas-q7">
-
-    <!-- Q7 HERO BANNER -->
-    <div class="q7-hero">
-      <div class="q7-bg-lines"></div>
-      <div class="q7-glow"></div>
-      <div class="q7-inner">
-
-        <button class="back-btn" onclick="showCanvas('home')">
-          <i class="fas fa-arrow-left"></i> Volver al Perfil
-        </button>
-
-        <!-- LOGOTYPE -->
-        <div class="q7-logotype">
-          <div class="q7-logo-mark">Q7</div>
-          <div class="q7-brand">
-            <div class="q7-brand-name">Q7 Logistic S.A.S.</div>
-            <div class="q7-brand-sub">Soluciones Logísticas Integrales · Barranquilla, Colombia</div>
-          </div>
-        </div>
-
-        <h1 class="q7-headline">
-          Liderazgo operativo que <span>conecta</span><br/>cada eslabón de la cadena.
-        </h1>
-        <p class="q7-desc">
-          Bajo la dirección del CEO <strong style="color:var(--steel-light)">Deimer Duván Díaz Berrio</strong>, Q7 Logistic S.A.S. integra visión estratégica, liderazgo de equipos y capacidad operativa para ofrecer soluciones logísticas integrales. Una empresa construida sobre más de 2 años de experiencia supervisando operaciones reales.
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi">
+    <div class="section-label">Perfil Profesional</div>
+    <h2 class="section-title">Quién <em>Soy</em></h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          Especialista en Supervisión de Producción y Gestión de Operaciones en el sector industrial de Barranquilla. Con una sólida trayectoria liderando procesos en <strong style="color:var(--white)">C.I. Unipack Colombia</strong>, mi enfoque se centra en la mejora continua, el cumplimiento de metas de producción y el análisis avanzado de KPIs mediante herramientas como Excel y Power BI.
         </p>
-
-        <!-- METRICS -->
-        <div class="q7-metrics">
-          <div class="q7-metric">
-            <i class="fas fa-ship"></i>
-            <div class="q7-metric-value">Integral</div>
-            <div class="q7-metric-label">Visión de Cadena de Suministro</div>
-          </div>
-          <div class="q7-metric">
-            <i class="fas fa-users-gear"></i>
-            <div class="q7-metric-value">+2 años</div>
-            <div class="q7-metric-label">Experiencia Operativa del CEO</div>
-          </div>
-          <div class="q7-metric">
-            <i class="fas fa-chart-line"></i>
-            <div class="q7-metric-value">KPI-First</div>
-            <div class="q7-metric-label">Decisiones Basadas en Datos</div>
-          </div>
+        <br/>
+        <p>
+          Como futuro Ingeniero Industrial, integro la eficiencia técnica con el liderazgo estratégico para optimizar la cadena de suministro y reducir desperdicios operativos, generando impacto real en los resultados del negocio.
+        </p>
+      </div>
+      <div class="stats-grid reveal">
+        <div class="stat-card">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Años en Supervisión</div>
         </div>
+        <div class="stat-card">
+          <div class="stat-number">4PL</div>
+          <div class="stat-label">Modelo Operativo Q7</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">KPI</div>
+          <div class="stat-label">Análisis de Indicadores</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Mejora Continua</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div style="display:flex;flex-wrap:wrap;gap:14px;">
-          <a class="btn-primary" href="https://wa.me/573148241427?text=Hola%20Deimer%2C%20me%20interesa%20conocer%20más%20sobre%20Q7%20Logistic%20S.A.S." target="_blank" rel="noopener">
-            <i class="fab fa-whatsapp"></i> Contactar al CEO
-          </a>
-          <a class="btn-ghost" href="https://www.linkedin.com/in/deimer-duvan-diaz-berrio-4ab0101b8" target="_blank" rel="noopener">
-            <i class="fab fa-linkedin-in"></i> LinkedIn
-          </a>
+  <!-- EXPERIENCIA -->
+  <section id="experiencia">
+    <div class="section-label">Trayectoria</div>
+    <h2 class="section-title"><em>Experiencia</em> Laboral</h2>
+
+    <div class="exp-item reveal">
+      <div>
+        <div class="exp-date">2022 — Presente</div>
+        <div class="exp-company">C.I. Unipack Colombia</div>
+      </div>
+      <div>
+        <div class="exp-role">Supervisor de Producción</div>
+        <div class="exp-desc">
+          Liderazgo integral de líneas de producción con enfoque en el análisis de tiempos productivos, coordinación de mantenimiento preventivo y correctivo, y monitoreo constante de indicadores de eficiencia. Responsable del cumplimiento de metas diarias, gestión del equipo de planta y reporte de KPIs a gerencia operativa.
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Tiempos Productivos</span>
+          <span class="exp-tag">KPIs</span>
+          <span class="exp-tag">Mantenimiento</span>
+          <span class="exp-tag">Liderazgo de Equipos</span>
+          <span class="exp-tag">Power BI</span>
         </div>
       </div>
     </div>
 
-    <!-- CEO SECTION -->
-    <section style="background:var(--navy-mid);padding:80px 24px;">
-      <div class="section-inner">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
-          <div>
-            <p class="section-tag"><i class="fas fa-crown"></i> Liderazgo</p>
-            <h2 class="section-title">El CEO detrás<br/>de la operación</h2>
-            <p style="color:var(--steel);font-size:0.97rem;line-height:1.8;margin-bottom:24px;">
-              Deimer Duván Díaz Berrio no solo fundó Q7 Logistic S.A.S. — la opera. Con más de 2 años liderando equipos y procesos en el sector operativo, su enfoque combina supervisión directa, lectura de indicadores y toma de decisiones estratégicas basadas en datos reales.
-            </p>
-            <p style="color:var(--steel);font-size:0.97rem;line-height:1.8;margin-bottom:32px;">
-              Su formación en Ingeniería Industrial (CUN, 3er semestre) y fundamentación técnica en informática (Universidad de Cartagena) complementan una visión integral: eficiencia operativa con soporte tecnológico y analítico.
-            </p>
-            <div style="display:flex;flex-wrap:wrap;gap:10px;">
-              <div style="background:rgba(0,196,122,0.08);border:1px solid rgba(0,196,122,0.2);border-radius:8px;padding:10px 16px;font-size:0.82rem;color:var(--emerald);font-weight:600;"><i class="fas fa-map-marker-alt" style="margin-right:6px;"></i>Barranquilla, Colombia</div>
-              <div style="background:rgba(0,196,122,0.08);border:1px solid rgba(0,196,122,0.2);border-radius:8px;padding:10px 16px;font-size:0.82rem;color:var(--emerald);font-weight:600;"><i class="fas fa-graduation-cap" style="margin-right:6px;"></i>Ing. Industrial · CUN</div>
-              <div style="background:rgba(0,196,122,0.08);border:1px solid rgba(0,196,122,0.2);border-radius:8px;padding:10px 16px;font-size:0.82rem;color:var(--emerald);font-weight:600;"><i class="fas fa-robot" style="margin-right:6px;"></i>IA · Excel · KPIs</div>
-            </div>
-          </div>
-          <div>
-            <div style="background:var(--card-bg);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:36px;position:relative;overflow:hidden;">
-              <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--emerald),transparent);"></div>
-              <div style="font-family:'Syne',sans-serif;font-size:2.8rem;color:rgba(0,196,122,0.15);font-weight:800;position:absolute;top:16px;right:24px;">"</div>
-              <p style="font-size:1rem;color:var(--steel-light);line-height:1.8;font-style:italic;margin-bottom:24px;">
-                "Mi visión es que cada operación logística sea medible, escalable y ejecutada con liderazgo real. No me limito a coordinar — superviso, analizo y decido."
-              </p>
-              <div style="display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.07);">
-                <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--emerald),var(--emerald-dark));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:0.95rem;color:var(--navy);">DD</div>
-                <div>
-                  <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;color:var(--white);">Deimer Duván Díaz Berrio</div>
-                  <div style="font-size:0.78rem;color:var(--steel);">CEO · Q7 Logistic S.A.S.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="exp-item reveal">
+      <div>
+        <div class="exp-date">2023 — Presente</div>
+        <div class="exp-company">Q7 Logistic S.A.S.</div>
+      </div>
+      <div>
+        <div class="exp-role">CEO & Fundador</div>
+        <div class="exp-desc">
+          Diseño y operación de una operadora logística 4PL con modelo Asset-Light, aplicando principios de ingeniería industrial para maximizar la rentabilidad logística de clientes en el Caribe colombiano. Gestión estratégica, desarrollo comercial y diseño de procesos operativos.
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Logística 4PL</span>
+          <span class="exp-tag">Estrategia</span>
+          <span class="exp-tag">Cadena de Suministro</span>
+          <span class="exp-tag">Operaciones</span>
         </div>
       </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- CAPACIDADES DE LIDERAZGO -->
-    <section style="padding:80px 24px;">
-      <div class="section-inner">
-        <p class="section-tag"><i class="fas fa-route"></i> Capacidades</p>
-        <h2 class="section-title">LIDERAZGO OPERATIVO INTEGRAL</h2>
-        <p class="section-sub" style="margin-bottom:48px;">Las capacidades de Q7 Logistic no son promesas de catálogo — emergen de la experiencia directa en operaciones.</p>
-
-        <div class="q7-services">
-          <div class="q7-service">
-            <i class="fas fa-ship"></i>
-            <h4>Visión de Cadena de Suministro</h4>
-            <p>Comprensión integral del flujo logístico: desde el origen hasta la entrega final, con enfoque en continuidad y eficiencia en cada punto de la cadena.</p>
-          </div>
-          <div class="q7-service">
-            <i class="fas fa-truck-moving"></i>
-            <h4>Supervisión de Distribución</h4>
-            <p>Liderazgo directo sobre operaciones de distribución, garantizando el cumplimiento de tiempos, rutas y estándares operativos con equipos reales.</p>
-          </div>
-          <div class="q7-service">
-            <i class="fas fa-boxes-stacked"></i>
-            <h4>Gestión de Procesos Logísticos</h4>
-            <p>Diseño y supervisión de procesos operativos orientados a la reducción de cuellos de botella y la mejora continua del flujo de trabajo.</p>
-          </div>
-          <div class="q7-service">
-            <i class="fas fa-people-group"></i>
-            <h4>Liderazgo de Equipos Operativos</h4>
-            <p>Más de 2 años dirigiendo equipos en entornos de alta exigencia operativa, con foco en resultados, disciplina y cumplimiento de metas.</p>
-          </div>
-          <div class="q7-service">
-            <i class="fas fa-gauge-high"></i>
-            <h4>Control por Indicadores</h4>
-            <p>Implementación y seguimiento de KPIs logísticos para tomar decisiones basadas en datos, no en suposiciones. Medición constante del desempeño.</p>
-          </div>
-          <div class="q7-service">
-            <i class="fas fa-network-wired"></i>
-            <h4>Coordinación de Red Operativa</h4>
-            <p>Articulación de actores, recursos y procesos en una red operativa cohesionada, orientada a la entrega de resultados confiables y sostenibles.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- SUPPLY CHAIN VISUAL -->
-    <section style="padding:80px 24px;background:var(--navy-mid);">
-      <div class="section-inner">
-        <p class="section-tag" style="text-align:center;justify-content:center;display:flex;gap:6px;"><i class="fas fa-infinity"></i> Flujo Operativo</p>
-        <h2 class="section-title" style="text-align:center;margin-bottom:48px;">La cadena que lideramos</h2>
-        <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;">
-          <!-- Step 1 -->
-          <div class="chain-step">
-            <div class="chain-icon"><i class="fas fa-industry"></i></div>
-            <div class="chain-label">Origen</div>
-          </div>
-          <div class="chain-arrow"><i class="fas fa-chevron-right"></i></div>
-          <!-- Step 2 -->
-          <div class="chain-step">
-            <div class="chain-icon"><i class="fas fa-boxes-stacked"></i></div>
-            <div class="chain-label">Almacén</div>
-          </div>
-          <div class="chain-arrow"><i class="fas fa-chevron-right"></i></div>
-          <!-- Step 3 -->
-          <div class="chain-step active">
-            <div class="chain-icon"><i class="fas fa-people-group"></i></div>
-            <div class="chain-label">Supervisión</div>
-          </div>
-          <div class="chain-arrow"><i class="fas fa-chevron-right"></i></div>
-          <!-- Step 4 -->
-          <div class="chain-step">
-            <div class="chain-icon"><i class="fas fa-truck-fast"></i></div>
-            <div class="chain-label">Distribución</div>
-          </div>
-          <div class="chain-arrow"><i class="fas fa-chevron-right"></i></div>
-          <!-- Step 5 -->
-          <div class="chain-step">
-            <div class="chain-icon"><i class="fas fa-handshake"></i></div>
-            <div class="chain-label">Entrega</div>
-          </div>
-        </div>
-        <p style="text-align:center;color:var(--steel);font-size:0.87rem;margin-top:28px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7;">
-          Q7 Logistic actúa con mayor presencia en la supervisión y coordinación — el nodo donde el liderazgo humano marca la diferencia entre una operación mediocre y una excelente.
-        </p>
-      </div>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section style="padding:80px 24px;">
-      <div class="section-inner">
-        <div style="background:linear-gradient(135deg,rgba(0,196,122,0.08),rgba(26,53,96,0.4));border:1px solid rgba(0,196,122,0.2);border-radius:24px;padding:60px 48px;text-align:center;">
-          <i class="fas fa-ship" style="font-size:2.5rem;color:var(--emerald);margin-bottom:20px;display:block;"></i>
-          <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--white);margin-bottom:14px;">¿Tu operación necesita dirección?</h2>
-          <p style="color:var(--steel);font-size:0.97rem;line-height:1.75;max-width:560px;margin:0 auto 32px;">
-            Contacta directamente al CEO de Q7 Logistic S.A.S. para explorar cómo el liderazgo operativo puede transformar tu cadena de valor.
-          </p>
-          <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
-            <a class="btn-primary" href="https://wa.me/573148241427?text=Hola%20Deimer%2C%20quiero%20hablar%20sobre%20soluciones%20logísticas%20con%20Q7%20Logistic." target="_blank" rel="noopener">
-              <i class="fab fa-whatsapp"></i> Hablar con el CEO
-            </a>
-            <a class="btn-ghost" href="https://www.linkedin.com/in/deimer-duvan-diaz-berrio-4ab0101b8" target="_blank" rel="noopener">
-              <i class="fab fa-linkedin-in"></i> LinkedIn
-            </a>
-            <a class="btn-ghost" href="https://www.instagram.com/duvan_diaz91" target="_blank" rel="noopener">
-              <i class="fab fa-instagram"></i> Instagram
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>© 2024 Q7 Logistic S.A.S. · CEO: Deimer Duván Díaz Berrio · <a href="https://wa.me/573148241427" target="_blank" rel="noopener">Contacto</a> · <a href="http://www.deimerdiaz.com.co" target="_blank" rel="noopener">www.deimerdiaz.com.co</a></p>
-    </footer>
-  </div>
-
-  <!-- ═══════════════════════════════════
-       CANVAS: RECURSOS
-  ════════════════════════════════════ -->
-  <div class="canvas" id="canvas-recursos">
-
-    <div style="padding:120px 24px 80px;max-width:1100px;margin:0 auto;">
-
-      <button class="back-btn" onclick="showCanvas('home')">
-        <i class="fas fa-arrow-left"></i> Volver al Perfil
-      </button>
-
-      <!-- HEADER -->
-      <div style="text-align:center;margin-bottom:64px;">
-        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,196,122,0.08);border:1px solid rgba(0,196,122,0.25);color:var(--emerald);font-size:0.73rem;font-weight:700;padding:6px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px;">
-          <i class="fas fa-file-pdf"></i> Guías Digitales · PDF
-        </div>
-        <h1 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);color:var(--white);letter-spacing:-1px;margin-bottom:14px;">Recursos & Guías Técnicas</h1>
-        <p style="color:var(--steel);font-size:1rem;line-height:1.75;max-width:580px;margin:0 auto;">
-          Guías prácticas en PDF creadas desde la experiencia real en operaciones empresariales. Conocimiento aplicado para supervisores, líderes y profesionales en formación.
-        </p>
-      </div>
-
-      <!-- PRODUCT GRID -->
-      <div class="recursos-grid">
-
-        <!-- PRODUCTO 1: EXCEL -->
-        <div class="prod-card">
-          <div class="prod-card-top" style="background:linear-gradient(135deg,#0f3460,#1a3560);">
-            <div class="prod-badge">Guía PDF</div>
-            <div class="prod-icon"><i class="fas fa-table"></i></div>
-            <h3 class="prod-title">Guía de Excel para Supervisores</h3>
-            <p class="prod-subtitle">Domina Excel como herramienta de gestión real</p>
-          </div>
-          <div class="prod-body">
-            <p class="prod-desc">
-              Una guía construida desde la práctica operativa real. Aprende a organizar datos, crear tableros de seguimiento, gestionar reportes y tomar decisiones más rápidas con Excel como tu aliado diario en la supervisión.
-            </p>
-            <ul class="prod-features">
-              <li><i class="fas fa-check-circle"></i> Tablas y fórmulas para control operativo</li>
-              <li><i class="fas fa-check-circle"></i> Dashboards de seguimiento de KPIs</li>
-              <li><i class="fas fa-check-circle"></i> Automatización de reportes frecuentes</li>
-              <li><i class="fas fa-check-circle"></i> Aplicación directa en entornos de supervisión</li>
-            </ul>
-            <a class="btn-buy"
-               href="https://wa.me/573148241427?text=Hola%20Deimer%2C%20estoy%20interesado%20en%20comprar%20la%20Guía%20de%20Excel%20para%20Supervisores.%20¿Puedes%20darme%20más%20información%3F"
-               target="_blank" rel="noopener">
-              <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
-            </a>
-          </div>
-        </div>
-
-        <!-- PRODUCTO 2: IA -->
-        <div class="prod-card">
-          <div class="prod-card-top" style="background:linear-gradient(135deg,#071a10,#0d3020);">
-            <div class="prod-badge" style="background:rgba(0,196,122,0.2);border-color:rgba(0,196,122,0.4);color:var(--emerald);">Guía PDF</div>
-            <div class="prod-icon" style="background:rgba(0,196,122,0.15);color:var(--emerald);"><i class="fas fa-robot"></i></div>
-            <h3 class="prod-title">IA en la Operación Logística</h3>
-            <p class="prod-subtitle">Inteligencia Artificial aplicada a tu trabajo diario</p>
-          </div>
-          <div class="prod-body">
-            <p class="prod-desc">
-              Una introducción práctica al uso de herramientas de Inteligencia Artificial en el entorno logístico y operativo. Diseñada para supervisores y líderes que quieren mejorar su productividad sin necesidad de ser expertos en tecnología.
-            </p>
-            <ul class="prod-features">
-              <li><i class="fas fa-check-circle"></i> Herramientas de IA accesibles para operaciones</li>
-              <li><i class="fas fa-check-circle"></i> Automatización de tareas repetitivas</li>
-              <li><i class="fas fa-check-circle"></i> IA aplicada a comunicación y reportes</li>
-              <li><i class="fas fa-check-circle"></i> Casos de uso reales en logística</li>
-            </ul>
-            <a class="btn-buy"
-               href="https://wa.me/573148241427?text=Hola%20Deimer%2C%20estoy%20interesado%20en%20comprar%20la%20Guía%20de%20IA%20en%20la%20Operación%20Logística.%20¿Puedes%20darme%20más%20información%3F"
-               target="_blank" rel="noopener">
-              <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- COMING SOON TEASER -->
-      <div style="margin-top:32px;background:var(--card-bg);border:1px dashed rgba(0,196,122,0.2);border-radius:20px;padding:36px;text-align:center;">
-        <i class="fas fa-plus-circle" style="font-size:1.8rem;color:rgba(0,196,122,0.4);margin-bottom:14px;display:block;"></i>
-        <h3 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--steel-light);margin-bottom:8px;">Más guías en preparación</h3>
-        <p style="font-size:0.85rem;color:var(--steel);line-height:1.65;">Gestión de KPIs Operativos y más recursos prácticos próximamente. Escríbeme para ser notificado.</p>
-        <a style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:var(--emerald);font-size:0.85rem;font-weight:600;text-decoration:none;" href="https://wa.me/573148241427?text=Hola%20Deimer%2C%20quiero%20que%20me%20avises%20cuando%20salgan%20nuevas%20guías." target="_blank" rel="noopener">
-          <i class="fab fa-whatsapp"></i> Notificarme por WhatsApp
-        </a>
-      </div>
-
-      <!-- SOCIAL STRIP -->
-      <div style="margin-top:60px;padding:36px;background:var(--navy-mid);border:1px solid rgba(255,255,255,0.06);border-radius:20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;">
-        <div>
-          <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--white);margin-bottom:6px;">¿Tienes dudas antes de comprar?</p>
-          <p style="font-size:0.85rem;color:var(--steel);">Escríbeme directamente. Respondo rápido.</p>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:12px;">
-          <a class="social-icon" style="width:auto;padding:0 18px;gap:8px;font-size:0.85rem;font-weight:600;" href="https://wa.me/573148241427" target="_blank" rel="noopener">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-          </a>
-          <a class="social-icon" href="https://www.linkedin.com/in/deimer-duvan-diaz-berrio-4ab0101b8" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a class="social-icon" href="https://www.instagram.com/duvan_diaz91" target="_blank" rel="noopener" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-        </div>
-      </div>
-
     </div>
+  </section>
 
-    <footer>
-      <p>© 2026 Deimer Duván Díaz Berrio · <a href="https://wa.me/573148241427" target="_blank" rel="noopener">Contacto</a> · <a href="http://www.deimerdiaz.com.co" target="_blank" rel="noopener">www.deimerdiaz.com.co</a></p>
-    </footer>
-  </div>
+  <!-- HABILIDADES -->
+  <section id="habilidades">
+    <div class="section-label">Competencias Técnicas</div>
+    <h2 class="section-title">Habilidades <em>Clave</em></h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">⚙️</div>
+        <div class="skill-name">Procesos Industriales</div>
+        <div class="skill-desc">Supervisión y optimización de líneas de producción bajo estándares de calidad y seguridad industrial.</div>
+        <div class="skill-level"><div class="skill-bar" style="width:90%"></div></div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">📊</div>
+        <div class="skill-name">Análisis de Datos</div>
+        <div class="skill-desc">Excel avanzado y Power BI para análisis de KPIs, dashboards operativos y toma de decisiones basada en datos.</div>
+        <div class="skill-level"><div class="skill-bar" style="width:85%"></div></div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">✅</div>
+        <div class="skill-name">Gestión de Calidad</div>
+        <div class="skill-desc">Aplicación de metodologías de mejora continua, control de calidad y reducción de desperdicios operativos.</div>
+        <div class="skill-level"><div class="skill-bar" style="width:88%"></div></div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">💻</div>
+        <div class="skill-name">HTML / CSS / JS</div>
+        <div class="skill-desc">Desarrollo web frontend para soluciones digitales operativas y presentación de informes ejecutivos.</div>
+        <div class="skill-level"><div class="skill-bar" style="width:70%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMACIÓN -->
+  <section id="formacion">
+    <div class="section-label">Educación</div>
+    <h2 class="section-title">Formación <em>Académica</em></h2>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-badge">En Curso</div>
+        <div class="edu-institution">CUN — Corporación Unificada Nacional</div>
+        <div class="edu-degree">Ingeniería Industrial</div>
+        <div class="edu-detail" style="color:var(--steel);margin-top:.5rem;">3er Semestre · Barranquilla, Colombia</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-badge">Completado</div>
+        <div class="edu-institution">Edutin Academy</div>
+        <div class="edu-degree">Diplomado en Productividad y Mejora Continua</div>
+        <div class="edu-detail" style="color:var(--steel);margin-top:.5rem;">Metodologías Lean, Kaizen y Gestión Operativa</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Q7 LOGISTIC SECTION -->
+  <section id="q7-section">
+    <div class="q7-inner">
+      <div class="q7-logo-wrap reveal">
+        <div class="q7-logo-box">
+          <img src="../Logo_final_Q7.png" alt="Q7 Logistic S.A.S."/>
+        </div>
+        <div class="q7-tag">Operadora Logística 4PL · Barranquilla</div>
+      </div>
+      <div class="q7-text reveal">
+        <h3>Empresa Fundada</h3>
+        <h2>CEO &<br/>Fundador</h2>
+        <p>
+          Lidero el diseño y operación de Q7 Logistic S.A.S., una operadora 4PL que aplica principios avanzados de ingeniería para maximizar la rentabilidad logística. Modelo Asset-Light orientado exclusivamente a la optimización de costos para nuestros aliados.
+        </p>
+        <ul class="q7-features">
+          <li>Transporte Nacional Masivo y Semimasivo</li>
+          <li>Almacenamiento Estratégico y Control de Inventarios</li>
+          <li>Operaciones Técnicas bajo Normas de Seguridad</li>
+          <li>Inteligencia Logística basada en KPIs</li>
+        </ul>
+        <a href="./q7logistic/" target="_blank" class="btn-primary">Explorar Q7 Logistic →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="section-label">Contacto</div>
+    <h2 class="section-title">Hablemos de <em>Negocios</em></h2>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>¿Buscas un profesional comprometido con la excelencia operativa? Estoy disponible para nuevas oportunidades en Barranquilla y el Caribe colombiano.</h3>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Ubicación</span>
+          <span>Barranquilla, Colombia</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Sector</span>
+          <span>Industria · Logística · Operaciones</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Empresa</span>
+          <span>Q7 Logistic S.A.S.</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="text" name="nombre" placeholder="Nombre Completo" required/>
+          <input type="email" name="email" placeholder="Correo Electrónico" required/>
+          <input type="text" name="empresa" placeholder="Empresa u Organización"/>
+          <textarea name="mensaje" placeholder="Mensaje o Propuesta" required></textarea>
+          <button type="submit" class="btn-primary" style="width:100%;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;">Enviar Mensaje</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="../LOGO_DEIMER_DIAZ_2.jpg" alt="DD" onerror="this.style.display='none'"/>
+    <div class="footer-copy">© 2025 Deimer Díaz Berrio · Barranquilla, Colombia</div>
+    <div class="footer-copy">Ingeniería Industrial · Q7 Logistic S.A.S.</div>
+  </footer>
 
   <script>
-    // Canvas Router
-    function showCanvas(id) {
-      document.querySelectorAll('.canvas').forEach(c => c.classList.remove('active'));
-      document.getElementById('canvas-' + id).classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      updateNavActive(id);
-    }
-
-    function scrollTo(selector) {
-      setTimeout(() => {
-        const el = document.querySelector(selector);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
-    }
-
-    function updateNavActive(id) {
-      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-    }
-
-    // Mobile menu
-    function toggleMenu() {
-      const ham = document.getElementById('hamburger');
-      const menu = document.getElementById('mobileMenu');
-      ham.classList.toggle('open');
-      menu.classList.toggle('open');
-    }
-    function closeMenu() {
-      document.getElementById('hamburger').classList.remove('open');
-      document.getElementById('mobileMenu').classList.remove('open');
-    }
-
-    // Intersection Observer for fade-up
+    // Simple scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = 'running';
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.animation = 'fadeUp 0.7s ease forwards';
+          observer.unobserve(e.target);
         }
       });
     }, { threshold: 0.1 });
+    reveals.forEach(r => observer.observe(r));
 
-    document.querySelectorAll('.skill-card, .timeline-item, .formation-card, .contact-link, .q7-service, .recurso-card').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      observer.observe(el);
-    });
-
-    const cardObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }, 80);
+    // Animate skill bars on scroll
+    const bars = document.querySelectorAll('.skill-bar');
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const bar = e.target;
+          const width = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => { bar.style.width = width; }, 100);
+          barObserver.unobserve(bar);
         }
       });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.skill-card, .timeline-item, .formation-card, .contact-link, .q7-service, .recurso-card').forEach(el => {
-      cardObserver.observe(el);
-    });
+    }, { threshold: 0.5 });
+    bars.forEach(b => barObserver.observe(b));
   </script>
 </body>
 </html>
