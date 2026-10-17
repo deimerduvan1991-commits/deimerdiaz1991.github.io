@@ -7,25 +7,44 @@
   <meta name="google-site-verification" content="-MLf76ptayFjYFpxwHNuYeU8fvBWL_Xl1p_sMBqcj-I" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- NUEVO: SEO Meta Tags -->
+  <meta name="description" content="Portafolio de Deimer Díaz, Supervisor de Operaciones e Ingeniero Industrial/Sistemas. Servicios de automatización, desarrollo web y optimización de procesos en Barranquilla." />
+  <meta name="keywords" content="Ingeniero Industrial, Desarrollo Web, Automatización Python, Power BI, Supervisor Producción, Barranquilla, Landing Pages" />
+  <meta name="author" content="Deimer Duván Díaz Berrio" />
+  
+  <!-- NUEVO: Open Graph / Redes Sociales (WhatsApp, LinkedIn, Facebook) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://deimerdiaz.com.co/" />
+  <meta property="og:title" content="Deimer Díaz — Supervisor de Operaciones & Automatización" />
+  <meta property="og:description" content="Soluciones tecnológicas a la medida para optimizar tu planta. Desarrollo web, Web Apps y análisis de datos." />
+  <meta property="og:image" content="https://deimerdiaz.com.co/perfil.jpg" />
+  
+  <!-- NUEVO: Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Deimer Díaz — Supervisor de Operaciones & Automatización" />
+  <meta property="twitter:description" content="Soluciones tecnológicas a la medida para optimizar tu planta. Desarrollo web, Web Apps y análisis de datos." />
+  <meta property="twitter:image" content="https://deimerdiaz.com.co/perfil.jpg" />
+
   <title>Deimer Díaz — Supervisor de Operaciones | Ing. Industrial & Sistemas</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* PALETA DE COLORES: HEADER BLANCO Y FONDO GRIS CLARO */
     :root {
-      --bg-header:   #ffffff; /* Blanco puro para camuflar el logo */
-      --bg-body:     #e2e8f0; /* Gris claro principal */
-      --bg-alt:      #cbd5e1; /* Gris un poco más oscuro para secciones alternas */
-      --bg-card:     #ffffff; /* Blanco para que resalten las tarjetas */
-      --border:      #94a3b8; /* Gris medio para bordes */
+      --bg-header:   #ffffff; 
+      --bg-body:     #e2e8f0; 
+      --bg-alt:      #cbd5e1; 
+      --bg-card:     #ffffff; 
+      --border:      #94a3b8; 
       
-      --text-main:   #0f172a; /* Texto oscuro casi negro para leer bien */
+      --text-main:   #0f172a; 
       --text-mid:    #334155; 
       --text-soft:   #475569; 
       
-      --accent:      #2563eb; /* Azul principal */
-      --accent-glow: #1e40af; /* Azul más oscuro para hovers */
+      --accent:      #2563eb; 
+      --accent-glow: #1e40af; 
+      --whatsapp:    #25d366; /* Color oficial de WhatsApp */
     }
 
     html { scroll-behavior: smooth; }
@@ -37,6 +56,34 @@
       overflow-x: hidden;
     }
 
+    /* ── NUEVO: BOTÓN FLOTANTE WHATSAPP ── */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--whatsapp);
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .whatsapp-float:hover {
+      background-color: #128c7e;
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 6px 20px rgba(18, 140, 126, 0.6);
+    }
+    .whatsapp-float svg {
+      width: 35px; height: 35px;
+    }
+
     /* ── NAV (HEADER) ── */
     nav {
       position: fixed;
@@ -46,7 +93,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.25rem 4rem;
-      background: var(--bg-header); /* Fondo blanco */
+      background: var(--bg-header);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -55,7 +102,7 @@
     .nav-logo img { height: 58px; width: auto; transition: opacity 0.25s; }
     .nav-logo img:hover { opacity: 0.8; }
 
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; } /* Reduje el gap por el nuevo enlace */
 
     .nav-links a {
       color: var(--text-mid);
@@ -83,7 +130,7 @@
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      background: var(--bg-body); /* Fondo gris claro */
+      background: var(--bg-body);
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
@@ -129,7 +176,7 @@
       line-height: 0.93;
       text-transform: uppercase;
       letter-spacing: -0.02em;
-      color: var(--text-main); /* Texto oscuro */
+      color: var(--text-main);
     }
 
     h1.hero-name span {
@@ -251,7 +298,7 @@
 
     /* ── LOCATION STRIP ── */
     .location-strip {
-      background: var(--bg-alt); /* Gris un poco más oscuro */
+      background: var(--bg-alt);
       color: var(--text-mid);
       padding: 0.85rem 4rem;
       display: flex;
@@ -310,7 +357,6 @@
       display: inline-block;
     }
 
-    /* EFECTO HOVER TÍTULOS */
     h2.section-title:hover {
       color: var(--accent);
       transform: translateX(5px);
@@ -441,7 +487,7 @@
     }
 
     .skill-card {
-      background: var(--bg-card); /* Blanco */
+      background: var(--bg-card);
       padding: 2.5rem 1.75rem;
       transition: background 0.25s;
       cursor: default;
@@ -545,8 +591,56 @@
     /* ── SERVICIOS ── */
     #servicios { background: var(--bg-body); }
 
+    /* ── NUEVO: PROYECTOS ── */
+    #proyectos { background: var(--bg-alt); }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .project-img {
+      height: 200px;
+      background: var(--bg-body);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-info { padding: 2rem; }
+
+    .project-title {
+      font-weight: 900;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
     /* ── CONTACTO ── */
-    #contacto { background: var(--bg-alt); }
+    #contacto { background: var(--bg-body); }
  
     .contact-grid {
       display: grid;
@@ -581,10 +675,31 @@
     }
 
     .contact-row-val { font-size: 0.85rem; color: var(--text-main); font-weight: 700; }
+    
+    /* NUEVO: Botón WhatsApp en Contacto */
+    .btn-wa-contact {
+      display: inline-block;
+      background: var(--whatsapp);
+      color: #fff;
+      padding: 0.9rem 2.25rem;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+      margin-top: 1rem;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+    .btn-wa-contact:hover {
+      background: #128c7e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+    }
 
     form input, form textarea {
       width: 100%;
-      background: var(--bg-card); /* Blanco */
+      background: var(--bg-card);
       border: 1px solid var(--border);
       color: var(--text-main);
       padding: 0.95rem 1.25rem;
@@ -613,7 +728,7 @@
 
     /* ── FOOTER ── */
     footer {
-      background: var(--text-main); /* Footer oscuro para cerrar la página */
+      background: var(--text-main); 
       padding: 2rem 4rem;
       display: flex;
       justify-content: space-between;
@@ -643,6 +758,10 @@
       .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
       .location-strip { padding: 0.85rem 1.5rem; }
+      
+      /* WhatsApp flotante más pequeño en móvil */
+      .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+      .whatsapp-float svg { width: 25px; height: 25px; }
     }
 
     .reveal { opacity: 0; transform: translateY(28px); }
@@ -650,6 +769,13 @@
   </style>
 </head>
 <body>
+
+  <!-- NUEVO: BOTÓN FLOTANTE DE WHATSAPP -->
+  <a href="https://wa.me/573148241427?text=Hola%20Deimer,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.825.736 5.476 2.025 7.786L.05 31.95l8.375-2.194C10.688 31.236 13.263 32 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333c-2.442 0-4.73-.693-6.68-1.9l-.478-.284-4.97 1.302 1.328-4.843-.31-.493C3.73 21.13 3 18.637 3 16c0-7.18 5.82-13 13-13s13 5.82 13 13-5.82 13-13 13zm6.924-9.567c-.378-.19-2.237-1.104-2.585-1.23-.348-.126-.6-.19-.853.19-.253.38-.977 1.23-1.198 1.483-.22.253-.44.285-.818.095-.378-.19-1.595-.588-3.037-1.875-1.123-1.002-1.877-2.24-2.097-2.618-.22-.38-.024-.585.165-.774.17-.17.378-.44.567-.66.19-.22.253-.38.38-.633.126-.253.063-.475-.032-.665-.095-.19-.853-2.057-1.168-2.817-.308-.74-.622-.64-.853-.65-.22-.01-.474-.01-.726-.01-.253 0-.66.095-1.006.475-.347.38-1.323 1.294-1.323 3.155 0 1.86 1.354 3.658 1.543 3.91.19.253 2.664 4.07 6.45 5.705.9.387 1.603.618 2.15.792.904.288 1.727.247 2.378.15.726-.108 2.237-.914 2.553-1.797.316-.883.316-1.64.22-1.797-.094-.158-.347-.253-.725-.443z"/>
+    </svg>
+  </a>
 
   <!-- NAV -->
   <nav>
@@ -662,6 +788,7 @@
       <li><a href="#habilidades">Habilidades</a></li>
       <li><a href="#formacion">Formación</a></li>
       <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proyectos">Proyectos</a></li> <!-- NUEVO -->
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
@@ -728,7 +855,7 @@
       </div>
       <div>
         <div class="exp-role">Auxiliar de Producción y Logística</div>
-        <div class="exp-desc"> Abastecimiento de líneas de confección y control de flujo de materiales. Alistamiento y distribución de telas, hilos y accesorios para las operarias, manteniendo las estaciones de trabajo activas. Inspección de calidad, detección de desabastecimientos en tiempo real y prevención de cuellos de botella para asegurar el flujo continuo.</div>
+        <div class="exp-desc">Abastecimiento de líneas de confección y control de flujo de materiales. Alistamiento y distribución de telas, hilos y accesorios para las operarias, manteniendo las estaciones de trabajo activas. Inspección de calidad, detección de desabastecimientos en tiempo real y prevención de cuellos de botella para asegurar el flujo continuo.</div>
         <div class="exp-tags">
           <span class="exp-tag">Abastecimiento</span>
           <span class="exp-tag">Control de Calidad</span>
@@ -876,6 +1003,41 @@
     </div>
   </section>
 
+  <!-- NUEVO: PROYECTOS (Portafolio Visual) -->
+  <section id="proyectos">
+    <div class="section-label">Casos de Éxito</div>
+    <h2 class="section-title">Mis <em>Proyectos</em></h2>
+    
+    <div class="projects-grid">
+      <!-- Proyecto 1 -->
+      <div class="project-card reveal">
+        <div class="project-img" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: #fff;">📊</div>
+        <div class="project-info">
+          <div class="project-title">Dashboard de Producción y KPIs</div>
+          <div class="project-desc">Desarrollo de tablero de control en Power BI y Excel para el seguimiento en tiempo real de OEE, mermas y tiempos de parada. Redujo el tiempo de reporte manual en un 80%.</div>
+        </div>
+      </div>
+
+      <!-- Proyecto 2 -->
+      <div class="project-card reveal">
+        <div class="project-img" style="background: linear-gradient(135deg, #0f172a, #334155); color: #fff;">⚙️</div>
+        <div class="project-info">
+          <div class="project-title">Web App de Despacho</div>
+          <div class="project-desc">Sistema web a medida (HTML/JS/Firebase) para el registro de salida de producto terminado en planta. Eliminó el uso de planillas físicas y redujo errores de inventario.</div>
+        </div>
+      </div>
+
+      <!-- Proyecto 3 -->
+      <div class="project-card reveal">
+        <div class="project-img" style="background: linear-gradient(135deg, #1e293b, #0ea5e9); color: #fff;">🤖</div>
+        <div class="project-info">
+          <div class="project-title">Automatización con Python</div>
+          <div class="project-desc">Script en Python para la extracción y consolidación automática de datos de producción desde archivos planos hacia Excel, ahorrando 10 horas semanales de trabajo administrativo.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACTO -->
   <section id="contacto">
     <div class="section-label">Contacto</div>
@@ -895,6 +1057,10 @@
           <span class="contact-row-label">Teléfono</span>
           <span class="contact-row-val">314 824 1427</span>
         </div>
+        
+        <!-- NUEVO: Botón WhatsApp en Contacto -->
+        <a href="https://wa.me/573148241427?text=Hola%20Deimer,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte" class="btn-wa-contact" target="_blank" rel="noopener noreferrer">Escríbeme al WhatsApp</a>
+        
       </div>
       <div class="reveal">
         <form action="https://formspree.io/f/mlgwkeok" method="POST">
