@@ -12,16 +12,17 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :    :root {
-      --white:       #ffffff; /* Fondo de las tarjetas */
-      --gray-light:  #f3f4f6; /* Fondo general de la página */
-      --gray-mid:    #e5e7eb; /* Cuadrícula del fondo */
+    /* NUEVA PALETA DE COLORES: CLEAN TECH */
+    :root {
+      --white:       #ffffff; /* Tarjetas y Nav */
+      --gray-light:  #f3f4f6; /* Fondo de secciones alternas */
+      --gray-mid:    #e5e7eb; /* Cuadrícula de fondo */
       --gray-border: #d1d5db; /* Bordes */
-      --text:        #111827; /* Texto principal casi negro */
+      --text:        #111827; /* Texto principal */
       --text-mid:    #374151;
       --text-soft:   #4b5563;
       --cobalt:      #1e3a8a;
-      --cobalt-mid:  #2563eb;
+      --cobalt-mid:  #2563eb; /* Azul de acento */
       --cobalt-glow: #3b82f6;
     }
 
@@ -45,7 +46,7 @@
       padding: 1.25rem 4rem;
       background: #ffffff;
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(154,180,204,0.3);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
     }
 
     .nav-logo a { display: inline-flex; align-items: center; text-decoration: none; }
@@ -80,7 +81,7 @@
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      background: var(--white);
+      background: var(--gray-light);
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
@@ -94,19 +95,10 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(var(--gray-mid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--gray-mid) 1px, transparent 1px);
+        linear-gradient(var(--gray-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--gray-border) 1px, transparent 1px);
       background-size: 60px 60px;
-      opacity: 0.55;
-      pointer-events: none;
-    }
-
-    #hero::after {
-      content: '';
-      position: absolute;
-      right: 5%; top: 25%;
-      width: 520px; height: 520px;
-      background: radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 70%);
+      opacity: 0.3;
       pointer-events: none;
     }
 
@@ -142,6 +134,7 @@
     h1.hero-name span {
       color: transparent;
       -webkit-text-stroke: 2px var(--cobalt-mid);
+      display: inline-block;
     }
 
     .hero-role {
@@ -163,7 +156,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.2rem;
       line-height: 1.85;
-      color: #000000;
+      color: var(--text);
       font-weight: 600;
       max-width: 460px;
     }
@@ -235,7 +228,7 @@
       top: -14px; right: -14px;
       width: 100%; height: 100%;
       border: 2px solid var(--cobalt-mid);
-      opacity: 0.18;
+      opacity: 0.2;
     }
 
     .hero-frame::after {
@@ -244,10 +237,10 @@
       bottom: 0; left: -8px;
       width: 80px; height: 80px;
       background: var(--cobalt-mid);
-      opacity: 0.07;
+      opacity: 0.1;
     }
 
-    .hero-frame img { width: 100%; display: block; }
+    .hero-frame img { width: 100%; display: block; position: relative; z-index: 2; }
 
     .hero-chip {
       position: absolute;
@@ -259,12 +252,13 @@
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
+      z-index: 3;
     }
 
     /* ── LOCATION STRIP ── */
     .location-strip {
       background: var(--text);
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.7);
       padding: 0.85rem 4rem;
       display: flex;
       align-items: center;
@@ -317,6 +311,7 @@
       color: transparent;
       -webkit-text-stroke: 2px var(--cobalt-mid);
       transition: all 0.3s ease;
+      display: inline-block;
     }
 
     /* EFECTO HOVER TÍTULOS */
@@ -327,6 +322,7 @@
 
     h2.section-title:hover em {
       color: var(--cobalt-mid); 
+      -webkit-text-stroke: 2px var(--cobalt-mid);
     }
 
     h2.section-title::after {
@@ -357,12 +353,12 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.25rem;
       line-height: 1.9;
-      color: #000000;
+      color: var(--text);
       font-weight: 600;
       margin-bottom: 1.5rem;
     }
 
-    .about-text strong { color: var(--text); }
+    .about-text strong { color: var(--cobalt-mid); }
 
     /* ── EXPERIENCIA — gray-light ── */
     #experiencia { background: var(--gray-light); }
@@ -405,18 +401,17 @@
       transition: all 0.3s ease;
     }
 
-    /* EFECTO HOVER CARGOS */
     .exp-role:hover {
       color: var(--cobalt-mid);
       transform: translateX(8px);
-      text-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+      text-shadow: 0 4px 15px rgba(37, 99, 235, 0.15);
     }
 
     .exp-desc {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.1rem;
       line-height: 1.85;
-      color: #000000;
+      color: var(--text);
       font-weight: 600;
       max-width: 600px;
     }
@@ -483,7 +478,7 @@
 
     .skill-desc { 
       font-size: 0.8rem; 
-      color: #000000; 
+      color: var(--text-mid); 
       font-weight: 500; 
       line-height: 1.65; 
     }
@@ -550,12 +545,12 @@
       color: var(--text);
     }
 
-    .edu-detail { font-size: 0.8rem; color: var(--text-soft); font-weight: 600; line-height: 1.5; }
+    .edu-detail { font-size: 0.8rem; color: var(--text-mid); font-weight: 600; line-height: 1.5; }
 
     /* ── SERVICIOS — white ── */
     #servicios { background: var(--white); }
 
-    /* ── CONTACTO — white ── */
+    /* ── CONTACTO — gray-light ── */
     #contacto { background: var(--gray-light); }
  
     .contact-grid {
@@ -569,7 +564,7 @@
       font-size: 1.45rem;
       font-weight: 600;
       line-height: 1.65;
-      color: #000000;
+      color: var(--text);
       margin-bottom: 2rem;
     }
 
@@ -881,7 +876,7 @@
     </div>
 
     <div style="text-align: center; margin-top: 3rem;" class="reveal">
-      <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 1rem;">¿Tienes un proyecto en mente?</p>
+      <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 1rem;">¿Tienes un proyecto en mente?</p>
       <a href="#contacto" class="btn-primary">Cotizar mi proyecto</a>
     </div>
   </section>
