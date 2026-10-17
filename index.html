@@ -25,6 +25,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* PALETA DE COLORES: HEADER BLANCO Y FONDO GRIS CLARO */
     :root {
       --bg-header:   #ffffff; 
       --bg-body:     #e2e8f0; 
@@ -85,7 +86,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.25rem 4rem;
-      background: var(--bg-header);
+      background: var(--bg-header); /* Fondo blanco */
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -119,7 +120,7 @@
     .nav-links a:hover { color: var(--accent); }
     .nav-links a:hover::after { width: 100%; }
 
-    /* NUEVO: Botón menú hamburguesa (oculto en PC) */
+    /* Botón menú hamburguesa (oculto en PC) */
     .menu-btn {
       display: none;
       background: none;
@@ -615,14 +616,21 @@
     }
 
     .project-img {
-      height: 200px;
-      background: var(--bg-body);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      color: var(--accent);
+      height: 220px;
+      width: 100%;
       border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Esto hace que la imagen llene el espacio sin estirarse */
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-img img {
+      transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
     }
 
     .project-info { padding: 2rem; }
@@ -750,10 +758,10 @@
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
       
-      /* NUEVO: Mostrar botón hamburguesa y ocultar menú horizontal */
+      /* Menú hamburguesa */
       .menu-btn { display: block; }
       .nav-links { 
-        display: none; /* Oculto por defecto en celular */
+        display: none; 
         position: absolute;
         top: 100%;
         left: 0;
@@ -765,7 +773,6 @@
         border-bottom: 1px solid var(--border);
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       }
-      /* NUEVO: Clase activa para mostrar el menú */
       .nav-links.active {
         display: flex;
       }
@@ -805,7 +812,6 @@
       <a href="#hero"><img src="favicon.png" alt="DD Logo"/></a>
     </div>
     
-    <!-- NUEVO: Botón para móvil -->
     <button class="menu-btn" id="menu-btn">☰</button>
     
     <ul class="nav-links" id="nav-links">
@@ -1029,7 +1035,7 @@
     </div>
   </section>
 
-  <!-- PROYECTOS (Portafolio Visual) -->
+  <!-- PROYECTOS -->
   <section id="proyectos">
     <div class="section-label">Casos de Éxito</div>
     <h2 class="section-title">Mis <em>Proyectos</em></h2>
@@ -1037,7 +1043,10 @@
     <div class="projects-grid">
       <!-- Proyecto 1 -->
       <div class="project-card reveal">
-        <div class="project-img" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: #fff;">📊</div>
+        <div class="project-img">
+          <!-- La imagen está en la raíz, sin carpeta -->
+          <img src="proyecto1.png" alt="Dashboard de Producción y KPIs">
+        </div>
         <div class="project-info">
           <div class="project-title">Dashboard de Producción y KPIs</div>
           <div class="project-desc">Desarrollo de tablero de control en Power BI y Excel para el seguimiento en tiempo real de OEE, mermas y tiempos de parada. Redujo el tiempo de reporte manual en un 80%.</div>
@@ -1046,7 +1055,10 @@
 
       <!-- Proyecto 2 -->
       <div class="project-card reveal">
-        <div class="project-img" style="background: linear-gradient(135deg, #0f172a, #334155); color: #fff;">⚙️</div>
+        <div class="project-img">
+          <!-- La imagen está en la raíz, sin carpeta -->
+          <img src="proyecto2.png" alt="Web App de Despacho">
+        </div>
         <div class="project-info">
           <div class="project-title">Web App de Despacho</div>
           <div class="project-desc">Sistema web a medida (HTML/JS/Firebase) para el registro de salida de producto terminado en planta. Eliminó el uso de planillas físicas y redujo errores de inventario.</div>
@@ -1055,7 +1067,10 @@
 
       <!-- Proyecto 3 -->
       <div class="project-card reveal">
-        <div class="project-img" style="background: linear-gradient(135deg, #1e293b, #0ea5e9); color: #fff;">🤖</div>
+        <div class="project-img">
+          <!-- La imagen está en la raíz, sin carpeta -->
+          <img src="proyecto3.png" alt="Automatización con Python">
+        </div>
         <div class="project-info">
           <div class="project-title">Automatización con Python</div>
           <div class="project-desc">Script en Python para la extracción y consolidación automática de datos de producción desde archivos planos hacia Excel, ahorrando 10 horas semanales de trabajo administrativo.</div>
@@ -1133,7 +1148,7 @@
     }, { threshold: 0.5 });
     bars.forEach(b => barObs.observe(b));
 
-    // NUEVO: Lógica del menú hamburguesa en móvil
+    // Lógica del menú hamburguesa en móvil
     const menuBtn = document.getElementById('menu-btn');
     const navLinks = document.getElementById('nav-links');
 
@@ -1141,7 +1156,7 @@
       navLinks.classList.toggle('active');
     });
 
-    // Cierra el menú al hacer clic en un enlace (para que se vaya a la sección)
+    // Cierra el menú al hacer clic en un enlace
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
