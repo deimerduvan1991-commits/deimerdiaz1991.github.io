@@ -12,18 +12,20 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* PALETA DE COLORES: SLATE GRAY TECH */
+    /* PALETA DE COLORES: HEADER BLANCO Y FONDO GRIS CLARO */
     :root {
-      --bg-body:       #4b5563; /* Gris medio principal */
-      --bg-header:     #374151; /* Gris más oscuro para el header y footer */
-      --bg-card:       #374151; /* Fondo de las tarjetas y formularios */
-      --bg-alt:        #434e5d; /* Gris alterno para las secciones */
-      --border:        #6b7280; /* Color de los bordes */
-      --text-main:     #f9fafb; /* Texto blanco */
-      --text-mid:      #e5e7eb; /* Texto gris muy claro */
-      --text-soft:     #d1d5db; /* Texto gris claro */
-      --accent:        #3b82f6; /* Azul brillante */
-      --accent-glow:   #60a5fa; /* Azul claro para hovers */
+      --bg-header:   #ffffff; /* Blanco puro para camuflar el logo */
+      --bg-body:     #e2e8f0; /* Gris claro principal */
+      --bg-alt:      #cbd5e1; /* Gris un poco más oscuro para secciones alternas */
+      --bg-card:     #ffffff; /* Blanco para que resalten las tarjetas */
+      --border:      #94a3b8; /* Gris medio para bordes */
+      
+      --text-main:   #0f172a; /* Texto oscuro casi negro para leer bien */
+      --text-mid:    #334155; 
+      --text-soft:   #475569; 
+      
+      --accent:      #2563eb; /* Azul principal */
+      --accent-glow: #1e40af; /* Azul más oscuro para hovers */
     }
 
     html { scroll-behavior: smooth; }
@@ -44,13 +46,12 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.25rem 4rem;
-      background: var(--bg-header); /* Header en gris oscuro */
+      background: var(--bg-header); /* Fondo blanco */
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
 
     .nav-logo a { display: inline-flex; align-items: center; text-decoration: none; }
-    /* Quitamos el filtro para que tu logo recupere sus colores originales */
     .nav-logo img { height: 58px; width: auto; transition: opacity 0.25s; }
     .nav-logo img:hover { opacity: 0.8; }
 
@@ -76,13 +77,13 @@
       transition: width 0.3s;
     }
 
-    .nav-links a:hover { color: var(--accent-glow); }
+    .nav-links a:hover { color: var(--accent); }
     .nav-links a:hover::after { width: 100%; }
 
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      background: var(--bg-body);
+      background: var(--bg-body); /* Fondo gris claro */
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
@@ -96,8 +97,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+        linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
     }
@@ -128,12 +129,12 @@
       line-height: 0.93;
       text-transform: uppercase;
       letter-spacing: -0.02em;
-      color: var(--text-main);
+      color: var(--text-main); /* Texto oscuro */
     }
 
     h1.hero-name span {
       color: transparent;
-      -webkit-text-stroke: 2px var(--accent-glow);
+      -webkit-text-stroke: 2px var(--accent);
       display: inline-block;
     }
 
@@ -142,7 +143,7 @@
       font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.22em;
-      color: var(--accent-glow);
+      color: var(--accent);
       text-transform: uppercase;
     }
 
@@ -188,11 +189,11 @@
     .btn-primary:hover {
       background: var(--accent-glow);
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
     }
 
     .btn-ghost {
-      color: var(--accent-glow);
+      color: var(--accent);
       font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.2em;
@@ -201,7 +202,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      border-bottom: 1px solid var(--accent-glow);
+      border-bottom: 1px solid var(--accent);
       padding-bottom: 2px;
       transition: opacity 0.25s;
     }
@@ -221,7 +222,7 @@
       position: relative;
       width: 340px;
       border: 1px solid var(--border);
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
     .hero-frame::before {
@@ -250,14 +251,14 @@
 
     /* ── LOCATION STRIP ── */
     .location-strip {
-      background: var(--bg-card);
-      color: var(--text-soft);
+      background: var(--bg-alt); /* Gris un poco más oscuro */
+      color: var(--text-mid);
       padding: 0.85rem 4rem;
       display: flex;
       align-items: center;
       gap: 1.5rem;
       font-size: 0.6rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       flex-wrap: wrap;
@@ -265,7 +266,7 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .location-strip .hi { color: var(--accent-glow); }
+    .location-strip .hi { color: var(--accent); }
 
     /* ── SECTION BASE ── */
     section { padding: 6rem 4rem; }
@@ -311,13 +312,13 @@
 
     /* EFECTO HOVER TÍTULOS */
     h2.section-title:hover {
-      color: var(--accent-glow);
+      color: var(--accent);
       transform: translateX(5px);
     }
 
     h2.section-title:hover em {
-      color: var(--accent-glow); 
-      -webkit-text-stroke: 2px var(--accent-glow);
+      color: var(--accent); 
+      -webkit-text-stroke: 2px var(--accent);
     }
 
     h2.section-title::after {
@@ -336,7 +337,7 @@
     }
 
     /* ── SOBRE MÍ ── */
-    #sobre-mi { background: var(--bg-alt); }
+    #sobre-mi { background: var(--bg-body); }
 
     .about-grid {
       display: grid;
@@ -353,10 +354,10 @@
       margin-bottom: 1.5rem;
     }
 
-    .about-text strong { color: var(--accent-glow); }
+    .about-text strong { color: var(--accent); }
 
     /* ── EXPERIENCIA ── */
-    #experiencia { background: var(--bg-body); }
+    #experiencia { background: var(--bg-alt); }
 
     .exp-item {
       display: grid;
@@ -372,7 +373,7 @@
       font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.15em;
-      color: var(--accent-glow);
+      color: var(--accent);
       text-transform: uppercase;
       padding-top: 0.25rem;
     }
@@ -397,7 +398,7 @@
     }
 
     .exp-role:hover {
-      color: var(--accent-glow);
+      color: var(--accent);
       transform: translateX(8px);
     }
 
@@ -423,13 +424,13 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      border: 1px solid var(--border);
-      color: var(--text-main);
-      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.5);
     }
 
     /* ── HABILIDADES ── */
-    #habilidades { background: var(--bg-alt); }
+    #habilidades { background: var(--bg-body); }
 
     .skills-grid {
       display: grid;
@@ -440,7 +441,7 @@
     }
 
     .skill-card {
-      background: var(--bg-body);
+      background: var(--bg-card); /* Blanco */
       padding: 2.5rem 1.75rem;
       transition: background 0.25s;
       cursor: default;
@@ -456,7 +457,7 @@
       transition: width 0.4s;
     }
 
-    .skill-card:hover { background: var(--bg-card); }
+    .skill-card:hover { background: var(--bg-alt); }
     .skill-card:hover::after { width: 100%; }
 
     .skill-icon { font-size: 1.8rem; margin-bottom: 0.9rem; }
@@ -490,7 +491,7 @@
     }
 
     /* ── FORMACIÓN ── */
-    #formacion { background: var(--bg-body); }
+    #formacion { background: var(--bg-alt); }
 
     .edu-grid {
       display: grid;
@@ -507,7 +508,7 @@
       transition: box-shadow 0.3s;
     }
 
-    .edu-card:hover { box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2); }
+    .edu-card:hover { box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08); }
 
     .edu-badge {
       position: absolute;
@@ -525,7 +526,7 @@
       font-size: 0.58rem;
       font-weight: 700;
       letter-spacing: 0.2em;
-      color: var(--accent-glow);
+      color: var(--accent);
       text-transform: uppercase;
       margin-bottom: 0.6rem;
     }
@@ -539,13 +540,13 @@
       color: var(--text-main);
     }
 
-    .edu-detail { font-size: 0.8rem; color: var(--text-mid); font-weight: 500; line-height: 1.5; }
+    .edu-detail { font-size: 0.8rem; color: var(--text-soft); font-weight: 500; line-height: 1.5; }
 
     /* ── SERVICIOS ── */
-    #servicios { background: var(--bg-alt); }
+    #servicios { background: var(--bg-body); }
 
     /* ── CONTACTO ── */
-    #contacto { background: var(--bg-body); }
+    #contacto { background: var(--bg-alt); }
  
     .contact-grid {
       display: grid;
@@ -579,11 +580,11 @@
       min-width: 80px;
     }
 
-    .contact-row-val { font-size: 0.85rem; color: var(--text-main); font-weight: 600; }
+    .contact-row-val { font-size: 0.85rem; color: var(--text-main); font-weight: 700; }
 
     form input, form textarea {
       width: 100%;
-      background: var(--bg-card);
+      background: var(--bg-card); /* Blanco */
       border: 1px solid var(--border);
       color: var(--text-main);
       padding: 0.95rem 1.25rem;
@@ -596,7 +597,7 @@
 
     form input:focus, form textarea:focus {
       border-color: var(--accent);
-      background: var(--bg-alt);
+      background: #fff;
     }
 
     form input::placeholder, form textarea::placeholder {
@@ -612,15 +613,14 @@
 
     /* ── FOOTER ── */
     footer {
-      background: var(--bg-header);
-      border-top: 1px solid var(--border);
+      background: var(--text-main); /* Footer oscuro para cerrar la página */
       padding: 2rem 4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    footer img { height: 30px; opacity: 0.5; }
+    footer img { height: 30px; filter: brightness(0) invert(1) opacity(0.6); }
 
     .footer-copy {
       font-size: 0.58rem;
@@ -871,7 +871,7 @@
     </div>
 
     <div style="text-align: center; margin-top: 3rem;" class="reveal">
-      <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 1rem;">¿Tienes un proyecto en mente?</p>
+      <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 1rem;">¿Tienes un proyecto en mente?</p>
       <a href="#contacto" class="btn-primary">Cotizar mi proyecto</a>
     </div>
   </section>
