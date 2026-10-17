@@ -52,7 +52,7 @@
     .nav-logo img { height: 58px; width: auto; transition: opacity 0.25s; }
     .nav-logo img:hover { opacity: 0.8; }
 
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
 
     .nav-links a {
       color: var(--text-mid);
@@ -163,8 +163,8 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.2rem;
       line-height: 1.85;
-      color: #000000; /* Texto más oscuro */
-      font-weight: 600; /* Texto más grueso */
+      color: #000000;
+      font-weight: 600;
       max-width: 460px;
     }
 
@@ -349,54 +349,20 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
+      grid-template-columns: 1fr;
+      max-width: 900px;
     }
 
     .about-text p {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       line-height: 1.9;
-      color: #000000; /* Texto más oscuro */
-      font-weight: 600; /* Texto más grueso */
-      margin-bottom: 1.25rem;
+      color: #000000;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
     }
 
     .about-text strong { color: var(--text); }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--gray-border);
-      border: 1px solid var(--gray-border);
-    }
-
-    .stat-card {
-      background: var(--white);
-      padding: 2.25rem 2rem;
-      text-align: center;
-      transition: background 0.25s;
-    }
-
-    .stat-card:hover { background: var(--gray-light); }
-
-    .stat-number {
-      font-weight: 900;
-      font-size: 2.4rem;
-      color: var(--cobalt-mid);
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-
-    .stat-label {
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      color: var(--text-soft);
-      text-transform: uppercase;
-    }
 
     /* ── EXPERIENCIA — gray-light ── */
     #experiencia { background: var(--gray-light); }
@@ -450,8 +416,8 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.1rem;
       line-height: 1.85;
-      color: #000000; /* Texto más oscuro */
-      font-weight: 600; /* Texto más grueso */
+      color: #000000;
+      font-weight: 600;
       max-width: 600px;
     }
 
@@ -473,11 +439,8 @@
       background: rgba(37,99,235,0.05);
     }
 
-    /* ── SERVICIOS — white ── */
-    #servicios { background: var(--white); }
-
     /* ── HABILIDADES — white ── */
-    #habilidades { background: var(--gray-light); }
+    #habilidades { background: var(--white); }
 
     .skills-grid {
       display: grid;
@@ -520,7 +483,7 @@
 
     .skill-desc { 
       font-size: 0.8rem; 
-      color: #000000; /* Texto más oscuro */
+      color: #000000; 
       font-weight: 500; 
       line-height: 1.65; 
     }
@@ -542,7 +505,7 @@
 
     .edu-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
 
@@ -587,10 +550,13 @@
       color: var(--text);
     }
 
-    .edu-detail { font-size: 0.8rem; color: var(--text-soft); font-weight: 600; }
+    .edu-detail { font-size: 0.8rem; color: var(--text-soft); font-weight: 600; line-height: 1.5; }
+
+    /* ── SERVICIOS — white ── */
+    #servicios { background: var(--white); }
 
     /* ── CONTACTO — white ── */
-    #contacto { background: var(--white); }
+    #contacto { background: var(--gray-light); }
  
     .contact-grid {
       display: grid;
@@ -624,11 +590,11 @@
       min-width: 80px;
     }
 
-    .contact-row-val { font-size: 0.8rem; color: var(--text); font-weight: 600; }
+    .contact-row-val { font-size: 0.85rem; color: var(--text); font-weight: 700; }
 
     form input, form textarea {
       width: 100%;
-      background: var(--gray-light);
+      background: var(--white);
       border: 1px solid var(--gray-border);
       color: var(--text);
       padding: 0.95rem 1.25rem;
@@ -641,7 +607,7 @@
 
     form input:focus, form textarea:focus {
       border-color: var(--cobalt-mid);
-      background: var(--white);
+      background: var(--gray-light);
     }
 
     form input::placeholder, form textarea::placeholder {
@@ -649,6 +615,7 @@
       font-size: 0.65rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+      font-weight: 600;
     }
 
     form textarea { resize: vertical; min-height: 120px; }
@@ -681,7 +648,7 @@
       #hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 5rem; gap: 3rem; }
       .hero-image-wrap { justify-content: center; }
       .hero-frame { width: 280px; }
-      .about-grid, .edu-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .edu-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .skills-grid { grid-template-columns: 1fr 1fr; }
       .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
@@ -702,9 +669,9 @@
     <ul class="nav-links">
       <li><a href="#sobre-mi">Perfil</a></li>
       <li><a href="#experiencia">Experiencia</a></li>
-      <li><a href="#servicios">Servicios</a></li>
       <li><a href="#habilidades">Habilidades</a></li>
       <li><a href="#formacion">Formación</a></li>
+      <li><a href="#servicios">Servicios</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
@@ -743,7 +710,7 @@
     <span>·</span>
     <span>Sector Industrial</span>
     <span>·</span>
-    <span>Ing. Industrial — 5.9 Semestre · CUN</span>
+    <span>Ing. Industrial — 5to Semestre · CUN</span>
   </div>
 
   <!-- SOBRE MÍ -->
@@ -754,24 +721,7 @@
       <div class="about-text reveal">
         <p>Especialista en <strong>Supervisión de Producción y Gestión de Operaciones</strong>. Mi enfoque combina el liderazgo de personal en planta con el uso de herramientas tecnológicas avanzadas para mejorar tiempos de ciclo, reducir costos operativos y controlar la merma.</p>
         <p>Con base técnica en Ingeniería Industrial e Ingeniería de Sistemas, implemento soluciones basadas en datos (Excel, Power BI, Python) y automatización para resolver problemas operativos complejos y potenciar la mejora continua en la cadena de suministro.</p>
-      </div>
-      <div class="stats-grid reveal">
-        <div class="stat-card">
-          <div class="stat-number">+23%</div>
-          <div class="stat-label">Eficiencia Operativa</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">-18%</div>
-          <div class="stat-label">Tiempos de Parada</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">-14%</div>
-          <div class="stat-label">Reducción de Mermas</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">5+</div>
-          <div class="stat-label">Años de Trayectoria</div>
-        </div>
+        <p>Siempre en búsqueda de la innovación, integro la Inteligencia Artificial en mis flujos de trabajo y en la operación, optimizando la toma de decisiones y la eficiencia general del negocio.</p>
       </div>
     </div>
   </section>
@@ -833,51 +783,6 @@
     </div>
   </section>
 
-  <!-- SERVICIOS -->
-  <section id="servicios">
-    <div class="section-label">Soluciones a Medida</div>
-    <h2 class="section-title">Mis <em>Servicios</em></h2>
-    
-    <div class="about-text reveal" style="max-width: 800px; margin-bottom: 3rem;">
-      <p>No solo escribo código o analizo datos; <strong>entiendo cómo funciona tu negocio y tu planta</strong>. Combino mi experiencia como Supervisor de Producción con mis bases en Ingeniería de Sistemas para crear herramientas tecnológicas que resuelven problemas operativos reales.</p>
-    </div>
-
-    <div class="skills-grid">
-      <div class="skill-card reveal">
-        <div class="skill-icon">🌐</div>
-        <div class="skill-name">Landing Pages & Webs</div>
-        <div class="skill-desc">Diseño y desarrollo de páginas web profesionales, portafolios y sitios de aterrizaje optimizados para captar clientes o presentar tu empresa.</div>
-        <div class="skill-level"><div class="skill-bar" style="width:90%"></div></div>
-      </div>
-      
-      <div class="skill-card reveal">
-        <div class="skill-icon">⚙️</div>
-        <div class="skill-name">Web Apps Operativas</div>
-        <div class="skill-desc">Creación de sistemas web a medida (formularios de despacho, control de inventarios, dashboards). Digitaliza los procesos de tu planta o bodega.</div>
-        <div class="skill-level"><div class="skill-bar" style="width:85%"></div></div>
-      </div>
-      
-      <div class="skill-card reveal">
-        <div class="skill-icon">⚡</div>
-        <div class="skill-name">Automatización de Datos</div>
-        <div class="skill-desc">Uso de Python, Excel avanzado e IA para automatizar reportes, procesar datos masivos y eliminar tareas repetitivas en tu operación diaria.</div>
-        <div class="skill-level"><div class="skill-bar" style="width:88%"></div></div>
-      </div>
-      
-      <div class="skill-card reveal">
-        <div class="skill-icon">📈</div>
-        <div class="skill-name">Optimización de Producción</div>
-        <div class="skill-desc">Consultoría operativa basada en mi experiencia: análisis de KPIs (OEE), reducción de mermas, control de tiempos y diseño de flujos de trabajo eficientes.</div>
-        <div class="skill-level"><div class="skill-bar" style="width:95%"></div></div>
-      </div>
-    </div>
-
-    <div style="text-align: center; margin-top: 3rem;" class="reveal">
-      <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 1rem;">¿Tienes un proyecto en mente?</p>
-      <a href="#contacto" class="btn-primary">Cotizar mi proyecto</a>
-    </div>
-  </section>
-
   <!-- HABILIDADES -->
   <section id="habilidades">
     <div class="section-label">Competencias Técnicas</div>
@@ -919,7 +824,7 @@
         <div class="edu-badge">En Curso</div>
         <div class="edu-institution">CUN — Corporación Unificada Nacional</div>
         <div class="edu-degree">Ingeniería Industrial</div>
-        <div class="edu-detail">5.9 Semestre · Optimización de procesos, gestión de operaciones y control de calidad.</div>
+        <div class="edu-detail">5to Semestre · Optimización de procesos, gestión de operaciones y control de calidad.</div>
       </div>
       <div class="edu-card reveal">
         <div class="edu-badge">Cursado</div>
@@ -927,6 +832,57 @@
         <div class="edu-degree">Ingeniería de Sistemas</div>
         <div class="edu-detail">8 Semestres · Lógica computacional, análisis de datos y arquitectura de software.</div>
       </div>
+      <div class="edu-card reveal">
+        <div class="edu-badge" style="background: var(--cobalt);">Certificación</div>
+        <div class="edu-institution" style="color: var(--cobalt);">Formación Complementaria</div>
+        <div class="edu-degree">IA Aplicada a Procesos Industriales</div>
+        <div class="edu-detail">Prompt engineering, automatización de flujos de trabajo y análisis predictivo enfocado en la optimización de líneas de producción y reducción de mermas.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="section-label">Soluciones a Medida</div>
+    <h2 class="section-title">Mis <em>Servicios</em></h2>
+    
+    <div class="about-text reveal" style="max-width: 900px; margin-bottom: 3rem;">
+      <p>Transformo la operación de tu planta con soluciones tecnológicas a la medida. <strong>No solo programo: entiendo los cuellos de botella de la producción.</strong> Diseño páginas web, automatizo reportes con Python y creo aplicaciones operativas que eliminan el trabajo manual y te dan control total sobre tus KPIs.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">🌐</div>
+        <div class="skill-name">Landing Pages & Webs</div>
+        <div class="skill-desc">Diseño y desarrollo de páginas web profesionales, portafolios y sitios de aterrizaje optimizados para captar clientes o presentar tu empresa.</div>
+        <div class="skill-level"><div class="skill-bar" style="width:90%"></div></div>
+      </div>
+      
+      <div class="skill-card reveal">
+        <div class="skill-icon">⚙️</div>
+        <div class="skill-name">Web Apps Operativas</div>
+        <div class="skill-desc">Creación de sistemas web a medida (formularios de despacho, control de inventarios, dashboards). Digitaliza los procesos de tu planta o bodega.</div>
+        <div class="skill-level"><div class="skill-bar" style="width:85%"></div></div>
+      </div>
+      
+      <div class="skill-card reveal">
+        <div class="skill-icon">⚡</div>
+        <div class="skill-name">Automatización de Datos</div>
+        <div class="skill-desc">Uso de Python, Excel avanzado e IA para automatizar reportes, procesar datos masivos y eliminar tareas repetitivas en tu operación diaria.</div>
+        <div class="skill-level"><div class="skill-bar" style="width:88%"></div></div>
+      </div>
+      
+      <div class="skill-card reveal">
+        <div class="skill-icon">📈</div>
+        <div class="skill-name">Optimización de Producción</div>
+        <div class="skill-desc">Consultoría operativa basada en mi experiencia: análisis de KPIs (OEE), reducción de mermas, control de tiempos y diseño de flujos de trabajo eficientes.</div>
+        <div class="skill-level"><div class="skill-bar" style="width:95%"></div></div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;" class="reveal">
+      <p style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 1rem;">¿Tienes un proyecto en mente?</p>
+      <a href="#contacto" class="btn-primary">Cotizar mi proyecto</a>
     </div>
   </section>
 
