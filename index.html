@@ -12,29 +12,30 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* PALETA DE COLORES: DARK TECH */
+    /* PALETA DE COLORES: SLATE GRAY TECH */
     :root {
-      --bg-main:     #0b1120; /* Fondo principal muy oscuro */
-      --bg-alt:      #0f172a; /* Fondo alterno para secciones */
-      --bg-card:     #1e293b; /* Fondo de las tarjetas y formulario */
-      --border:      #334155; /* Color de bordes y líneas divisorias */
-      --text-main:   #f8fafc; /* Texto principal blanco/gris */
-      --text-mid:    #cbd5e1;
-      --text-soft:   #94a3b8; /* Texto secundario gris */
-      --accent:      #3b82f6; /* Azul brillante de acento */
-      --accent-glow: #60a5fa; /* Azul cian brillante */
+      --bg-body:       #4b5563; /* Gris medio principal */
+      --bg-header:     #374151; /* Gris más oscuro para el header y footer */
+      --bg-card:       #374151; /* Fondo de las tarjetas y formularios */
+      --bg-alt:        #434e5d; /* Gris alterno para las secciones */
+      --border:        #6b7280; /* Color de los bordes */
+      --text-main:     #f9fafb; /* Texto blanco */
+      --text-mid:      #e5e7eb; /* Texto gris muy claro */
+      --text-soft:     #d1d5db; /* Texto gris claro */
+      --accent:        #3b82f6; /* Azul brillante */
+      --accent-glow:   #60a5fa; /* Azul claro para hovers */
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg-main);
+      background: var(--bg-body);
       color: var(--text-main);
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
     }
 
-    /* ── NAV ── */
+    /* ── NAV (HEADER) ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -43,13 +44,14 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.25rem 4rem;
-      background: rgba(11, 17, 32, 0.95); /* Fondo oscuro semitransparente */
+      background: var(--bg-header); /* Header en gris oscuro */
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
 
     .nav-logo a { display: inline-flex; align-items: center; text-decoration: none; }
-    .nav-logo img { height: 58px; width: auto; transition: opacity 0.25s; filter: brightness(0) invert(1); /* Hace el logo blanco si es oscuro */ }
+    /* Quitamos el filtro para que tu logo recupere sus colores originales */
+    .nav-logo img { height: 58px; width: auto; transition: opacity 0.25s; }
     .nav-logo img:hover { opacity: 0.8; }
 
     .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -80,7 +82,7 @@
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      background: var(--bg-main);
+      background: var(--bg-body);
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
@@ -89,14 +91,13 @@
       overflow: hidden;
     }
 
-    /* Cuadrícula oscura de fondo */
     #hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
     }
@@ -155,7 +156,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.25rem;
       line-height: 1.85;
-      color: var(--text-mid);
+      color: var(--text-main);
       font-weight: 600;
       max-width: 460px;
     }
@@ -219,9 +220,8 @@
     .hero-frame {
       position: relative;
       width: 340px;
-      /* Borde sutil alrededor de tu foto para que resalte en el fondo oscuro */
       border: 1px solid var(--border);
-      box-shadow: 0 0 40px rgba(59, 130, 246, 0.1);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
     }
 
     .hero-frame::before {
@@ -230,7 +230,7 @@
       top: -14px; right: -14px;
       width: 100%; height: 100%;
       border: 2px solid var(--accent);
-      opacity: 0.3;
+      opacity: 0.4;
       z-index: -1;
     }
 
@@ -348,7 +348,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.3rem;
       line-height: 1.9;
-      color: var(--text-mid);
+      color: var(--text-main);
       font-weight: 600;
       margin-bottom: 1.5rem;
     }
@@ -356,7 +356,7 @@
     .about-text strong { color: var(--accent-glow); }
 
     /* ── EXPERIENCIA ── */
-    #experiencia { background: var(--bg-main); }
+    #experiencia { background: var(--bg-body); }
 
     .exp-item {
       display: grid;
@@ -405,8 +405,8 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.15rem;
       line-height: 1.85;
-      color: var(--text-mid);
-      font-weight: 600;
+      color: var(--text-main);
+      font-weight: 500;
       max-width: 600px;
     }
 
@@ -424,8 +424,8 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       border: 1px solid var(--border);
-      color: var(--accent-glow);
-      background: rgba(59, 130, 246, 0.1);
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
     }
 
     /* ── HABILIDADES ── */
@@ -440,7 +440,7 @@
     }
 
     .skill-card {
-      background: var(--bg-main);
+      background: var(--bg-body);
       padding: 2.5rem 1.75rem;
       transition: background 0.25s;
       cursor: default;
@@ -490,7 +490,7 @@
     }
 
     /* ── FORMACIÓN ── */
-    #formacion { background: var(--bg-main); }
+    #formacion { background: var(--bg-body); }
 
     .edu-grid {
       display: grid;
@@ -507,7 +507,7 @@
       transition: box-shadow 0.3s;
     }
 
-    .edu-card:hover { box-shadow: 0 8px 28px rgba(59, 130, 246, 0.15); }
+    .edu-card:hover { box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2); }
 
     .edu-badge {
       position: absolute;
@@ -545,7 +545,7 @@
     #servicios { background: var(--bg-alt); }
 
     /* ── CONTACTO ── */
-    #contacto { background: var(--bg-main); }
+    #contacto { background: var(--bg-body); }
  
     .contact-grid {
       display: grid;
@@ -558,7 +558,7 @@
       font-size: 1.45rem;
       font-weight: 600;
       line-height: 1.65;
-      color: var(--text-mid);
+      color: var(--text-main);
       margin-bottom: 2rem;
     }
 
@@ -612,7 +612,7 @@
 
     /* ── FOOTER ── */
     footer {
-      background: var(--bg-main);
+      background: var(--bg-header);
       border-top: 1px solid var(--border);
       padding: 2rem 4rem;
       display: flex;
@@ -620,7 +620,7 @@
       align-items: center;
     }
 
-    footer img { height: 30px; filter: brightness(0) invert(1) opacity(0.5); }
+    footer img { height: 30px; opacity: 0.5; }
 
     .footer-copy {
       font-size: 0.58rem;
